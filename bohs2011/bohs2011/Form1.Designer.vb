@@ -22,7 +22,14 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Me.Update = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
+        '
+        'Update
+        '
+        Me.Update.Enabled = True
+        Me.Update.Interval = 1
         '
         'Form1
         '
@@ -36,5 +43,6 @@ Partial Class Form1
         Me.ResumeLayout(False)
 
     End Sub
+    Friend WithEvents Update As System.Windows.Forms.Timer
 
 End Class
