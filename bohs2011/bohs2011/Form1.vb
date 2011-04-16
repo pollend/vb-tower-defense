@@ -15,3 +15,9 @@ Public Class Form1
 
     End Sub
 End Class
+
+Public Enum Screens
+    GameScreen
+    MenuScreen
+    LogoScreen
+End Enum
