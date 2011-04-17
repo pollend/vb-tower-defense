@@ -79,6 +79,7 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Gamescreen\Camra.vb" />
     <Compile Include="Gamescreen\GameScreen.vb" />
     <Compile Include="IScreen.vb" />
     <Compile Include="Logo\Logo.vb" />
