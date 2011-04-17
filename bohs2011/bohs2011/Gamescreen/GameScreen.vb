@@ -1,6 +1,7 @@
 ﻿Public Class GameScreen
     Implements IScreen
 
+
     Public Sub Load() Implements IScreen.Load
 
     End Sub

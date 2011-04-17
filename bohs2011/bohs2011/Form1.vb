@@ -3,6 +3,8 @@ Public Class Form1
     Private CurrentScreen As IScreen
     Private Screens As Screens
 
+    'the camera location
+    Public Shared CameraLocation As Point
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'set the screen to start at logo
@@ -18,11 +20,15 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles MyBase.Paint
+
+        e.Graphics.TranslateTransform(CameraLocation.X, CameraLocation.Y)
+
         'paints the current screen
         CurrentScreen.Paint(e)
     End Sub
 
     Private Sub Update_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Update.Tick
+
         Dim Screen As Screens = CurrentScreen.Update()
 
         'switch there screen when there not equal
@@ -44,6 +50,9 @@ Public Class Form1
             CurrentScreen.Load()
         End If
         Screen = Me.Screens
+        'invalidates the entire screen to be drawn
+        Me.Invalidate()
+
     End Sub
 End Class
 
