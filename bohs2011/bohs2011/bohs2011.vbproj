@@ -80,11 +80,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Gamescreen\Entities\Entity.vb" />
-    <Compile Include="Gamescreen\Entities\EntityGrid.vb" />
+    <Compile Include="Gamescreen\Entities\EntityManager.vb" />
     <Compile Include="Gamescreen\GameScreen.vb" />
+    <Compile Include="Gamescreen\Grid.vb" />
     <Compile Include="Gamescreen\Map\Map.vb" />
     <Compile Include="Gamescreen\Turrets\Turret.vb" />
-    <Compile Include="Gamescreen\Turrets\TurretGrid.vb" />
+    <Compile Include="Gamescreen\Turrets\TurretManager.vb" />
     <Compile Include="IScreen.vb" />
     <Compile Include="Logo\Logo.vb" />
     <Compile Include="Menu\Menu.vb" />

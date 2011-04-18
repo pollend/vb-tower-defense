@@ -14,9 +14,8 @@ Public Class Form1
         Me.FormBorderStyle = FormBorderStyle.None
         Me.WindowState = FormWindowState.Maximized
         Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
-
-        Me.Size = New Size(New Point(Me.Width, Me.Height + 100))
-        Me.MainMenuStrip.Visible = False
+        Me.Location = New Point(0, 0)
+        Me.Size = New Point(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height)
     End Sub
 
     Private Sub Form1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles MyBase.Paint

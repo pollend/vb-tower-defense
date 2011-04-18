@@ -36,10 +36,14 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(536, 494)
+        Me.ControlBox = False
         Me.DoubleBuffered = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Form1"
+        Me.ShowInTaskbar = False
         Me.Text = "Form1"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.TopMost = True
         Me.ResumeLayout(False)
 
     End Sub
