@@ -10,7 +10,15 @@
         Return grid.Item(Location.X).Item(Location.Y)
     End Function
 
-    Public Sub RemoveIndexes(ByVal Index As Integer, ByVal Location As Point)
+    Public Sub RemoveIndexe(ByVal Index As Integer, ByVal Location As Point)
+
+        For Index = 0 To grid(Location.X).Item(Location.Y).Count - 1
+            'runs through the grid and finds the index
+            If (grid(Location.X).Item(Location.Y).Item(Index) = Index) Then
+                grid(Location.X).Item(Location.Y).RemoveAt(Index)
+                Exit For
+            End If
+        Next
 
     End Sub
 

@@ -20,10 +20,10 @@ Public Class Form1
 
     Private Sub Form1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles MyBase.Paint
 
-        e.Graphics.TranslateTransform(CameraLocation.X, CameraLocation.Y)
-
         'paints the current screen
         CurrentScreen.Paint(e)
+        'translates the whole game 
+        e.Graphics.TranslateTransform(CameraLocation.X, CameraLocation.Y)
     End Sub
 
     Private Sub Update_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Update.Tick
