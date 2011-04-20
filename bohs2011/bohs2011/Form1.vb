@@ -11,9 +11,9 @@ Public Class Form1
         Screens = bohs2011.Screens.LogoScreen
         CurrentScreen = New Logo
         'formates the windw to fit the screen
-        Me.FormBorderStyle = FormBorderStyle.None
-        Me.WindowState = FormWindowState.Maximized
-        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
+        '  Me.FormBorderStyle = FormBorderStyle.None
+        ' Me.WindowState = FormWindowState.Maximized
+        ' Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
         Me.Location = New Point(0, 0)
         Me.Size = New Point(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height)
     End Sub
