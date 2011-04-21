@@ -81,8 +81,11 @@
     </Compile>
     <Compile Include="Gamescreen\Entities\Entity.vb" />
     <Compile Include="Gamescreen\Entities\EntityManager.vb" />
+    <Compile Include="Gamescreen\Entities\PointGrid.vb" />
+    <Compile Include="Gamescreen\Entities\Spider.vb" />
     <Compile Include="Gamescreen\GameScreen.vb" />
     <Compile Include="Gamescreen\Grid.vb" />
+    <Compile Include="Gamescreen\MapScroll.vb" />
     <Compile Include="Gamescreen\Map\Map.vb" />
     <Compile Include="Gamescreen\Turrets\Turret.vb" />
     <Compile Include="Gamescreen\Turrets\TurretManager.vb" />
@@ -129,7 +132,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Gamescreen\Map\Maps\map.png" />
+    <Content Include="Gamescreen\Map\Maps\map.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
