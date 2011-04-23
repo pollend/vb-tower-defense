@@ -79,6 +79,7 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Gamescreen\Camera.vb" />
     <Compile Include="Gamescreen\Entities\Entity.vb" />
     <Compile Include="Gamescreen\Entities\EntityManager.vb" />
     <Compile Include="Gamescreen\Entities\PointGrid.vb" />
@@ -132,6 +133,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Gamescreen\Entities\Entities\Spider\TANK.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Gamescreen\Map\Maps\map.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

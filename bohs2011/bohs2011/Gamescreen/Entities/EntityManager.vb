@@ -1,11 +1,17 @@
 ﻿Public Class EntityManager
+    Public Shared Spider As Bitmap = New Bitmap("Gamescreen\Entities\Entities\Spider\TANK.PNG")
+
+
     'the entity grid
     Public Shared EntityGrid As Grid
+
     Public Entities As List(Of Entity) = New List(Of Entity)
     Public Sub Load()
+        Entities.Add(New Spider())
 
     End Sub
     Public Sub Update()
+
 
         For X = 0 To Entities.Count() - 1
             Entities.Item(X).Update()
@@ -17,7 +23,7 @@
         Next
 
     End Sub
-    Public Sub paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs)
+    Public Sub paint(ByVal e As System.Windows.Forms.PaintEventArgs)
         For X = 0 To Entities.Count() - 1
             Entities.Item(X).Draw(e)
         Next
