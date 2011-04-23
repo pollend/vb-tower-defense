@@ -38,6 +38,7 @@ Partial Class Form1
         Me.ClientSize = New System.Drawing.Size(536, 494)
         Me.ControlBox = False
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Form1"

@@ -28,5 +28,9 @@ Public Class PointGrid
         Points(1).Item(0).location = New Point(100, 100)
 
     End Sub
+    Public Shared Sub CheackDistance(ByVal Location As Point)
+
+
+    End Sub
 
 End Class
