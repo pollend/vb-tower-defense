@@ -10,6 +10,7 @@
 
     'location with the new location
     Public location As Point = New Point(0, 0)
+    'the set location
     Public NewLocation As Point
 
 
