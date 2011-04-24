@@ -21,6 +21,7 @@ Public Class PointGrid
         Dim NewGridLocation As List(Of Point) = New List(Of Point)
         NewGridLocation.Add(New Point(1, 0))
         Points(0).Item(0).NewLocationGrid = NewGridLocation
+        Points(0).Item(0).location = New Point(400, 400)
 
         NewGridLocation = New List(Of Point)
         NewGridLocation.Add(New Point(0, 0))

@@ -50,7 +50,7 @@ Public Class Form1
             End Select
             CurrentScreen.Load()
         End If
-        Screen = Me.Screens
+        Me.Screens = Screen
         'invalidates the entire screen to be drawn
         Me.Invalidate()
 

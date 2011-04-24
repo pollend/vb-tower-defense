@@ -3,7 +3,7 @@
 
 
     'the entity grid
-    Public Shared EntityGrid As Grid
+    Public Shared EntityGrid As Grid = New Grid(1000, 1000)
 
     Public Entities As List(Of Entity) = New List(Of Entity)
     Public Sub Load()
@@ -16,6 +16,7 @@
         For X = 0 To Entities.Count() - 1
             Entities.Item(X).Update()
             If (Not (Entities.Item(X).NewLocation.X / 100 = Entities.Item(X).location.X / 100) And Not (Entities.Item(X).location.Y / 100 = Entities.Item(X).NewLocation.Y / 100)) Then
+
                 EntityGrid.RemoveIndexe(X, New Point(Entities.Item(X).location.X / 100, Entities.Item(X).NewLocation.Y / 100))
                 EntityGrid.AddIndex(X, New Point(Entities.Item(X).NewLocation.X / 100, Entities.Item(X).NewLocation.Y / 100))
             End If
