@@ -2,26 +2,29 @@
 
 Public Class SelectingBitmap
 
-    Private bitmap As Bitmap
-
+    Private OnBitmap As Bitmap
+    Private OffBitmap As Bitmap
+    Public ActiveBitmap As Boolean = False
 
 
     Private location As Point
+    Public Sub setBitmapActivity(ByVal activity As Boolean)
+        Me.ActiveBitmap = activity
+
+    End Sub
+
     Public Function mouseover() As Boolean
 
 
         'coords of the button
-        Dim left As Integer
-        Dim right As Integer
-        Dim top As Integer
-        Dim bot As Integer
+        Dim left As Integer = location.X
+        Dim right As Integer = location.X + OnBitmap.Width
+        Dim top As Integer = location.Y
+        Dim bot As Integer = location.Y + OnBitmap.Height
 
 
 
         If Form1.MousePosition.X > left And Form1.MousePosition.Y > top And Form1.MousePosition.Y < bot And Form1.MousePosition.X < right Then
-
-
-
             Return True
 
         Else
@@ -31,21 +34,18 @@ Public Class SelectingBitmap
 
 
     End Function
-
-
-    Public Function Drawbitmap(ByVal e As Bitmap)
-
-
-        If mouseover() = True Then
-
-
-        ElseIf mouseover() = False Then
-
-
-
+    Public Function MouseLeftClick() As Boolean
+        If (Form1.MouseButtons = MouseButtons.Left) Then
+            Return True
         End If
+        Return False
 
-
+    End Function
+    Public Function MouseRightClick() As Boolean
+        If (Form1.MouseButtons = MouseButtons.Right) Then
+            Return True
+        End If
+        Return False
 
     End Function
 
@@ -54,15 +54,15 @@ Public Class SelectingBitmap
 
 
 
-        If mouseover() = True Then
+        If ActiveBitmap = True Then
 
-            e.Graphics.DrawImage(bitmap, location)
+            e.Graphics.DrawImage(OnBitmap, location)
 
 
 
-        ElseIf mouseover() = False Then
+        ElseIf ActiveBitmap = False Then
 
-            e.Graphics.DrawImage(bitmap, location)
+            e.Graphics.DrawImage(OffBitmap, location)
 
         End If
 
@@ -72,33 +72,11 @@ Public Class SelectingBitmap
 
 
 
-    Public Sub New()
-        Dim onbitmap As Bitmap
-        Dim offbitmap As Bitmap
-
-
-
-
-
-
-
-
+    Public Sub New(ByVal OnBitMap As Bitmap, ByVal OffBitmap As Bitmap)
+        Me.OnBitmap = OnBitMap
+        Me.OffBitmap = OffBitmap
 
     End Sub
 
 
-    Public Function onoffbitmap() As Boolean
-
-
-        If mouseover() = True Then
-
-
-
-        ElseIf mouseover() = False Then
-
-
-
-        End If
-
-    End Function
 End Class
