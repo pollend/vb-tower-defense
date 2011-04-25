@@ -1,5 +1,7 @@
 ﻿
 Public Class Form1
+
+
     Private CurrentScreen As IScreen
     Private Screens As Screens
 
@@ -14,15 +16,18 @@ Public Class Form1
         '  Me.FormBorderStyle = FormBorderStyle.None
         ' Me.WindowState = FormWindowState.Maximized
         ' Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
+
         Me.Location = New Point(0, 0)
         Me.Size = New Point(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height)
     End Sub
 
-    Private Sub Form1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles MyBase.Paint
-
-
+    Public Shared Sub CamTransform(ByVal e As System.Windows.Forms.PaintEventArgs)
         e.Graphics.TranslateTransform(CameraLocation.X, CameraLocation.Y)
+        e.Graphics.ScaleTransform((Screen.PrimaryScreen.Bounds.Width / 800), (Screen.PrimaryScreen.Bounds.Height / 600))
 
+    End Sub
+    Private Sub Form1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles MyBase.Paint
+        CamTransform(e)
         'paints the current screen
         CurrentScreen.Paint(e)
         'translates the whole game 
