@@ -4,13 +4,11 @@ Public Class SelectingBitmap
 
     Private OnBitmap As Bitmap
     Private OffBitmap As Bitmap
-    Public ActiveBitmap As Boolean = False
-
-
+    Private ActiveBitmap As Boolean = False
     Private location As Point
-    Public Sub setBitmapActivity(ByVal activity As Boolean)
-        Me.ActiveBitmap = activity
 
+    Public Sub SetSelection(ByVal selecting As Boolean)
+        ActiveBitmap = selecting
     End Sub
 
     Public Function mouseover() As Boolean
@@ -71,6 +69,10 @@ Public Class SelectingBitmap
     End Sub
 
 
+    Public Sub AssignNewBit(ByVal OnBitMap As Bitmap, ByVal OffBitmap As Bitmap)
+        Me.OnBitmap = OnBitMap
+        Me.OffBitmap = OffBitmap
+    End Sub
 
     Public Sub New(ByVal OnBitMap As Bitmap, ByVal OffBitmap As Bitmap)
         Me.OnBitmap = OnBitMap
