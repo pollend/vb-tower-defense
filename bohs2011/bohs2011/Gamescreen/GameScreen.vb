@@ -4,6 +4,12 @@
     'moves the camera
     Private cam As Camera = New Camera
 
+    'turret manager
+    Private TurretManager As TurretManager
+
+    'spawning turret manger
+    Private spawnturret As SpawnTurrets
+
     Private map As New Map
     Public Sub Load() Implements IScreen.Load
         'sets points on point grid
