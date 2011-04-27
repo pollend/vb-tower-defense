@@ -88,7 +88,6 @@
     <Compile Include="Gamescreen\Entities\Spider.vb" />
     <Compile Include="Gamescreen\GameScreen.vb" />
     <Compile Include="Gamescreen\Grid.vb" />
-    <Compile Include="Gamescreen\MapScroll.vb" />
     <Compile Include="Gamescreen\Map\Map.vb" />
     <Compile Include="Gamescreen\Turrets\Turret.vb" />
     <Compile Include="Gamescreen\Turrets\TurretManager.vb" />
@@ -142,6 +141,8 @@
     <Content Include="Gamescreen\Map\Maps\map.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\Tower1\DeselectedAbility.png" />
+    <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\Tower1\SelectedAbility.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

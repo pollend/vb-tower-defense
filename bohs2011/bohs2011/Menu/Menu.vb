@@ -1,7 +1,10 @@
 ﻿Public Class Menu
     Implements IScreen
 
+    Public Enum Menu_Parts
+        options
 
+    End Enum
 
 
     Public Sub Load() Implements IScreen.Load

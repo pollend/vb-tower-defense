@@ -8,7 +8,7 @@
     Private TurretManager As TurretManager
 
     'spawning turret manger
-    Private spawnturret As SpawnTurrets
+    Private spawnturret As SpawnTurrets = New SpawnTurrets
 
     Private map As New Map
     Public Sub Load() Implements IScreen.Load
@@ -21,6 +21,8 @@
     End Sub
 
     Public Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs) Implements IScreen.Paint
+        'draw buttons
+        spawnturret.Draw(e)
 
 
         map.Draw(e)
@@ -30,6 +32,9 @@
     End Sub
 
     Public Function Update() As Screens Implements IScreen.Update
+        'updates the turrets
+        spawnturret.Update()
+
         entitymanager.Update()
         'updates the postion
         cam.UpdatePosition()
