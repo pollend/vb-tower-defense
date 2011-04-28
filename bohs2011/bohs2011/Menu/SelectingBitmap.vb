@@ -74,9 +74,10 @@ Public Class SelectingBitmap
         Me.OffBitmap = OffBitmap
     End Sub
 
-    Public Sub New(ByVal OnBitMap As Bitmap, ByVal OffBitmap As Bitmap)
+    Public Sub New(ByVal OnBitMap As Bitmap, ByVal OffBitmap As Bitmap, ByVal location As Point)
         Me.OnBitmap = OnBitMap
         Me.OffBitmap = OffBitmap
+        Me.location = location
 
     End Sub
 
