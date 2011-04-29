@@ -5,7 +5,7 @@ Public Class SelectingBitmap
     Private OnBitmap As Bitmap
     Private OffBitmap As Bitmap
     Private ActiveBitmap As Boolean = False
-    Private location As Point
+    Public location As Point
 
     Public Sub SetSelection(ByVal selecting As Boolean)
         ActiveBitmap = selecting
@@ -22,14 +22,11 @@ Public Class SelectingBitmap
 
 
 
-        If Form1.MousePosition.X > left And Form1.MousePosition.Y > top And Form1.MousePosition.Y < bot And Form1.MousePosition.X < right Then
+        If Form1.MousePosition.X + location.X > left And Form1.MousePosition.Y + location.Y > top And Form1.MousePosition.Y + location.Y < bot And Form1.MousePosition.X + location.X < right Then
             Return True
-
         Else
             Return False
-
         End If
-
 
     End Function
     Public Function MouseLeftClick() As Boolean
@@ -74,9 +71,9 @@ Public Class SelectingBitmap
         Me.OffBitmap = OffBitmap
     End Sub
 
-    Public Sub New(ByVal OnBitMap As Bitmap, ByVal OffBitmap As Bitmap, ByVal location As Point)
-        Me.OnBitmap = OnBitMap
-        Me.OffBitmap = OffBitmap
+    Public Sub New(ByVal OnBitMap As String, ByVal OffBitmap As String, ByVal location As Point)
+        Me.OnBitmap = New Bitmap(OnBitMap)
+        Me.OffBitmap = New Bitmap(OffBitmap)
         Me.location = location
 
     End Sub

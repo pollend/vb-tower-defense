@@ -80,12 +80,15 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Gamescreen\Bullet\BulletManager.vb" />
+    <Compile Include="Gamescreen\Bullet\Bullets.vb" />
     <Compile Include="Gamescreen\Camera.vb" />
+    <Compile Include="Gamescreen\Turrets\FastFireTurrets.vb" />
     <Compile Include="Gamescreen\Turrets\SpawnTurret\SpawnTurrets.vb" />
     <Compile Include="Gamescreen\Entities\Entity.vb" />
     <Compile Include="Gamescreen\Entities\EntityManager.vb" />
     <Compile Include="Gamescreen\Entities\PointGrid.vb" />
-    <Compile Include="Gamescreen\Entities\Spider.vb" />
+    <Compile Include="Gamescreen\Entities\Entities\Spider.vb" />
     <Compile Include="Gamescreen\GameScreen.vb" />
     <Compile Include="Gamescreen\Grid.vb" />
     <Compile Include="Gamescreen\Map\Map.vb" />
@@ -141,8 +144,12 @@
     <Content Include="Gamescreen\Map\Maps\map.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\Tower1\DeselectedAbility.png" />
-    <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\Tower1\SelectedAbility.png" />
+    <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\Tower1\TurretAoff.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\Tower1\TurretAon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
