@@ -1,6 +1,9 @@
 ﻿Public Class Turret
 
     'follow the specific entity
+    Public TilesLinkedTo As List(Of Point)
+    Public Skip As Boolean
+    Public location As Point
     Public Followed As Point
     Public CollisionRectangle As Rectangle
     Public Overridable Sub SetTurret(ByVal Location As Point)

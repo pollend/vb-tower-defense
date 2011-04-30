@@ -8,7 +8,7 @@ Public Class SpawnTurrets
     Public SelectedTurret As TurretInfo
     Public turretA As SelectingBitmap = New SelectingBitmap("Gamescreen\Turrets\SpawnTurret\Buttons\Tower1\TurretAon.png", "Gamescreen\Turrets\SpawnTurret\Buttons\Tower1\TurretAoff.png", New Point(0, 0))
     Public Sub New()
-        Turrets(0).
+
     End Sub
 
     Public Sub Update()
