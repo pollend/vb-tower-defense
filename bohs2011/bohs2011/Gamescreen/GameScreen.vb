@@ -8,7 +8,7 @@
     Private TurretManager As TurretManager
 
     'spawning turret manger
-    Private spawnturret As SpawnTurrets = New SpawnTurrets
+    Private spawnturret As SpawnTurrets = New SpawnTurrets()
 
     Private map As New Map
     Public Sub Load() Implements IScreen.Load
@@ -24,7 +24,6 @@
         'draw buttons
         spawnturret.Draw(e)
 
-
         map.Draw(e)
         'draw the entities
         entitymanager.paint(e)
@@ -32,12 +31,13 @@
     End Sub
 
     Public Function Update() As Screens Implements IScreen.Update
-        'updates the turrets
-        spawnturret.Update()
 
         entitymanager.Update()
         'updates the postion
         cam.UpdatePosition()
+
+        'updates the turrets
+        spawnturret.Update()
         Return Screens.GameScreen
     End Function
 End Class
