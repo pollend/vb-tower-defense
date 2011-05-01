@@ -6,6 +6,17 @@
     Public location As Point
     Public Followed As Point
     Public CollisionRectangle As Rectangle
+    Public Sub New()
+
+    End Sub
+    Public Sub New(ByRef turret As Turret)
+        TilesLinkedTo = New List(Of Point)(turret.TilesLinkedTo)
+        Skip = turret.Skip
+
+        location = turret.location
+        Followed = turret.Followed
+        CollisionRectangle = turret.CollisionRectangle
+    End Sub
 
     Public Overridable Sub SetTurret(ByVal Location As Point)
 
@@ -18,7 +29,7 @@
 
     End Sub
     'paint function
-    Public Overridable Sub Paint()
+    Public Overridable Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
 
     End Sub
 End Class
