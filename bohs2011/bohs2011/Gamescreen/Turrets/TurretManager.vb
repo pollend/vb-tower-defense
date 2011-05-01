@@ -5,14 +5,23 @@
     Public Shared Function AddTurret(ByVal typeofturret As Turret, ByVal location As Point, ByVal rect As Rectangle) As Boolean
         Dim TilesOn(3) As Point
         TilesOn(0) = New Point(location.X / 100, location.Y / 100)
-        TilesOn(1) = New Point(location.X + rect.Width / 100, location.Y / 100)
-        TilesOn(2) = New Point(location.X / 100, location.Y + rect.Height / 100)
-        TilesOn(3) = New Point(location.X + rect.Width / 100, location.Y + rect.Height / 100)
+        TilesOn(1) = New Point((location.X + rect.Width) / 100, location.Y / 100)
+        TilesOn(2) = New Point(location.X / 100, (location.Y + rect.Height) / 100)
+        TilesOn(3) = New Point((location.X + rect.Width) / 100, (location.Y + rect.Height) / 100)
         'weeds out duplicate indexes
+        Dim emptypoint As Point = New Point(-1, -1)
         For SelectedTile = 0 To TilesOn.Length - 1
-            For index = 1 To TilesOn.Length - 1
-                If (TilesOn(SelectedTile) = TilesOn(index)) Then
-                    TilesOn(index) = New Point(-1, -1)
+            For index = 0 To TilesOn.Length - 1
+                If index = SelectedTile Then
+                    Continue For
+                End If
+                If Not (emptypoint.Equals(TilesOn(index))) Then
+
+                    If (TilesOn(SelectedTile).Equals(TilesOn(index))) Then
+                        TilesOn(index) = emptypoint
+
+                    End If
+
                 End If
             Next
         Next
@@ -23,9 +32,10 @@
                 Dim TurretGridValues As List(Of Integer) = TurretGrid.getIndexes(TilesOn(index))
 
                 For CompareTurrets = 0 To TurretGridValues.Count - 1
-                    If (Turrets.Item(TurretGridValues.Item(CompareTurrets)).CollisionRectangle.IntersectsWith(typeofturret.CollisionRectangle)) Then
+                    If (Turrets.Item(TurretGridValues.Item(CompareTurrets)).CollisionRectangle.IntersectsWith(New Rectangle(location.X, location.Y, rect.Width, rect.Height))) Then
                         'found the location invalid
                         Return False
+                        Exit Function
                     End If
                 Next
 
