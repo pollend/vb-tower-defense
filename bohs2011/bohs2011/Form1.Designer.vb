@@ -39,6 +39,7 @@ Partial Class Form1
         Me.ControlBox = False
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.ImeMode = System.Windows.Forms.ImeMode.AlphaFull
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Form1"

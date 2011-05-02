@@ -1,4 +1,5 @@
 ﻿Public Class VectorFormula
+    Public Shared scaling As Decimal = 1.3
     Public Shared Function ToRadians(ByVal Value As Decimal) As Decimal
 
         Return (Math.PI * Value) / 180
@@ -9,7 +10,7 @@
     End Function
     Public Shared Function Distance(ByVal Location1 As Point, ByVal Location2 As Point) As Decimal
         Dim value As Decimal = ((Location1.X - Location2.X) * (Location1.X - Location2.X)) + ((Location1.Y - Location2.Y) * (Location1.Y - Location2.Y))
-            Return Math.Sqrt(value)
+        Return Math.Sqrt(value)
     End Function
     Public Shared Function MoveInDirection(ByVal ToPoint As Point, ByVal entity As Point, ByVal Scaler As Integer, ByVal currentVelocity As Point) As Point
         Dim DesiredVelocity As Point = Normalize(ToPoint - entity)
@@ -25,6 +26,8 @@
         Return New Point(vector.X / Magnitude(vector), vector.Y / Magnitude(vector))
 
     End Function
+
+
 
 End Class
 

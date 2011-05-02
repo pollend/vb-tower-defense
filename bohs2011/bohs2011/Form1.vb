@@ -20,7 +20,9 @@ Public Class Form1
         Me.Location = New Point(0, 0)
         Me.Size = New Point(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height)
     End Sub
+    Public Shared Function GetTwips() As Integer
 
+    End Function
     Public Shared Sub CamTransform(ByVal e As System.Windows.Forms.PaintEventArgs)
         e.Graphics.TranslateTransform(CameraLocation.X, CameraLocation.Y)
         '  e.Graphics.ScaleTransform((Screen.PrimaryScreen.Bounds.Width / 800), (Screen.PrimaryScreen.Bounds.Height / 600))

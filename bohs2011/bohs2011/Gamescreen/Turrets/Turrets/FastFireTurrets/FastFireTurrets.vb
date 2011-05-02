@@ -10,6 +10,9 @@
     End Sub
 
     Public Overrides Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
+
+        e.Graphics.DrawRectangle(Pens.Black, New Rectangle(location.X, location.Y, 72 * VectorFormula.scaling, 68 * VectorFormula.scaling))
+
         e.Graphics.DrawImage(Turret1, location)
 
         MyBase.Paint(e)

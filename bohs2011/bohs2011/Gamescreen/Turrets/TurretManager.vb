@@ -1,5 +1,5 @@
 ﻿Public Class TurretManager
-    Public Shared TurretGrid As Grid = New Grid(1000, 1000)
+    Public Shared TurretGrid As Grid = New Grid(1000 * 1.3, 1000 * 1.3)
     Private Shared Turrets As List(Of Turret) = New List(Of Turret)
 
     Public Shared Function AddTurret(ByVal typeofturret As Turret, ByVal location As Point, ByVal rect As Rectangle) As Boolean
@@ -35,7 +35,6 @@
                     If (Turrets.Item(TurretGridValues.Item(CompareTurrets)).CollisionRectangle.IntersectsWith(New Rectangle(location.X, location.Y, rect.Width, rect.Height))) Then
                         'found the location invalid
                         Return False
-                        Exit Function
                     End If
                 Next
 

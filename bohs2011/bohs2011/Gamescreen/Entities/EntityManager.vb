@@ -3,7 +3,7 @@
 
 
     'the entity grid
-    Public Shared EntityGrid As Grid = New Grid(1000, 1000)
+    Public Shared EntityGrid As Grid = New Grid(1000 * 1.3, 1000 * 1.3)
 
     Public Entities As List(Of Entity) = New List(Of Entity)
     Public Sub Load()
