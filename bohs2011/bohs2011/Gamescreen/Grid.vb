@@ -23,12 +23,9 @@
 
     'return a list of index
     Public Function getIndexes(ByVal Location As Point) As List(Of Integer)
-        Try
-
+  
             Return grid.Item(Location.X).Item(Location.Y)
-        Catch ex As Exception
 
-        End Try
     End Function
 
     Public Sub RemoveIndexe(ByVal Index As Integer, ByVal Location As Point)

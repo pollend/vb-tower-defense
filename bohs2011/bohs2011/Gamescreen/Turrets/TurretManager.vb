@@ -1,6 +1,6 @@
 ﻿Public Class TurretManager
     Public Shared TurretGrid As Grid = New Grid(1000 * 1.3, 1000 * 1.3)
-    Private Shared Turrets As List(Of Turret) = New List(Of Turret)
+    Public Shared Turrets As List(Of Turret) = New List(Of Turret)
 
     Public Shared Function AddTurret(ByVal typeofturret As Turret, ByVal location As Point, ByVal rect As Rectangle) As Boolean
         Dim TilesOn(3) As Point

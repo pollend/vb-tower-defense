@@ -1,16 +1,26 @@
 ﻿Public Class EntityManager
-    Public Shared Spider As Bitmap = New Bitmap("Gamescreen\Entities\Entities\Spider\TANK.PNG")
+    Public Shared Spider As Bitmap = New Bitmap("Gamescreen\Entities\Entities\Spider\monster.png")
 
+    'random
+    Private random As Random = New Random(Now.Millisecond())
 
     'the entity grid
     Public Shared EntityGrid As Grid = New Grid(1000 * 1.3, 1000 * 1.3)
 
+    Private start As List(Of Point) = New List(Of Point)
+
     Public Entities As List(Of Entity) = New List(Of Entity)
     Public Sub Load()
-        Entities.Add(New Spider())
+        start.Add(New Point(0, 0))
+        start.Add(New Point(1, 0))
+
+
+
+
 
     End Sub
     Public Sub Update()
+        Entities.Add(New Spider(start(random.Next(0, 2))))
 
 
         For X = 0 To Entities.Count() - 1

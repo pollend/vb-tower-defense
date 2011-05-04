@@ -1,5 +1,6 @@
 ﻿Public Class Turret
 
+
     'follow the specific entity
     Public TilesLinkedTo As List(Of Point) = New List(Of Point)
     Public Skip As Boolean
@@ -22,14 +23,17 @@
 
     End Sub
     Public Overridable Sub Update()
-        CollisionRectangle = New Rectangle(location.X, location.Y, CollisionRectangle.Width, CollisionRectangle.Height)
+        If (Skip = False) Then
 
+            CollisionRectangle = New Rectangle(location.X, location.Y, CollisionRectangle.Width, CollisionRectangle.Height)
+
+        End If
     End Sub
     Public Sub fireBullet()
 
     End Sub
     'paint function
     Public Overridable Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
-
+      
     End Sub
 End Class

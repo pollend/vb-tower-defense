@@ -10,12 +10,14 @@
     End Sub
 
     Public Overrides Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
+        If (Skip = False) Then
+            e.Graphics.DrawRectangle(Pens.Black, New Rectangle(location.X, location.Y, 72 * VectorFormula.scaling, 68 * VectorFormula.scaling))
 
-        e.Graphics.DrawRectangle(Pens.Black, New Rectangle(location.X, location.Y, 72 * VectorFormula.scaling, 68 * VectorFormula.scaling))
+            e.Graphics.DrawImage(Turret1, location)
 
-        e.Graphics.DrawImage(Turret1, location)
+            MyBase.Paint(e)
 
-        MyBase.Paint(e)
+        End If
     End Sub
     Public Overrides Sub Update()
         MyBase.Update()

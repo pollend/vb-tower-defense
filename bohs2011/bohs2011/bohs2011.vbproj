@@ -137,7 +137,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Gamescreen\Entities\Entities\Spider\TANK.PNG">
+    <Content Include="Gamescreen\Entities\Entities\Spider\monster.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Gamescreen\Map\Maps\map.png">
