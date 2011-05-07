@@ -79,8 +79,10 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Gamescreen\Bullet\BulletImageCollection.vb" />
     <Compile Include="Gamescreen\Bullet\BulletManager.vb" />
     <Compile Include="Gamescreen\Bullet\Bullets.vb" />
+    <Compile Include="Gamescreen\Bullet\Bullets\FastFire\FastfireBullet.vb" />
     <Compile Include="Gamescreen\Camera.vb" />
     <Compile Include="Gamescreen\Turrets\Turrets\FastFireTurrets\FastFireTurrets.vb" />
     <Compile Include="Gamescreen\Turrets\SpawnTurret\SpawnTurrets.vb" />
@@ -137,6 +139,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Gamescreen\Bullet\Bullets\FastFire\Assets\monster.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Gamescreen\Entities\Entities\Spider\monster.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -153,7 +158,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Gamescreen\Particles\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

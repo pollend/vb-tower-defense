@@ -1,9 +1,9 @@
 ﻿Public Class Entity
 
-    Public Dead As Boolean
+    Public Dead As Boolean = False
 
     'collision rectangle
-
+    Public Size As Point
     'Location on Grid
     Public GridLocation As Point
     Public pointToGoTo As Point
@@ -29,7 +29,7 @@
 
 
 
-    Public Overridable Sub Update()
+    Public Overridable Sub Update(ByVal index As Integer)
         If (VectorFormula.Distance(location, Me.pointToGoTo) < 5) Then
             GridLocation = PointGrid.Points.Item(GridLocation.X).Item(GridLocation.Y).NewLocationGrid.Item(0)
             Me.pointToGoTo = PointGrid.Points.Item(GridLocation.X).Item(GridLocation.Y).location + New Point(random.Next(-50, 50), random.Next(-50, 50))
@@ -39,18 +39,6 @@
 
 
 
-
-        'check for collisions with turret
-        Dim Getturrets As List(Of Integer) = TurretManager.TurretGrid.getIndexes(New Point(Me.location.X / 100, Me.location.Y / 100))
-        If Not (Getturrets Is Nothing) Then
-
-            For index = 0 To Getturrets.Count - 1
-                If (TurretManager.Turrets.Item(Getturrets.Item(index)).CollisionRectangle.IntersectsWith(New Rectangle(location, New Size(20 * VectorFormula.scaling, 20 * VectorFormula.scaling)))) Then
-                    NewLocation -= VectorFormula.MoveAwayDirection(TurretManager.Turrets.Item(Getturrets.Item(index)).location + New Point((TurretManager.Turrets.Item(Getturrets.Item(index)).CollisionRectangle.Width / 2), (TurretManager.Turrets.Item(Getturrets.Item(index)).CollisionRectangle.Height / 2)), Me.location, 3, New Point(0, 0))
-
-                End If
-            Next
-        End If
 
 
 

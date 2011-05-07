@@ -1,5 +1,6 @@
 ﻿Public Class VectorFormula
     Public Shared scaling As Decimal = 1.3
+    Public Shared ScalePoint
     Public Shared Function ToRadians(ByVal Value As Decimal) As Decimal
 
         Return (Math.PI * Value) / 180

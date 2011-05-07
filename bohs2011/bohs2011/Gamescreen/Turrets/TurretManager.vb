@@ -1,6 +1,11 @@
 ﻿Public Class TurretManager
     Public Shared TurretGrid As Grid = New Grid(1000 * 1.3, 1000 * 1.3)
     Public Shared Turrets As List(Of Turret) = New List(Of Turret)
+    Public Shared DeadTurrets As List(Of Integer) = New List(Of Integer)
+    Public Sub AddDeadTurret(ByVal index As Integer)
+        Turrets.Item(index).Dead = True
+        DeadTurrets.Add(index)
+    End Sub
 
     Public Shared Function AddTurret(ByVal typeofturret As Turret, ByVal location As Point, ByVal rect As Rectangle) As Boolean
         Dim TilesOn(3) As Point
@@ -41,13 +46,16 @@
             End If
         Next
 
-        'turret.ReferenceEquals()
 
 
         typeofturret.location = location
         typeofturret.CollisionRectangle = rect
-
-        Turrets.Add(typeofturret)
+        If (DeadTurrets.Count - 1 > 0) Then
+            Turrets.Item(DeadTurrets.Item(DeadTurrets.Count - 1)) = typeofturret
+            DeadTurrets.RemoveAt(DeadTurrets.Count - 1)
+        Else
+            Turrets.Add(typeofturret)
+        End If
         'assignes them to the list
         For SelectedTile = 0 To TilesOn.Length - 1
             If Not (TilesOn(SelectedTile) = New Point(-1, -1)) Then
@@ -61,14 +69,22 @@
     Public Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
 
         For index = 0 To Turrets.Count - 1
-            Turrets(index).Paint(e)
+            If (Turrets.Item(index).Dead = False) Then
+
+                Turrets(index).Paint(e)
+
+            End If
         Next
 
     End Sub
     'updates all the turrets
     Public Sub Update()
         For index = 0 To Turrets.Count - 1
-            Turrets(index).Update()
+            If (Turrets(index).Dead = False) Then
+
+                Turrets(index).Update(index)
+
+            End If
         Next
     End Sub
 End Class

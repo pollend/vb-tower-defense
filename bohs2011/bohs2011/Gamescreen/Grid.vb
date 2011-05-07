@@ -23,8 +23,12 @@
 
     'return a list of index
     Public Function getIndexes(ByVal Location As Point) As List(Of Integer)
-  
-            Return grid.Item(Location.X).Item(Location.Y)
+        If (Location.X > 0 And Location.X < grid.Count - 1) Then
+            If (Location.Y > 0 And Location.Y < grid.Item(0).Count - 1) Then
+                Return grid.Item(Location.X).Item(Location.Y)
+            End If
+        End If
+
 
     End Function
 

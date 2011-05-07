@@ -10,7 +10,7 @@
     End Sub
 
     Public Overrides Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
-        If (Skip = False) Then
+        If (Dead = False) Then
             e.Graphics.DrawRectangle(Pens.Black, New Rectangle(location.X, location.Y, 72 * VectorFormula.scaling, 68 * VectorFormula.scaling))
 
             e.Graphics.DrawImage(Turret1, location)
@@ -19,8 +19,9 @@
 
         End If
     End Sub
-    Public Overrides Sub Update()
-        MyBase.Update()
+    Public Overrides Sub Update(ByVal index As Integer)
+        BulletManager.AddBullet(New FastfireBullet(), New Point(Me.location), New Point(5, 0))
+        MyBase.Update(index)
     End Sub
 
 End Class

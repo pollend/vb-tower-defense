@@ -3,7 +3,7 @@
 
     'follow the specific entity
     Public TilesLinkedTo As List(Of Point) = New List(Of Point)
-    Public Skip As Boolean
+    Public Dead As Boolean = False
     Public location As Point
     Public Followed As Point
     Public CollisionRectangle As Rectangle
@@ -12,7 +12,7 @@
     End Sub
     Public Sub New(ByRef turret As Turret)
         TilesLinkedTo = New List(Of Point)(turret.TilesLinkedTo)
-        Skip = turret.Skip
+        Dead = turret.Dead
 
         location = turret.location
         Followed = turret.Followed
@@ -22,8 +22,8 @@
     Public Overridable Sub SetTurret(ByVal Location As Point)
 
     End Sub
-    Public Overridable Sub Update()
-        If (Skip = False) Then
+    Public Overridable Sub Update(ByVal myindex As Integer)
+        If (Dead = False) Then
 
             CollisionRectangle = New Rectangle(location.X, location.Y, CollisionRectangle.Width, CollisionRectangle.Height)
 
