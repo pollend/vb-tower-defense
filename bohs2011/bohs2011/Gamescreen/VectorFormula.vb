@@ -22,7 +22,7 @@
         Dim myrot As Decimal = Math.Acos(ydist / mydist)
         If (location.Y < PointToGoTo.Y) Then
 
-            Return (ToDegrees((myrot + Math.PI / 4.0)) * -1) '+ 180
+            Return ToDegrees((myrot + Math.PI / 2.0)) * -1
         Else
             Return ToDegrees(myrot - Math.PI / 2.0)
         End If
@@ -53,8 +53,9 @@
         End If
     End Function
 
-    Public Shared Function GoInDirectinalRadius(ByVal radius As Integer)
-
+    Public Shared Function GoInDirectinalRadius(ByVal radius As Integer, ByVal scaling As Integer) As Point
+        Dim checklocation As Decimal = ToRadians(radius - 90)
+        Return New Point(Math.Cos(checklocation) * scaling, Math.Sin(checklocation) * scaling)
     End Function
 
 End Class

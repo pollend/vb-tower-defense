@@ -3,7 +3,7 @@
     'manges the bullets
     Public bullets As BulletManager = New BulletManager()
 
-    Public entitymanager As EntityManager = New EntityManager()
+    Private entitymanager As EntityManager = New EntityManager()
     'moves the camera
     Private cam As Camera = New Camera
 

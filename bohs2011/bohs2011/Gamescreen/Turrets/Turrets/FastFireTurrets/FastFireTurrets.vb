@@ -6,6 +6,7 @@ End Class
 
 Public Class FastFireTurrets
     Inherits Turret
+    Private timing As Integer
     Private rand As Random = New Random()
     Private pointingTo As Decimal
 
@@ -28,10 +29,14 @@ Public Class FastFireTurrets
         MyBase.Paint(e)
     End Sub
     Public Overrides Sub Update(ByVal index As Integer)
-        Dim enitiyto As Integer = rand.Next(0, EntityManager.Entities.Count - 1)
-        BulletManager.AddBullet(New FastfireBullet(), New Point(Me.location), VectorFormula.MoveInDirection(Form1.MousePosition, Me.location, 20, New Point(0, 0)))
 
-        pointingTo = VectorFormula.PointTo(Me.location, EntityManager.Entities.Item(rand.Next(0, EntityManager.Entities.Count - 1)).NewLocation)
+        pointingTo = VectorFormula.PointTo(Me.location, Form1.MousePosition)
+        timing += 1
+        If (timing > 20) Then
+            BulletManager.AddBullet(New FastfireBullet(), New Point(Me.location), VectorFormula.GoInDirectinalRadius(pointingTo, 20))
+            timing = 0
+        End If
+
         MyBase.Update(index)
     End Sub
 
