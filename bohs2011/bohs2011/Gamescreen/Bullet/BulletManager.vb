@@ -9,12 +9,13 @@
     Public Sub Update()
 
         For index = 0 To bullets.Count - 1
-            If (index > bullets.Count - 1) Then
+            If (index >= bullets.Count - 1) Then
                 Exit For
             End If
             If (bullets.Item(index).location.X > Form1.Width) Then
                 bullets.RemoveAt(index)
-                index -= 1
+
+
                 Continue For
 
             End If
@@ -22,16 +23,20 @@
             If Not (entities Is Nothing) Then
      
                 For Entitiyindex = 0 To entities.Count - 1
-  
-                    If (New Rectangle(EntityManager.Entities.Item(entities(Entitiyindex)).location, EntityManager.Entities.Item(entities(Entitiyindex)).Size)).IntersectsWith(New Rectangle(bullets.Item(index).location, bullets.Item(index).size)) Then
-                        bullets.RemoveAt(index)
-                        EntityManager.KillEntiy(entities(Entitiyindex), EntityManager.Entities.Item(entities(Entitiyindex)).location)
+                    If (EntityManager.Entities.Item(entities(Entitiyindex)).Dead = False) Then
 
+                        If (New Rectangle(EntityManager.Entities.Item(entities(Entitiyindex)).location, EntityManager.Entities.Item(entities(Entitiyindex)).Size)).IntersectsWith(New Rectangle(bullets.Item(index).location, bullets.Item(index).size)) Then
+                            bullets.RemoveAt(index)
+                            EntityManager.KillEntiy(entities(Entitiyindex), EntityManager.Entities.Item(entities(Entitiyindex)).location)
+                            Continue For
+
+                        End If
 
                     End If
 
                 Next
             End If
+      
             bullets.Item(index).Update()
 
 

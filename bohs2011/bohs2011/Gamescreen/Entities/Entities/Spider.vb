@@ -1,6 +1,6 @@
 ﻿Public Class Spider
     Inherits Entity
-    Public random As Random = New Random()
+    Public randomGenerator As Random = New Random()
     Public Sub New(ByVal setlocation As Point)
         MyBase.New(setlocation)
         Size = New Point(10, 10)
@@ -17,7 +17,7 @@
             For index = 0 To Getturrets.Count - 1
                 If (TurretManager.Turrets.Item(Getturrets.Item(index)).CollisionRectangle.IntersectsWith(New Rectangle(location, New Size(20 * VectorFormula.scaling, 20 * VectorFormula.scaling)))) Then
                     NewLocation -= VectorFormula.MoveAwayDirection(TurretManager.Turrets.Item(Getturrets.Item(index)).location + New Point((TurretManager.Turrets.Item(Getturrets.Item(index)).CollisionRectangle.Width / 2), (TurretManager.Turrets.Item(Getturrets.Item(index)).CollisionRectangle.Height / 2)), Me.location, 5, New Point(0, 0))
-                    pointToGoTo = New Point(random.Next(-5, 5), random.Next(-5, 5)) + pointToGoTo
+                    pointToGoTo = New Point(randomGenerator.Next(-5, 5), randomGenerator.Next(-5, 5)) + pointToGoTo
                 End If
             Next
         End If

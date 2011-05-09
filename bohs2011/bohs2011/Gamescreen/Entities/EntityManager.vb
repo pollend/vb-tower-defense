@@ -35,9 +35,9 @@
 
 
                 Entities.Item(X).Update(X)
-                If (Not (Entities.Item(X).NewLocation.X / 100 = Entities.Item(X).location.X / 100) And Not (Entities.Item(X).location.Y / 100 = Entities.Item(X).NewLocation.Y / 100)) Then
+                If (Not (Entities.Item(X).NewLocation.X / 100 = Entities.Item(X).location.X / 100) Or Not (Entities.Item(X).location.Y / 100 = Entities.Item(X).NewLocation.Y / 100)) Then
 
-                    EntityGrid.RemoveIndexe(X, New Point(Entities.Item(X).location.X / 100, Entities.Item(X).NewLocation.Y / 100))
+                    EntityGrid.RemoveIndexe(X, New Point(Entities.Item(X).location.X / 100, Entities.Item(X).location.Y / 100))
                     EntityGrid.AddIndex(X, New Point(Entities.Item(X).NewLocation.X / 100, Entities.Item(X).NewLocation.Y / 100))
                 End If
                 Entities.Item(X).location = Entities.Item(X).NewLocation

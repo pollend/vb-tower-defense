@@ -28,18 +28,20 @@
                 Return grid.Item(Location.X).Item(Location.Y)
             End If
         End If
-
-
+        System.Diagnostics.Debug.Print("Failure finding index")
+        Return Nothing
     End Function
 
     Public Sub RemoveIndexe(ByVal Index As Integer, ByVal Location As Point)
 
-        For Index = 0 To grid(Location.X).Item(Location.Y).Count - 1
-
-            'runs through the grid and finds the index
-            If (grid(Location.X).Item(Location.Y).Item(Index) = Index) Then
-                grid(Location.X).Item(Location.Y).RemoveAt(Index)
+        For MYIndex = 0 To grid(Location.X).Item(Location.Y).Count - 1
+            If (MYIndex < 1) Then
                 Exit For
+            End If
+            'runs through the grid and finds the index
+            If (grid(Location.X).Item(Location.Y).Item(MYIndex) = Index) Then
+                grid(Location.X).Item(Location.Y).RemoveAt(MYIndex)
+
             End If
 
         Next

@@ -2,10 +2,11 @@
 
 
     'follow the specific entity
+    Public attackRadius As Rectangle
     Public TilesLinkedTo As List(Of Point) = New List(Of Point)
     Public Dead As Boolean = False
     Public location As Point
-    Public Followed As Point
+    Public EnitiyToFollow As Integer
     Public CollisionRectangle As Rectangle
     Public Sub New()
 
@@ -15,7 +16,7 @@
         Dead = turret.Dead
 
         location = turret.location
-        Followed = turret.Followed
+
         CollisionRectangle = turret.CollisionRectangle
     End Sub
 
@@ -29,9 +30,7 @@
 
         End If
     End Sub
-    Public Sub fireBullet()
 
-    End Sub
     'paint function
     Public Overridable Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
       

@@ -26,10 +26,10 @@
 
     Public Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs) Implements IScreen.Paint
 
+        map.Draw(e)
+
         'draw buttons
         spawnturret.Draw(e)
-
-        map.Draw(e)
 
         'draws the bullets
         bullets.Draw(e)

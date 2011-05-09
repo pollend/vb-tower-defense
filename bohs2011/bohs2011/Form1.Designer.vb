@@ -23,13 +23,13 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.Update = New System.Windows.Forms.Timer(Me.components)
+        Me.UpdateEvent = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'Update
         '
-        Me.Update.Enabled = True
-        Me.Update.Interval = 1
+        Me.UpdateEvent.Enabled = True
+        Me.UpdateEvent.Interval = 1
         '
         'Form1
         '
@@ -47,6 +47,6 @@ Partial Class Form1
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Update As System.Windows.Forms.Timer
+    Friend WithEvents UpdateEvent As System.Windows.Forms.Timer
 
 End Class

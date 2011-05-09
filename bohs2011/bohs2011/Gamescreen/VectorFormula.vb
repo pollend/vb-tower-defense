@@ -13,8 +13,24 @@
         Dim value As Decimal = ((Location1.X - Location2.X) * (Location1.X - Location2.X)) + ((Location1.Y - Location2.Y) * (Location1.Y - Location2.Y))
         Return Math.Sqrt(value)
     End Function
-    Public Shared Function MoveInDirection(ByVal ToPoint As Point, ByVal entity As Point, ByVal Scaler As Integer, ByVal currentVelocity As Point) As Point
-        Dim DesiredVelocity As Point = Normalize(ToPoint - entity)
+    Public Shared Function PointTo(ByVal location As Point, ByVal PointToGoTo As Point) As Decimal
+        'rotates the turret head
+        Dim mydist As Decimal = Distance(location, PointToGoTo)
+        Dim ydist As Decimal = (location.X - PointToGoTo.X)
+
+
+        Dim myrot As Decimal = Math.Acos(ydist / mydist)
+        If (location.Y < PointToGoTo.Y) Then
+
+            Return (ToDegrees((myrot + Math.PI / 4.0)) * -1) '+ 180
+        Else
+            Return ToDegrees(myrot - Math.PI / 2.0)
+        End If
+        Return Decimal.Zero
+    End Function
+    Public Shared Function MoveInDirection(ByVal ToPoint As Point, ByVal Location As Point, ByVal Scaler As Integer, ByVal currentVelocity As Point) As Point
+        'moves in the direction
+        Dim DesiredVelocity As Point = Normalize(ToPoint - Location)
         DesiredVelocity = New Point(DesiredVelocity.X * Scaler, DesiredVelocity.Y * Scaler)
 
         Return (DesiredVelocity - currentVelocity)
@@ -31,11 +47,15 @@
         Return Math.Sqrt((Vector.X * Vector.X) + (Vector.Y * Vector.Y))
     End Function
     Public Shared Function Normalize(ByVal vector As Point) As Point
-        Return New Point(vector.X / Magnitude(vector), vector.Y / Magnitude(vector))
+        If Not (Magnitude(vector) = 0) Then
 
+            Return New Point(vector.X / Magnitude(vector), vector.Y / Magnitude(vector))
+        End If
     End Function
 
+    Public Shared Function GoInDirectinalRadius(ByVal radius As Integer)
 
+    End Function
 
 End Class
 

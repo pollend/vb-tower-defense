@@ -154,7 +154,10 @@
     <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\Tower1\TurretAon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Gamescreen\Turrets\Turrets\FastFireTurrets\Assets\turret1.png">
+    <Content Include="Gamescreen\Turrets\Turrets\FastFireTurrets\Assets\FastfireTurretBottom.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\FastFireTurrets\Assets\FastfireTurretTop.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

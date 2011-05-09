@@ -15,5 +15,10 @@
         End If
 
     End Sub
-
+    Public Shared Function GetXCam() As Integer
+        Return Form1.CameraLocation.X
+    End Function
+    Public Shared Function GetYCam() As Integer
+        Return Form1.CameraLocation.Y
+    End Function
 End Class
