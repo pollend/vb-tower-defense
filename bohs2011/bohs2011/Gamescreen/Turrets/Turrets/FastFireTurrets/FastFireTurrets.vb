@@ -30,11 +30,14 @@ Public Class FastFireTurrets
     End Sub
     Public Overrides Sub Update(ByVal index As Integer)
 
-        pointingTo = VectorFormula.PointTo(Me.location, Form1.MousePosition)
         timing += 1
-        If (timing > 20) Then
-            BulletManager.AddBullet(New FastfireBullet(), New Point(Me.location), VectorFormula.GoInDirectinalRadius(pointingTo, 20))
-            timing = 0
+        If (timing > 10) Then
+            If Not (Me.findentity(100) = New Point(-1, -1)) Then
+
+                pointingTo = VectorFormula.PointTo(Me.location, findentity(100))
+                BulletManager.AddBullet(New FastfireBullet(), New Point(Me.location), VectorFormula.GoInDirectinalRadius(pointingTo, 20))
+                timing = 0
+            End If
         End If
 
         MyBase.Update(index)

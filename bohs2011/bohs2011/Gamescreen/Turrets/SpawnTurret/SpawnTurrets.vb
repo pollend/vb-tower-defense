@@ -23,7 +23,7 @@ Public Class SpawnTurrets
                 Select Case Turrets
                     Case Turretype.fastfire
 
-                        TurretManager.AddTurret(New FastFireTurrets, New Point(Locationrelativetoboard.X - 50, Locationrelativetoboard.Y - 50), New Rectangle(0, 0, 74 * VectorFormula.scaling, 75 * VectorFormula.scaling))
+                        TurretManager.AddTurret(New FastFireTurrets, New Point(Locationrelativetoboard.X - (29 / 2), Locationrelativetoboard.Y - (30 / 2)), New Rectangle(0, 0, 29 * VectorFormula.scaling, 30 * VectorFormula.scaling))
 
 
                     Case Else
@@ -48,7 +48,7 @@ Public Class SpawnTurrets
     Public Sub Draw(ByVal e As System.Windows.Forms.PaintEventArgs)
         'draw rectangle
         Dim Locationrelativetoboard As Point = New Point(Form.MousePosition.X - Form1.CameraLocation.X, Form.MousePosition.Y - Form1.CameraLocation.Y)
-        e.Graphics.DrawRectangle(Pens.Black, New Rectangle(Locationrelativetoboard.X - 50, Locationrelativetoboard.Y - 50, 100, 100))
+        e.Graphics.DrawRectangle(Pens.Black, New Rectangle(Locationrelativetoboard.X - (29 / 2), Locationrelativetoboard.Y - (30 / 2), 29, 30))
 
         'DRAW
         turretA.Draw(e)

@@ -12,7 +12,7 @@
             If (index >= bullets.Count - 1) Then
                 Exit For
             End If
-            If (bullets.Item(index).location.X > Form1.Width) Then
+            If (bullets.Item(index).location.X > Form1.Width Or bullets.Item(index).location.X < 0 Or bullets.Item(index).location.Y > Form1.Height Or bullets.Item(index).location.Y < 0) Then
                 bullets.RemoveAt(index)
 
 
