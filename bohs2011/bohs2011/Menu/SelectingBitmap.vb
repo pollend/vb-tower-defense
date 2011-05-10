@@ -7,6 +7,12 @@ Public Class SelectingBitmap
     Private ActiveBitmap As Boolean = False
     Public location As Point
 
+    Public Function getheight() As Decimal
+        Return OnBitmap.Height * VectorFormula.scaling
+    End Function
+    Public Function getWidth() As Decimal
+        Return OnBitmap.Width * VectorFormula.scaling
+    End Function
     Public Sub SetSelection(ByVal selecting As Boolean)
         ActiveBitmap = selecting
     End Sub

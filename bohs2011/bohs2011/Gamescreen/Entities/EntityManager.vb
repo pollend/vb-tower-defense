@@ -15,11 +15,21 @@
     Public Sub Load()
         start.Add(New Point(0, 0))
         start.Add(New Point(1, 0))
+    End Sub
 
+    Public Shared Function GetCollisionRect(ByVal index As Integer) As Rectangle
+        Return New Rectangle(Entities.Item(index).location, Entities.Item(index).Size)
 
+    End Function
+    Public Sub AddEntity(ByVal entity As Entity)
 
+        If (0 > DeadEntites.Count - 1) Then
+            Entities.Add(entity)
+        Else
 
-
+            Entities(DeadEntites.Item(0)) = entity
+            DeadEntites.RemoveAt(0)
+        End If
     End Sub
     Public Shared Sub KillEntiy(ByVal index As Integer, ByVal location As Point)
         DeadEntites.Add(index)
@@ -27,13 +37,12 @@
         Entities(index).Dead = True
     End Sub
     Public Sub Update()
-        Entities.Add(New Spider(start(random.Next(0, 2))))
+        'Entities.Add(New Spider(start(random.Next(0, 2))))
+        AddEntity(New Spider(New Point(1, 0)))
 
 
         For X = 0 To Entities.Count() - 1
             If (Entities.Item(X).Dead = False) Then
-
-
                 Entities.Item(X).Update(X)
                 If (Not (Entities.Item(X).NewLocation.X / 100 = Entities.Item(X).location.X / 100) Or Not (Entities.Item(X).location.Y / 100 = Entities.Item(X).NewLocation.Y / 100)) Then
 

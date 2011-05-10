@@ -2,7 +2,7 @@
     Public Shared TurretGrid As Grid = New Grid(1000 * 1.3, 1000 * 1.3)
     Public Shared Turrets As List(Of Turret) = New List(Of Turret)
     Public Shared DeadTurrets As List(Of Integer) = New List(Of Integer)
-    Public Sub AddDeadTurret(ByVal index As Integer)
+    Public Shared Sub AddDeadTurret(ByVal index As Integer)
         Turrets.Item(index).Dead = True
         DeadTurrets.Add(index)
     End Sub
@@ -35,13 +35,24 @@
         For index = 0 To TilesOn.Length - 1
             If Not (TilesOn(index) = New Point(-1, -1)) Then
                 Dim TurretGridValues As List(Of Integer) = TurretGrid.getIndexes(TilesOn(index))
+                Dim entitygridvalues As List(Of Integer) = EntityManager.EntityGrid.getIndexes(TilesOn(index))
 
-                For CompareTurrets = 0 To TurretGridValues.Count - 1
-                    If (Turrets.Item(TurretGridValues.Item(CompareTurrets)).CollisionRectangle.IntersectsWith(New Rectangle(location.X, location.Y, rect.Width, rect.Height))) Then
-                        'found the location invalid
+                For CompareEntites = 0 To entitygridvalues.Count - 1
+                    If (EntityManager.GetCollisionRect(entitygridvalues.Item(CompareEntites)).IntersectsWith(New Rectangle(location.X, location.Y, rect.Width, rect.Height))) Then
+                        'found the location invalid because of entity
                         Return False
                     End If
                 Next
+                For CompareTurrets = 0 To TurretGridValues.Count - 1
+                    If (Turrets.Item(TurretGridValues.Item(CompareTurrets)).Dead = False) Then
+                        If (Turrets.Item(TurretGridValues.Item(CompareTurrets)).CollisionRectangle.IntersectsWith(New Rectangle(location.X, location.Y, rect.Width, rect.Height))) Then
+                            'found the loction is invalid becasue of turret
+                            Return False
+                        End If
+
+                    End If
+                Next
+
 
             End If
         Next

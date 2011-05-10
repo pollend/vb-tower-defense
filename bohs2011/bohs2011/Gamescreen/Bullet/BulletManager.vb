@@ -24,20 +24,23 @@
      
                 For Entitiyindex = 0 To entities.Count - 1
                     If (EntityManager.Entities.Item(entities(Entitiyindex)).Dead = False) Then
+                        If Not (bullets.Count - 1 < 0) Then
+                            If (New Rectangle(EntityManager.Entities.Item(entities(Entitiyindex)).location, EntityManager.Entities.Item(entities(Entitiyindex)).Size)).IntersectsWith(New Rectangle(bullets.Item(index).location, bullets.Item(index).size)) Then
+                                bullets.RemoveAt(index)
+                                EntityManager.KillEntiy(entities(Entitiyindex), EntityManager.Entities.Item(entities(Entitiyindex)).location)
+                                Continue For
 
-                        If (New Rectangle(EntityManager.Entities.Item(entities(Entitiyindex)).location, EntityManager.Entities.Item(entities(Entitiyindex)).Size)).IntersectsWith(New Rectangle(bullets.Item(index).location, bullets.Item(index).size)) Then
-                            bullets.RemoveAt(index)
-                            EntityManager.KillEntiy(entities(Entitiyindex), EntityManager.Entities.Item(entities(Entitiyindex)).location)
-                            Continue For
-
+                            End If
                         End If
 
                     End If
 
                 Next
             End If
-      
-            bullets.Item(index).Update()
+            If Not (bullets.Count - 1 < 0) Then
+                bullets.Item(index).Update()
+
+            End If
 
 
         Next
