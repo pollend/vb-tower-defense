@@ -139,6 +139,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Gamescreen\Bullet\Bullets\FastFire\Assets\bullet1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\FastFireTurrets\Assets\FastfireTurretTop.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Gamescreen\Bullet\Bullets\FastFire\Assets\monster.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -155,9 +161,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Gamescreen\Turrets\Turrets\FastFireTurrets\Assets\FastfireTurretBottom.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Gamescreen\Turrets\Turrets\FastFireTurrets\Assets\FastfireTurretTop.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -20,6 +20,8 @@ Public Class FastFireTurrets
 
     Public Overrides Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
         e.Graphics.DrawImage(FastFireAssets.Bottom, Me.location)
+        e.Graphics.DrawRectangle(Pens.Black, New Rectangle(Me.location, New Point(Me.CollisionRectangle.Width, Me.CollisionRectangle.Height)))
+
         'makes the turret follow the entity  
         e.Graphics.TranslateTransform(location.X + 15 * VectorFormula.scaling, location.Y + 15 * VectorFormula.scaling)
         e.Graphics.RotateTransform(pointingTo)
@@ -32,12 +34,14 @@ Public Class FastFireTurrets
 
         timing += 1
         If (timing > 10) Then
-            If Not (Me.findentity(100) = New Point(-1, -1)) Then
+            If Not (findentity(500) = New Point(-1, -1)) Then
 
-                pointingTo = VectorFormula.PointTo(Me.location, findentity(100))
-                BulletManager.AddBullet(New FastfireBullet(), New Point(Me.location), VectorFormula.GoInDirectinalRadius(pointingTo, 20))
+                pointingTo = VectorFormula.PointTo(Me.location, findentity(500))
+                BulletManager.AddBullet(New FastfireBullet(), New Point(Me.location + New Point(Me.CollisionRectangle.Width / 2, Me.CollisionRectangle.Height / 2)), VectorFormula.GoInDirectinalRadius(pointingTo, 20))
                 timing = 0
+
             End If
+
         End If
 
         MyBase.Update(index)

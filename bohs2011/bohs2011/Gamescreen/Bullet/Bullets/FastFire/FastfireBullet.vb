@@ -2,11 +2,11 @@
     Inherits Bullets
     Public Sub New()
         Me.killEntities = True
-        Me.size = New Point(20 * VectorFormula.scaling, 20 * VectorFormula.scaling)
+        Me.size = New Point(10 * VectorFormula.scaling, 10 * VectorFormula.scaling)
     End Sub
     Public Overrides Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
         e.Graphics.DrawImage(BulletImageCollection.Bullet1, location)
-        e.Graphics.DrawRectangle(Pens.Black, New Rectangle(Me.location, Me.size))
+
         MyBase.Paint(e)
     End Sub
 

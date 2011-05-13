@@ -2,7 +2,9 @@
     Implements IScreen
 
     Public Enum Menu_Parts
-        options
+        Start
+        Instructions,
+        Quit
 
     End Enum
 

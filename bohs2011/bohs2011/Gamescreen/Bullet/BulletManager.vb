@@ -9,38 +9,42 @@
     Public Sub Update()
 
         For index = 0 To bullets.Count - 1
-            If (index >= bullets.Count - 1) Then
-                Exit For
+
+            If (index >= bullets.Count - 1 Or index < 1) Then
+                Continue For
             End If
+            bullets.Item(index).Update()
+
             If (bullets.Item(index).location.X > Form1.Width Or bullets.Item(index).location.X < 0 Or bullets.Item(index).location.Y > Form1.Height Or bullets.Item(index).location.Y < 0) Then
                 bullets.RemoveAt(index)
-
-
+                index -= 1
                 Continue For
-
             End If
-            Dim entities As List(Of Integer) = EntityManager.EntityGrid.getIndexes(New Point(bullets.Item(index).location.X / 100, bullets.Item(index).location.Y / 100))
+
+            Dim entities As List(Of Integer) = EntityManager.EntityGrid.getIndexes(New Point((bullets.Item(index).location.X + (bullets.Item(index).size.X / 2)) / 100, (bullets.Item(index).location.Y + (bullets.Item(index).size.Y / 2)) / 100))
             If Not (entities Is Nothing) Then
-     
                 For Entitiyindex = 0 To entities.Count - 1
-                    If (EntityManager.Entities.Item(entities(Entitiyindex)).Dead = False) Then
-                        If Not (bullets.Count - 1 < 0) Then
+                    If (Entitiyindex > 0 And Entitiyindex < entities.Count - 1) Then
+
+                        If (EntityManager.Entities.Item(entities(Entitiyindex)).Dead = False) Then
+                            If (index > bullets.Count - 1) Then
+                                Exit For
+                            End If
                             If (New Rectangle(EntityManager.Entities.Item(entities(Entitiyindex)).location, EntityManager.Entities.Item(entities(Entitiyindex)).Size)).IntersectsWith(New Rectangle(bullets.Item(index).location, bullets.Item(index).size)) Then
                                 bullets.RemoveAt(index)
-                                EntityManager.KillEntiy(entities(Entitiyindex), EntityManager.Entities.Item(entities(Entitiyindex)).location)
+                                EntityManager.KillEntiy(entities(Entitiyindex))
+
                                 Continue For
 
                             End If
+
                         End If
 
                     End If
 
                 Next
             End If
-            If Not (bullets.Count - 1 < 0) Then
-                bullets.Item(index).Update()
 
-            End If
 
 
         Next

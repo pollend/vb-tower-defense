@@ -31,22 +31,20 @@ Public Class SpawnTurrets
         If (AllowsToBeSet = True) Then
 
             If (Form1.MouseButtons = MouseButtons.Left) Then
-                Try
-                    Dim Locationrelativetoboard As Point = New Point(Form.MousePosition.X - Form1.CameraLocation.X, Form.MousePosition.Y - Form1.CameraLocation.Y)
 
-                    Select Case Turrets
-                        Case Turretype.fastfire
+                Dim Locationrelativetoboard As Point = New Point(Form.MousePosition.X - Form1.CameraLocation.X, Form.MousePosition.Y - Form1.CameraLocation.Y)
 
-                            TurretManager.AddTurret(New FastFireTurrets, New Point(Locationrelativetoboard.X - (29 / 2), Locationrelativetoboard.Y - (30 / 2)), New Rectangle(0, 0, 29 * VectorFormula.scaling, 30 * VectorFormula.scaling))
+                Select Case Turrets
+                    Case Turretype.fastfire
+
+                        TurretManager.AddTurret(New FastFireTurrets, New Point(Locationrelativetoboard.X - (29 / 2), Locationrelativetoboard.Y - (30 / 2)), New Rectangle(0, 0, 29 * VectorFormula.scaling, 30 * VectorFormula.scaling))
 
 
-                        Case Else
+                    Case Else
 
-                    End Select
+                End Select
 
-                Catch ex As Exception
-
-                End Try
+               
             End If
 
         End If

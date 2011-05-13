@@ -4,10 +4,23 @@
     Public Shared DeadTurrets As List(Of Integer) = New List(Of Integer)
     Public Shared Sub AddDeadTurret(ByVal index As Integer)
         Turrets.Item(index).Dead = True
+
+        For linkedto = 0 To Turrets.Item(index).TilesLinkedTo.Count - 1
+            TurretGrid.RemoveIndexe(index, Turrets.Item(index).TilesLinkedTo.Item(linkedto))
+        Next
+
+
         DeadTurrets.Add(index)
     End Sub
 
     Public Shared Function AddTurret(ByVal typeofturret As Turret, ByVal location As Point, ByVal rect As Rectangle) As Boolean
+        If Not (location.X > 0 And location.X < TurretGrid.GetWidth And location.Y > 0 And location.Y < TurretGrid.GetHeight) Then
+            'wont allow a turret to be placed outside the map
+            Return False
+
+        End If
+
+
         Dim TilesOn(3) As Point
         TilesOn(0) = New Point(location.X / 100, location.Y / 100)
         TilesOn(1) = New Point((location.X + rect.Width) / 100, location.Y / 100)
@@ -34,44 +47,55 @@
 
         For index = 0 To TilesOn.Length - 1
             If Not (TilesOn(index) = New Point(-1, -1)) Then
+
+
+
                 Dim TurretGridValues As List(Of Integer) = TurretGrid.getIndexes(TilesOn(index))
                 Dim entitygridvalues As List(Of Integer) = EntityManager.EntityGrid.getIndexes(TilesOn(index))
-
+                'test if entity is in location
                 For CompareEntites = 0 To entitygridvalues.Count - 1
-                    If (EntityManager.GetCollisionRect(entitygridvalues.Item(CompareEntites)).IntersectsWith(New Rectangle(location.X, location.Y, rect.Width, rect.Height))) Then
-                        'found the location invalid because of entity
-                        Return False
+                    If (EntityManager.Entities.Item(entitygridvalues.Item(CompareEntites)).Dead = False) Then
+
+                        If (EntityManager.GetCollisionRect(entitygridvalues.Item(CompareEntites)).IntersectsWith(New Rectangle(location.X, location.Y, rect.Width, rect.Height))) Then
+                            'found the location invalid because of entity
+                            Return False
+                        End If
                     End If
                 Next
                 For CompareTurrets = 0 To TurretGridValues.Count - 1
+                    'test if turret is in location
                     If (Turrets.Item(TurretGridValues.Item(CompareTurrets)).Dead = False) Then
+
                         If (Turrets.Item(TurretGridValues.Item(CompareTurrets)).CollisionRectangle.IntersectsWith(New Rectangle(location.X, location.Y, rect.Width, rect.Height))) Then
+
                             'found the loction is invalid becasue of turret
                             Return False
                         End If
-
                     End If
+
                 Next
 
 
             End If
         Next
 
-
+        Dim myindexoncollection = 0
 
         typeofturret.location = location
         typeofturret.CollisionRectangle = rect
         If (DeadTurrets.Count - 1 > 0) Then
-            Turrets.Item(DeadTurrets.Item(DeadTurrets.Count - 1)) = typeofturret
-            DeadTurrets.RemoveAt(DeadTurrets.Count - 1)
+            Turrets.Item(DeadTurrets.Item(0)) = typeofturret
+            myindexoncollection = DeadTurrets.Item(0)
+            DeadTurrets.RemoveAt(0)
         Else
             Turrets.Add(typeofturret)
+            myindexoncollection = Turrets.Count - 1
         End If
         'assignes them to the list
         For SelectedTile = 0 To TilesOn.Length - 1
             If Not (TilesOn(SelectedTile) = New Point(-1, -1)) Then
-                Turrets.Item(Turrets.Count - 1).TilesLinkedTo.Add(TilesOn(SelectedTile))
-                TurretGrid.AddIndex(Turrets.Count - 1, TilesOn(SelectedTile))
+                Turrets.Item(myindexoncollection).TilesLinkedTo.Add(TilesOn(SelectedTile))
+                TurretGrid.AddIndex(myindexoncollection, TilesOn(SelectedTile))
             End If
         Next
         Return True

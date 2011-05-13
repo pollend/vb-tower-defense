@@ -18,6 +18,8 @@
     Public NewLocation As Point
     Public random As Random = New Random(Now.Millisecond)
 
+    Public locationOnCollection As Point
+
 
     Public Sub New(ByVal setLocation As Point)
         Me.NewLocation = setLocation

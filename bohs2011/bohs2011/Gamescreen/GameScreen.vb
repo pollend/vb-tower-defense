@@ -31,13 +31,14 @@
         'draw buttons
         spawnturret.Draw(e)
 
-        'draws the bullets
-        bullets.Draw(e)
         'draw the entities
         entitymanager.paint(e)
 
         'draws the turrets
         TurretManager.Paint(e)
+
+        'draws the bullets
+        bullets.Draw(e)
 
     End Sub
 

@@ -22,33 +22,37 @@
 
     End Function
     Public Sub AddEntity(ByVal entity As Entity)
-
-        If (0 > DeadEntites.Count - 1) Then
-            Entities.Add(entity)
-        Else
-
+        Entities.Add(entity)
+        If (0 < DeadEntites.Count - 1) Then
             Entities(DeadEntites.Item(0)) = entity
+            Entities(DeadEntites.Item(0)).Dead = False
             DeadEntites.RemoveAt(0)
+        Else
+            Entities.Add(entity)
+
         End If
     End Sub
-    Public Shared Sub KillEntiy(ByVal index As Integer, ByVal location As Point)
+    Public Shared Sub KillEntiy(ByVal index As Integer)
         DeadEntites.Add(index)
-        EntityGrid.RemoveIndexe(index, New Point(location.X / 100, location.Y / 100))
+        EntityGrid.RemoveIndexe(index, Entities.Item(index).locationOnCollection)
         Entities(index).Dead = True
     End Sub
     Public Sub Update()
-        'Entities.Add(New Spider(start(random.Next(0, 2))))
-        AddEntity(New Spider(New Point(1, 0)))
 
+        AddEntity(New Spider(New Point(0, 0)))
 
         For X = 0 To Entities.Count() - 1
             If (Entities.Item(X).Dead = False) Then
-                Entities.Item(X).Update(X)
-                If (Not (Entities.Item(X).NewLocation.X / 100 = Entities.Item(X).location.X / 100) Or Not (Entities.Item(X).location.Y / 100 = Entities.Item(X).NewLocation.Y / 100)) Then
 
-                    EntityGrid.RemoveIndexe(X, New Point(Entities.Item(X).location.X / 100, Entities.Item(X).location.Y / 100))
-                    EntityGrid.AddIndex(X, New Point(Entities.Item(X).NewLocation.X / 100, Entities.Item(X).NewLocation.Y / 100))
-                End If
+
+                Entities.Item(X).Update(X)
+                Dim newloc As Point = New Point(Entities.Item(X).NewLocation.X / 100, Entities.Item(X).location.Y / 100)
+
+                EntityGrid.RemoveIndexe(X, Entities.Item(X).locationOnCollection)
+                Entities.Item(X).locationOnCollection = newloc
+                EntityGrid.AddIndex(X, Entities.Item(X).locationOnCollection)
+
+
                 Entities.Item(X).location = Entities.Item(X).NewLocation
             End If
         Next

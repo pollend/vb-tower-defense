@@ -7,6 +7,7 @@ Public Class SelectingBitmap
     Private ActiveBitmap As Boolean = False
     Public location As Point
 
+
     Public Function getheight() As Decimal
         Return OnBitmap.Height * VectorFormula.scaling
     End Function
@@ -22,15 +23,15 @@ Public Class SelectingBitmap
 
         'coords of the button
         Dim left As Integer = location.X
-        Dim right As Integer = location.X + OnBitmap.Width
+        Dim right As Integer = location.X + (OnBitmap.Width * VectorFormula.scaling)
         Dim top As Integer = location.Y
-        Dim bot As Integer = location.Y + OnBitmap.Height
+        Dim bot As Integer = location.Y + (OnBitmap.Height * VectorFormula.scaling)
+        'testing if the mouse if over the button
+        If Form1.MousePosition.X - Form1.CameraLocation.X > left And Form1.MousePosition.X - (OnBitmap.Width * VectorFormula.scaling) - Form1.CameraLocation.X < left And Form1.MousePosition.Y - Form1.CameraLocation.Y > top And Form1.MousePosition.Y - (OnBitmap.Height * VectorFormula.scaling) - Form1.CameraLocation.Y < bot Then
 
-
-
-        If Form1.MousePosition.X + location.X > left And Form1.MousePosition.Y + location.Y > top And Form1.MousePosition.Y + location.Y < bot And Form1.MousePosition.X + location.X < right Then
             Return True
         Else
+
             Return False
         End If
 
@@ -52,7 +53,6 @@ Public Class SelectingBitmap
 
 
     Public Sub Draw(ByVal e As System.Windows.Forms.PaintEventArgs)
-
 
 
         If ActiveBitmap = True Then

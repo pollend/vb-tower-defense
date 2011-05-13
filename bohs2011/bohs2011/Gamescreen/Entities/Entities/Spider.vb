@@ -3,7 +3,7 @@
     Public randomGenerator As Random = New Random()
     Public Sub New(ByVal setlocation As Point)
         MyBase.New(setlocation)
-        Size = New Point(10, 10)
+        Size = New Point(50, 50)
 
 
 
@@ -15,6 +15,9 @@
         If Not (Getturrets Is Nothing) Then
 
             For index = 0 To Getturrets.Count - 1
+                If (index > Getturrets.Count - 1) Then
+                    Exit For
+                End If
                 If (TurretManager.Turrets.Item(Getturrets.Item(index)).Dead = False) Then
 
                     If (TurretManager.Turrets.Item(Getturrets.Item(index)).CollisionRectangle.IntersectsWith(New Rectangle(location, New Size(20 * VectorFormula.scaling, 20 * VectorFormula.scaling)))) Then
