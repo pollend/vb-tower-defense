@@ -26,10 +26,10 @@ Partial Class Form1
         Me.UpdateEvent = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
-        'Update
+        'UpdateEvent
         '
         Me.UpdateEvent.Enabled = True
-        Me.UpdateEvent.Interval = 1
+        Me.UpdateEvent.Interval = 41
         '
         'Form1
         '

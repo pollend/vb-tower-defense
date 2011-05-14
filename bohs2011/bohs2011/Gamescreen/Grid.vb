@@ -52,8 +52,7 @@
             'runs through the grid and finds the index
             If (grid(Location.X).Item(Location.Y).Item(MYIndex) = Index) Then
                 grid(Location.X).Item(Location.Y).RemoveAt(MYIndex)
-                MYIndex -= 1
-                Continue For
+                Exit For
             End If
 
         Next

@@ -20,7 +20,6 @@ Public Class FastFireTurrets
 
     Public Overrides Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
         e.Graphics.DrawImage(FastFireAssets.Bottom, Me.location)
-        e.Graphics.DrawRectangle(Pens.Black, New Rectangle(Me.location, New Point(Me.CollisionRectangle.Width, Me.CollisionRectangle.Height)))
 
         'makes the turret follow the entity  
         e.Graphics.TranslateTransform(location.X + 15 * VectorFormula.scaling, location.Y + 15 * VectorFormula.scaling)

@@ -1,5 +1,6 @@
 ﻿Public Enum Turretype
     fastfire
+
 End Enum
 
 Public Class SpawnTurrets

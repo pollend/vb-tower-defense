@@ -10,6 +10,6 @@
     End Sub
 
     Public Function Update() As Screens Implements IScreen.Update
-        Return Screens.GameScreen
+        Return Screens.MenuScreen
     End Function
 End Class

@@ -50,6 +50,7 @@
 
                 EntityGrid.RemoveIndexe(X, Entities.Item(X).locationOnCollection)
                 Entities.Item(X).locationOnCollection = newloc
+
                 EntityGrid.AddIndex(X, Entities.Item(X).locationOnCollection)
 
 
