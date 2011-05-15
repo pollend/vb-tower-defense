@@ -2,7 +2,7 @@
     Private grid As List(Of List(Of List(Of Integer))) = New List(Of List(Of List(Of Integer)))()
     Private width As Integer
     Private height As Integer
-
+    Public Shared GridSpacing = 50
     Public Function GetWidth()
         Return width
     End Function
@@ -13,8 +13,8 @@
     Public Sub New(ByVal width As Integer, ByVal height As Integer)
         Me.width = width
         Me.height = height
-        Dim X As Integer = width / 100
-        Dim Y As Integer = height / 100
+        Dim X As Integer = width / GridSpacing
+        Dim Y As Integer = height / GridSpacing
 
         For XWidth = 0 To X + 1
             grid.Add(New List(Of List(Of Integer)))

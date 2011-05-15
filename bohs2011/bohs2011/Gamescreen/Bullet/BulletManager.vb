@@ -21,7 +21,7 @@
                 Continue For
             End If
 
-            Dim entities As List(Of Integer) = EntityManager.EntityGrid.getIndexes(New Point((bullets.Item(index).location.X + (bullets.Item(index).size.X / 2)) / 100, (bullets.Item(index).location.Y + (bullets.Item(index).size.Y / 2)) / 100))
+            Dim entities As List(Of Integer) = EntityManager.EntityGrid.getIndexes(New Point((bullets.Item(index).location.X + (bullets.Item(index).size.X / 2)) / Grid.GridSpacing, (bullets.Item(index).location.Y + (bullets.Item(index).size.Y / 2)) / Grid.GridSpacing))
             If Not (entities Is Nothing) Then
                 For Entitiyindex = 0 To entities.Count - 1
                     If (Entitiyindex > 0 And Entitiyindex < entities.Count - 1) Then

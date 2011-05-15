@@ -17,17 +17,35 @@ Public Class SelectingBitmap
     Public Sub SetSelection(ByVal selecting As Boolean)
         ActiveBitmap = selecting
     End Sub
+    Public Function mouseover(ByVal Xreduce As Decimal, ByVal Yreduce As Decimal) As Boolean
 
+
+        'coords of the button
+        Dim left As Integer = location.X * Xreduce
+        Dim right As Integer = (location.X + (getWidth())) * Xreduce
+        Dim top As Integer = (location.Y) * Yreduce
+        Dim bot As Integer = (location.Y + (getheight())) * Yreduce
+        'testing if the mouse if over the button
+        If Form1.MousePosition.X - Form1.CameraLocation.X > left And Form1.MousePosition.X - Form1.CameraLocation.X < right And Form1.MousePosition.Y - Form1.CameraLocation.Y > top And Form1.MousePosition.Y - Form1.CameraLocation.Y < bot Then
+
+            Return True
+        Else
+
+            Return False
+        End If
+
+
+    End Function
     Public Function mouseover() As Boolean
 
 
         'coords of the button
         Dim left As Integer = location.X
-        Dim right As Integer = location.X + (OnBitmap.Width * VectorFormula.scaling)
+        Dim right As Integer = location.X + (getWidth())
         Dim top As Integer = location.Y
-        Dim bot As Integer = location.Y + (OnBitmap.Height * VectorFormula.scaling)
+        Dim bot As Integer = location.Y + (getheight())
         'testing if the mouse if over the button
-        If Form1.MousePosition.X - Form1.CameraLocation.X > left And Form1.MousePosition.X - (OnBitmap.Width * VectorFormula.scaling) - Form1.CameraLocation.X < left And Form1.MousePosition.Y - Form1.CameraLocation.Y > top And Form1.MousePosition.Y - (OnBitmap.Height * VectorFormula.scaling) - Form1.CameraLocation.Y < bot Then
+        If Form1.MousePosition.X - Form1.CameraLocation.X > left And Form1.MousePosition.X - Form1.CameraLocation.X < right And Form1.MousePosition.Y - Form1.CameraLocation.Y > top And Form1.MousePosition.Y - Form1.CameraLocation.Y < bot Then
 
             Return True
         Else

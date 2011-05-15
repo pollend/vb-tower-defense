@@ -24,8 +24,8 @@
 
     End Sub
     Protected Function findentity(ByVal distance As Integer) As Point
-        Dim IndexDistance As Integer = (distance / 100)
-        Dim myloc As Point = New Point(Me.location.X / 100, Me.location.Y / 100)
+        Dim IndexDistance As Integer = (distance / Grid.GridSpacing)
+        Dim myloc As Point = New Point(Me.location.X / Grid.GridSpacing, Me.location.Y / Grid.GridSpacing)
         Dim random As Random = New Random()
 
         For X = myloc.X - IndexDistance To myloc.X + IndexDistance + IndexDistance

@@ -11,7 +11,7 @@
     Public Overrides Sub Update(ByVal index As Integer)
 
         'check for collisions with turret
-        Dim Getturrets As List(Of Integer) = TurretManager.TurretGrid.getIndexes(New Point(Me.location.X / 100, Me.location.Y / 100))
+        Dim Getturrets As List(Of Integer) = TurretManager.TurretGrid.getIndexes(New Point(Me.location.X / Grid.GridSpacing, Me.location.Y / Grid.GridSpacing))
         If Not (Getturrets Is Nothing) Then
 
             For index = 0 To Getturrets.Count - 1

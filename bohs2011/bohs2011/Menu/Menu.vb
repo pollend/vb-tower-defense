@@ -2,10 +2,10 @@
     Implements IScreen
     Private logo As Bitmap = New Bitmap("Menu\Assets\logo.png")
 
-    Private start As SelectingBitmap = New SelectingBitmap("Menu\Assets\Start\start_On.png", "Menu\Assets\Start\start_Off.png", New Point(250, 200))
-    Private Instructions As SelectingBitmap = New SelectingBitmap("C:\Users\Michael pollind\Desktop\bohs-game\bohs2011\bohs2011\Menu\Assets\instructions\instrutions_On.png", "C:\Users\Michael pollind\Desktop\bohs-game\bohs2011\bohs2011\Menu\Assets\instructions\instrutions_off.png", New Point(250, 200))
-    Private Help As SelectingBitmap = New SelectingBitmap("Menu\Assets\Start\start_On.png", "Menu\Assets\Start\start_Off.png", New Point(250, 200))
-    Private Quit As SelectingBitmap = New SelectingBitmap("Menu\Assets\Start\start_On.png", "Menu\Assets\Start\start_Off.png", New Point(250, 200))
+    Private start As SelectingBitmap = New SelectingBitmap("Menu\Assets\Start\start_On.png", "Menu\Assets\Start\start_Off.png", New Point(350, 200))
+    Private Instructions As SelectingBitmap = New SelectingBitmap("Menu\Assets\instructions\instrutions_On.png", "Menu\Assets\instructions\instrutions_off.png", New Point(350, 300))
+    Private Help As SelectingBitmap = New SelectingBitmap("Menu\Assets\Help\help_On.png", "Menu\Assets\Help\help_Off.png", New Point(350, 400))
+    Private Quit As SelectingBitmap = New SelectingBitmap("Menu\Assets\Quit\quite_on.png", "Menu\Assets\Quit\quite_Off.png", New Point(350, 500))
 
 
     Private frame As Integer
@@ -51,6 +51,30 @@
             frame = 0
         End If
         frame += 1
+
+        If (start.mouseover(Form1.Width / (800 * VectorFormula.scaling), Form1.Height / (600 * VectorFormula.scaling))) Then
+            start.SetSelection(True)
+            If (start.MouseLeftClick()) Then
+                Return Screens.GameScreen
+            End If
+        Else
+            start.SetSelection(False)
+        End If
+        If (Help.mouseover(Form1.Width / (800 * VectorFormula.scaling), Form1.Height / (600 * VectorFormula.scaling))) Then
+            Help.SetSelection(True)
+        Else
+            Help.SetSelection(False)
+        End If
+        If (Quit.mouseover(Form1.Width / (800 * VectorFormula.scaling), Form1.Height / (600 * VectorFormula.scaling))) Then
+            Quit.SetSelection(True)
+        Else
+            Quit.SetSelection(False)
+        End If
+        If (Instructions.mouseover(Form1.Width / (800 * VectorFormula.scaling), Form1.Height / (600 * VectorFormula.scaling))) Then
+            Instructions.SetSelection(True)
+        Else
+            Instructions.SetSelection(False)
+        End If
         Return Screens.MenuScreen
     End Function
 End Class

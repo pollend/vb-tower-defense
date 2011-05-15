@@ -22,10 +22,10 @@
 
 
         Dim TilesOn(3) As Point
-        TilesOn(0) = New Point(location.X / 100, location.Y / 100)
-        TilesOn(1) = New Point((location.X + rect.Width) / 100, location.Y / 100)
-        TilesOn(2) = New Point(location.X / 100, (location.Y + rect.Height) / 100)
-        TilesOn(3) = New Point((location.X + rect.Width) / 100, (location.Y + rect.Height) / 100)
+        TilesOn(0) = New Point(location.X / Grid.GridSpacing, location.Y / Grid.GridSpacing)
+        TilesOn(1) = New Point((location.X + rect.Width) / Grid.GridSpacing, location.Y / Grid.GridSpacing)
+        TilesOn(2) = New Point(location.X / Grid.GridSpacing, (location.Y + rect.Height) / Grid.GridSpacing)
+        TilesOn(3) = New Point((location.X + rect.Width) / Grid.GridSpacing, (location.Y + rect.Height) / Grid.GridSpacing)
         'weeds out duplicate indexes
         Dim emptypoint As Point = New Point(-1, -1)
         For SelectedTile = 0 To TilesOn.Length - 1

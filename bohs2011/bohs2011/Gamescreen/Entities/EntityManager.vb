@@ -46,7 +46,7 @@
 
 
                 Entities.Item(X).Update(X)
-                Dim newloc As Point = New Point(Entities.Item(X).NewLocation.X / 100, Entities.Item(X).location.Y / 100)
+                Dim newloc As Point = New Point(Entities.Item(X).NewLocation.X / Grid.GridSpacing, Entities.Item(X).location.Y / Grid.GridSpacing)
 
                 EntityGrid.RemoveIndexe(X, Entities.Item(X).locationOnCollection)
                 Entities.Item(X).locationOnCollection = newloc
