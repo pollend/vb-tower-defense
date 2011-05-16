@@ -1,5 +1,5 @@
 ﻿Public Class EntityManager
-    Public Shared Spider As Bitmap = New Bitmap("Gamescreen\Entities\Entities\Spider\monster.png")
+
 
     'random
     Private random As Random = New Random(Now.Millisecond())
@@ -15,6 +15,8 @@
     Public Sub Load()
         start.Add(New Point(0, 0))
         start.Add(New Point(1, 0))
+        'sets up assets for monsters
+        GooAssets.SetUp()
     End Sub
 
     Public Shared Function GetCollisionRect(ByVal index As Integer) As Rectangle
@@ -39,7 +41,7 @@
     End Sub
     Public Sub Update()
 
-        AddEntity(New Spider(New Point(0, 0)))
+        AddEntity(New Goo(New Point(0, 0)))
 
         For X = 0 To Entities.Count() - 1
             If (Entities.Item(X).Dead = False) Then

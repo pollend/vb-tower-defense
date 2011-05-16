@@ -84,12 +84,13 @@
     <Compile Include="Gamescreen\Bullet\Bullets.vb" />
     <Compile Include="Gamescreen\Bullet\Bullets\FastFire\FastfireBullet.vb" />
     <Compile Include="Gamescreen\Camera.vb" />
+    <Compile Include="Gamescreen\Entities\Entities\Goo\Goo.vb" />
     <Compile Include="Gamescreen\Turrets\Turrets\FastFireTurrets\FastFireTurrets.vb" />
     <Compile Include="Gamescreen\Turrets\SpawnTurret\SpawnTurrets.vb" />
     <Compile Include="Gamescreen\Entities\Entity.vb" />
     <Compile Include="Gamescreen\Entities\EntityManager.vb" />
     <Compile Include="Gamescreen\Entities\PointGrid.vb" />
-    <Compile Include="Gamescreen\Entities\Entities\Spider.vb" />
+    <Compile Include="Gamescreen\Entities\Entities\Spider\Spider.vb" />
     <Compile Include="Gamescreen\GameScreen.vb" />
     <Compile Include="Gamescreen\Grid.vb" />
     <Compile Include="Gamescreen\Map\Map.vb" />
@@ -142,13 +143,25 @@
     <Content Include="Gamescreen\Bullet\Bullets\FastFire\Assets\bullet1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Gamescreen\Entities\Entities\Goo\Goo1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Entities\Entities\Goo\Goo2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Entities\Entities\Goo\Goo3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Entities\Entities\Goo\Goo4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Entities\Entities\Goo\Goo5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Gamescreen\Turrets\Turrets\FastFireTurrets\Assets\FastfireTurretTop.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Gamescreen\Bullet\Bullets\FastFire\Assets\monster.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Gamescreen\Entities\Entities\Spider\monster.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Gamescreen\Map\Maps\map.png">
@@ -163,346 +176,136 @@
     <Content Include="Gamescreen\Turrets\Turrets\FastFireTurrets\Assets\FastfireTurretBottom.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Assets\Help\help_Off.png">
+    <Content Include="Menu\Assets\Cursor.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Assets\Help\help_On.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Assets\instructions\instrutions_off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Assets\instructions\instrutions_On.png">
+    <Content Include="Menu\Assets\Help\Help.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Menu\Assets\logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Assets\Quit\quite_Off.png">
+    <Content Include="Menu\Assets\Options\Options.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Assets\Quit\quite_on.png">
+    <Content Include="Menu\Assets\Quit\Exit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Assets\Start\start_Off.png">
+    <Content Include="Menu\Assets\Start\Start.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Assets\Start\start_On.png">
+    <Content Include="Menu\Assets\Static\Static 01.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 001.png">
+    <Content Include="Menu\Assets\Static\Static 02.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 002.png">
+    <Content Include="Menu\Assets\Static\Static 03.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 003.png">
+    <Content Include="Menu\Assets\Static\Static 04.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 004.png">
+    <Content Include="Menu\Assets\Static\Static 05.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 005.png">
+    <Content Include="Menu\Assets\Static\Static 06.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 006.png">
+    <Content Include="Menu\Assets\Static\Static 07.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 007.png">
+    <Content Include="Menu\Assets\Static\Static 08.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 008.png">
+    <Content Include="Menu\Assets\Static\Static 09.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 009.png">
+    <Content Include="Menu\Assets\Static\Static 10.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 010.png">
+    <Content Include="Menu\Assets\Static\Static 11.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 011.png">
+    <Content Include="Menu\Assets\Static\Static 12.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 012.png">
+    <Content Include="Menu\Assets\Static\Static 13.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 013.png">
+    <Content Include="Menu\Assets\Static\Static 14.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 014.png">
+    <Content Include="Menu\Assets\Static\Static 15.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 015.png">
+    <Content Include="Menu\Assets\Static\Static 16.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 016.png">
+    <Content Include="Menu\Assets\Static\Static 17.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 017.png">
+    <Content Include="Menu\Assets\Static\Static 18.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 018.png">
+    <Content Include="Menu\Assets\Static\Static 19.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 019.png">
+    <Content Include="Menu\Assets\Static\Static 20.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 020.png">
+    <Content Include="Menu\Assets\Static\Static 21.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 021.png">
+    <Content Include="Menu\Assets\Static\Static 22.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 022.png">
+    <Content Include="Menu\back.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 023.png">
+    <Content Include="Menu\Background\Overlay 001.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 024.png">
+    <Content Include="Menu\Background\Overlay 002.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 025.png">
+    <Content Include="Menu\Background\Overlay 003.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 026.png">
+    <Content Include="Menu\Background\Overlay 004.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 027.png">
+    <Content Include="Menu\Background\Overlay 005.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 028.png">
+    <Content Include="Menu\Background\Overlay 006.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 029.png">
+    <Content Include="Menu\Background\Overlay 007.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 030.png">
+    <Content Include="Menu\Background\Overlay 008.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 031.png">
+    <Content Include="Menu\Background\Overlay 009.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 032.png">
+    <Content Include="Menu\Background\Overlay 010.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 033.png">
+    <Content Include="Menu\Background\Overlay 011.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 034.png">
+    <Content Include="Menu\Background\Overlay 012.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 035.png">
+    <Content Include="Menu\Background\Overlay 013.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 036.png">
+    <Content Include="Menu\Background\Overlay 014.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu\Background\Background 037.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 038.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 039.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 040.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 041.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 042.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 043.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 044.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 045.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 046.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 047.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 048.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 049.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 050.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 051.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 052.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 053.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 054.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 055.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 056.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 057.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 058.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 059.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 060.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 061.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 062.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 063.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 064.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 065.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 066.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 067.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 068.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 069.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 070.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 071.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 072.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 073.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 074.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 075.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 076.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 077.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 078.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 079.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 080.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 081.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 082.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 083.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 084.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 085.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 086.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 087.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 088.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 089.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 090.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 091.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 092.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 093.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 094.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 095.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 096.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 097.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 098.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 099.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 100.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 101.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 102.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 103.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 104.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menu\Background\Background 105.png">
+    <Content Include="Menu\Background\Overlay 015.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Menu\start_Off.png" />
