@@ -85,6 +85,9 @@
     <Compile Include="Gamescreen\Bullet\Bullets\FastFire\FastfireBullet.vb" />
     <Compile Include="Gamescreen\Camera.vb" />
     <Compile Include="Gamescreen\Entities\Entities\Goo\Goo.vb" />
+    <Compile Include="Gamescreen\Entities\WaveManagment.vb" />
+    <Compile Include="Gamescreen\Particles\particle.vb" />
+    <Compile Include="Gamescreen\Particles\ParticleManager.vb" />
     <Compile Include="Gamescreen\Turrets\Turrets\FastFireTurrets\FastFireTurrets.vb" />
     <Compile Include="Gamescreen\Turrets\SpawnTurret\SpawnTurrets.vb" />
     <Compile Include="Gamescreen\Entities\Entity.vb" />
@@ -156,6 +159,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Gamescreen\Entities\Entities\Goo\Goo5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\clouds\clouds.png" />
+    <Content Include="Gamescreen\Turrets\SpawnTurret\Bottom\itemselect.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Gamescreen\Turrets\Turrets\FastFireTurrets\Assets\FastfireTurretTop.png">
@@ -312,7 +319,7 @@
     <Content Include="Menu\start_On.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Gamescreen\Particles\" />
+    <Folder Include="Gamescreen\Turrets\Turrets\Blast\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

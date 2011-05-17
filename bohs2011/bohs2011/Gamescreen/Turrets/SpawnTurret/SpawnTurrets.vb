@@ -4,7 +4,7 @@
 End Enum
 
 Public Class SpawnTurrets
-
+    Private bottom As Bitmap = New Bitmap("Gamescreen\Turrets\SpawnTurret\Bottom\itemselect.png")
     Public Turrets As Turretype
     Private AllowsToBeSet As Boolean
     Public SelectedTurret As Turretype
@@ -45,7 +45,7 @@ Public Class SpawnTurrets
 
                 End Select
 
-               
+
             End If
 
         End If
@@ -57,7 +57,7 @@ Public Class SpawnTurrets
         'draw rectangle
         Dim Locationrelativetoboard As Point = New Point(Form.MousePosition.X - Form1.CameraLocation.X, Form.MousePosition.Y - Form1.CameraLocation.Y)
         e.Graphics.DrawRectangle(Pens.Black, New Rectangle(Locationrelativetoboard.X - (29 / 2), Locationrelativetoboard.Y - (30 / 2), 29, 30))
-
+        e.Graphics.DrawImage(bottom, New Point(-Form1.CameraLocation.X + (-(bottom.Width * VectorFormula.scaling) / 2) + (Form1.Width() / 2), -Form1.CameraLocation.Y + Form1.Height - (bottom.Height * VectorFormula.scaling)))
         'DRAW
         turretA.Draw(e)
     End Sub

@@ -2,7 +2,7 @@
     Private grid As List(Of List(Of List(Of Integer))) = New List(Of List(Of List(Of Integer)))()
     Private width As Integer
     Private height As Integer
-    Public Shared GridSpacing = 50
+    Public Shared GridSpacing = 100
     Public Function GetWidth()
         Return width
     End Function

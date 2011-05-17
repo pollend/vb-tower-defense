@@ -28,8 +28,7 @@
 
         map.Draw(e)
 
-        'draw buttons
-        spawnturret.Draw(e)
+
 
         'draw the entities
         entitymanager.paint(e)
@@ -40,6 +39,8 @@
         'draws the bullets
         bullets.Draw(e)
 
+        'draw buttons
+        spawnturret.Draw(e)
     End Sub
 
     Public Function Update() As Screens Implements IScreen.Update
