@@ -13,6 +13,9 @@
     'spawning turret manger
     Private spawnturret As SpawnTurrets = New SpawnTurrets()
 
+    'manages the waves
+    Private wave As WaveManagment = New WaveManagment()
+
     Private map As New Map
     Public Sub Load() Implements IScreen.Load
         'sets points on point grid
@@ -22,6 +25,7 @@
         entitymanager.Load()
 
         '
+        TurretManager.Load()
     End Sub
 
     Public Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs) Implements IScreen.Paint
@@ -44,6 +48,8 @@
     End Sub
 
     Public Function Update() As Screens Implements IScreen.Update
+        wave.Update()
+
         'paints the turret
         TurretManager.Update()
 

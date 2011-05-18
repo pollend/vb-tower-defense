@@ -17,7 +17,9 @@
         'rotates the turret head
         Dim mydist As Decimal = Distance(location, PointToGoTo)
         Dim ydist As Decimal = (location.X - PointToGoTo.X)
-
+        If (ydist = 0) Then
+            Return Decimal.Zero
+        End If
 
         Dim myrot As Decimal = Math.Acos(ydist / mydist)
         If (location.Y < PointToGoTo.Y) Then

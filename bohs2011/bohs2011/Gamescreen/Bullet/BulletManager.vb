@@ -27,12 +27,10 @@
                     If (Entitiyindex > 0 And Entitiyindex < entities.Count - 1) Then
 
                         If (EntityManager.Entities.Item(entities(Entitiyindex)).Dead = False) Then
-                            If (index > bullets.Count - 1) Then
-                                Exit For
-                            End If
+       
                             If (New Rectangle(EntityManager.Entities.Item(entities(Entitiyindex)).location, EntityManager.Entities.Item(entities(Entitiyindex)).Size)).IntersectsWith(New Rectangle(bullets.Item(index).location, bullets.Item(index).size)) Then
                                 bullets.RemoveAt(index)
-                                EntityManager.KillEntiy(entities(Entitiyindex))
+                                EntityManager.Entities(entities(Entitiyindex)).heath -= bullets.Item(index).dmg
 
                                 Continue For
 

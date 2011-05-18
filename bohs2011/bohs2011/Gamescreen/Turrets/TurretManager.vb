@@ -2,13 +2,19 @@
     Public Shared TurretGrid As Grid = New Grid(1000 * 1.3, 1000 * 1.3)
     Public Shared Turrets As List(Of Turret) = New List(Of Turret)
     Public Shared DeadTurrets As List(Of Integer) = New List(Of Integer)
+    Public Sub New()
+
+    End Sub
+    Public Sub Load()
+        'sets up the blast assets
+        BlastAssets.SetUp()
+    End Sub
     Public Shared Sub AddDeadTurret(ByVal index As Integer)
         Turrets.Item(index).Dead = True
 
         For linkedto = 0 To Turrets.Item(index).TilesLinkedTo.Count - 1
             TurretGrid.RemoveIndexe(index, Turrets.Item(index).TilesLinkedTo.Item(linkedto))
         Next
-
 
         DeadTurrets.Add(index)
     End Sub

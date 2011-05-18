@@ -14,6 +14,7 @@
     'location with the new location
     Public location As Point = New Point(0, 0)
 
+    Private speed As Integer
     'the set location
     Public NewLocation As Point
     Public random As Random = New Random(Now.Millisecond)
@@ -39,6 +40,10 @@
         End If
         NewLocation += VectorFormula.MoveInDirection(Me.pointToGoTo, location, 1, New Point(0, 0))
 
+
+        If (heath <= 0) Then
+            Me.Dead = True
+        End If
         'check for collisions with turret
         Dim Getturrets As List(Of Integer) = TurretManager.TurretGrid.getIndexes(New Point(Me.location.X / Grid.GridSpacing, Me.location.Y / Grid.GridSpacing))
         If Not (Getturrets Is Nothing) Then
@@ -50,7 +55,7 @@
                 If (TurretManager.Turrets.Item(Getturrets.Item(index)).Dead = False) Then
 
                     If (TurretManager.Turrets.Item(Getturrets.Item(index)).CollisionRectangle.IntersectsWith(New Rectangle(location, New Size(20 * VectorFormula.scaling, 20 * VectorFormula.scaling)))) Then
-                        NewLocation -= VectorFormula.MoveAwayDirection(TurretManager.Turrets.Item(Getturrets.Item(index)).location + New Point((TurretManager.Turrets.Item(Getturrets.Item(index)).CollisionRectangle.Width / 2), (TurretManager.Turrets.Item(Getturrets.Item(index)).CollisionRectangle.Height / 2)), Me.location, 5, New Point(0, 0))
+                        NewLocation -= VectorFormula.MoveAwayDirection(TurretManager.Turrets.Item(Getturrets.Item(index)).location + New Point((TurretManager.Turrets.Item(Getturrets.Item(index)).CollisionRectangle.Width / 2), (TurretManager.Turrets.Item(Getturrets.Item(index)).CollisionRectangle.Height / 2)), Me.location, 3, New Point(0, 0))
                         TurretManager.AddDeadTurret(Getturrets.Item(index))
                         pointToGoTo = New Point(random.Next(-5, 5), random.Next(-5, 5)) + pointToGoTo
                     End If

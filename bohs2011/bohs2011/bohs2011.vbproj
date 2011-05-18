@@ -85,14 +85,16 @@
     <Compile Include="Gamescreen\Bullet\Bullets\FastFire\FastfireBullet.vb" />
     <Compile Include="Gamescreen\Camera.vb" />
     <Compile Include="Gamescreen\Entities\Entities\Goo\Goo.vb" />
-    <Compile Include="Gamescreen\Entities\WaveManagment.vb" />
+    <Compile Include="Gamescreen\Entities\Entities\Mech\Mech.vb" />
+    <Compile Include="Gamescreen\Entities\WaveManager\WaveManagment.vb" />
     <Compile Include="Gamescreen\Particles\particle.vb" />
     <Compile Include="Gamescreen\Particles\ParticleManager.vb" />
+    <Compile Include="Gamescreen\Turrets\Turrets\Blast\Blast.vb" />
     <Compile Include="Gamescreen\Turrets\Turrets\FastFireTurrets\FastFireTurrets.vb" />
     <Compile Include="Gamescreen\Turrets\SpawnTurret\SpawnTurrets.vb" />
     <Compile Include="Gamescreen\Entities\Entity.vb" />
     <Compile Include="Gamescreen\Entities\EntityManager.vb" />
-    <Compile Include="Gamescreen\Entities\PointGrid.vb" />
+    <Compile Include="Gamescreen\Map\PointGrid.vb" />
     <Compile Include="Gamescreen\Entities\Entities\Spider\Spider.vb" />
     <Compile Include="Gamescreen\GameScreen.vb" />
     <Compile Include="Gamescreen\Grid.vb" />
@@ -161,8 +163,65 @@
     <Content Include="Gamescreen\Entities\Entities\Goo\Goo5.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Gamescreen\Entities\Entities\Mech\Mech1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Entities\Entities\Mech\Mech2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Entities\Entities\Mech\Mech3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Entities\Entities\Mech\Mech4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Entities\Entities\Mech\Mech5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Entities\Entities\Mech\Mech6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Entities\Entities\Mech\Mech7.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Entities\Entities\Mech\Mech8.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Entities\Entities\Spider\spider2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Entities\Entities\Spider\spider3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Entities\Entities\Spider\spider4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Entities\Entities\Spider\spider5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Gamescreen\Particles\ParticleTypes\clouds\clouds.png" />
     <Content Include="Gamescreen\Turrets\SpawnTurret\Bottom\itemselect.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\Blast\Assets\Bottom.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\Blast\Assets\Turret1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\Blast\Assets\Turret2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\Blast\Assets\Turret3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\Blast\Assets\Turret4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\Blast\Assets\Turret5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\Blast\Assets\Turret6.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Gamescreen\Turrets\Turrets\FastFireTurrets\Assets\FastfireTurretTop.png">
@@ -318,9 +377,7 @@
     <Content Include="Menu\start_Off.png" />
     <Content Include="Menu\start_On.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Gamescreen\Turrets\Turrets\Blast\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
