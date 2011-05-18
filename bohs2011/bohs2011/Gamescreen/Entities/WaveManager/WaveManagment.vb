@@ -107,6 +107,7 @@ Public Class WaveManagment
             Else
                 If (choosenpoint > percentofEnemyInwave.Item(index - 1) And (choosenpoint < percentofEnemyInwave.Item(index))) Then
                     SetEntity = index
+
                 End If
             End If
         Next
