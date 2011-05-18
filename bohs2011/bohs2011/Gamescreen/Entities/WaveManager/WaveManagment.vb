@@ -11,7 +11,10 @@ Public Class WaveManagment
     Private WaveLength As Integer = 50
     Private currentWaveLenght As Integer = 50
 
-    Private timeBetweenSpawn As Integer = 9
+    Private timeBetweenSpawn As Integer = 10
+
+    Private timeOfSpawn As Integer = 0
+    Private setTimeOfSpawn As Decimal = 5
 
     Private setvalues As Boolean = False
 
@@ -79,50 +82,60 @@ Public Class WaveManagment
             End If
         Next
 
+        setTimeOfSpawn -= 0.2
+        If (setTimeOfSpawn <= 0) Then
+            setTimeOfSpawn = 0
+        End If
 
     End Sub
     Private Sub SpawnEntities()
-        Dim SetEntity As Integer = 0
-        Dim SetPoint As Integer = 0
 
-        Dim choosenpoint As Integer = Random.Next(0, 1000)
-        Dim choosenEntity As Integer = Random.Next(0, 1000)
-        For index = 0 To start.Count - 1
-            If (index = 0) Then
-                If (choosenpoint < PercentOfStartSpawn.Item(index) And choosenpoint > 0) Then
-                    SetPoint = index
+        If (timeOfSpawn <= 0) Then
+            Dim SetEntity As Integer = 0
+            Dim SetPoint As Integer = 0
+
+            Dim choosenpoint As Integer = Random.Next(0, 1000)
+            Dim choosenEntity As Integer = Random.Next(0, 1000)
+            For index = 0 To start.Count - 1
+                If (index = 0) Then
+                    If (choosenpoint < PercentOfStartSpawn.Item(index) And choosenpoint > 0) Then
+                        SetPoint = index
+                    End If
+                Else
+                    If (choosenpoint > PercentOfStartSpawn.Item(index - 1) And (choosenpoint < PercentOfStartSpawn.Item(index))) Then
+                        SetPoint = index
+                    End If
                 End If
-            Else
-                If (choosenpoint > PercentOfStartSpawn.Item(index - 1) And (choosenpoint < PercentOfStartSpawn.Item(index))) Then
-                    SetPoint = index
+            Next
+
+            For index = 0 To EntitesInWave.Count - 1
+                If (index = 0) Then
+                    If (choosenpoint < percentofEnemyInwave.Item(index) And choosenpoint > 0) Then
+                        SetEntity = index
+                    End If
+                Else
+                    If (choosenpoint > percentofEnemyInwave.Item(index - 1) And (choosenpoint < percentofEnemyInwave.Item(index))) Then
+                        SetEntity = index
+
+                    End If
                 End If
-            End If
-        Next
+            Next
 
-        For index = 0 To EntitesInWave.Count - 1
-            If (index = 0) Then
-                If (choosenpoint < percentofEnemyInwave.Item(index) And choosenpoint > 0) Then
-                    SetEntity = index
-                End If
-            Else
-                If (choosenpoint > percentofEnemyInwave.Item(index - 1) And (choosenpoint < percentofEnemyInwave.Item(index))) Then
-                    SetEntity = index
+            Select Case EntitesInWave.Item(SetEntity)
+                Case TypesOfEntity.Spider
+                    EntityManager.AddEntity(New Spider(start(SetPoint)))
 
-                End If
-            End If
-        Next
+                Case TypesOfEntity.Mech
 
-        Select Case EntitesInWave.Item(SetEntity)
-            Case TypesOfEntity.Spider
-                EntityManager.AddEntity(New Spider(start(SetPoint)))
+                    EntityManager.AddEntity(New Mech(start(SetPoint)))
+                Case Else
 
-            Case TypesOfEntity.Mech
+            End Select
+            timeOfSpawn = setTimeOfSpawn
+        Else
+            timeOfSpawn -= 1
 
-                EntityManager.AddEntity(New Mech(start(SetPoint)))
-            Case Else
-
-        End Select
-
+        End If
 
     End Sub
 

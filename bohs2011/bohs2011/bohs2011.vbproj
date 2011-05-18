@@ -84,7 +84,6 @@
     <Compile Include="Gamescreen\Bullet\Bullets.vb" />
     <Compile Include="Gamescreen\Bullet\Bullets\FastFire\FastfireBullet.vb" />
     <Compile Include="Gamescreen\Camera.vb" />
-    <Compile Include="Gamescreen\Entities\Entities\Goo\Goo.vb" />
     <Compile Include="Gamescreen\Entities\Entities\Mech\Mech.vb" />
     <Compile Include="Gamescreen\Entities\WaveManager\WaveManagment.vb" />
     <Compile Include="Gamescreen\Particles\particle.vb" />
@@ -146,21 +145,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Gamescreen\Bullet\Bullets\FastFire\Assets\bullet1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Gamescreen\Entities\Entities\Goo\Goo1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Gamescreen\Entities\Entities\Goo\Goo2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Gamescreen\Entities\Entities\Goo\Goo3.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Gamescreen\Entities\Entities\Goo\Goo4.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Gamescreen\Entities\Entities\Goo\Goo5.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Gamescreen\Entities\Entities\Mech\Mech1.png">
