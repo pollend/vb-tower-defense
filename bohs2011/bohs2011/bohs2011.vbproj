@@ -101,6 +101,7 @@
     <Compile Include="Gamescreen\Turrets\Turret.vb" />
     <Compile Include="Gamescreen\Turrets\TurretManager.vb" />
     <Compile Include="Gamescreen\VectorFormula.vb" />
+    <Compile Include="Gamescreen\Globals.vb" />
     <Compile Include="IScreen.vb" />
     <Compile Include="Logo\Logo.vb" />
     <Compile Include="Menu\Menu.vb" />
@@ -184,7 +185,16 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Gamescreen\Particles\ParticleTypes\clouds\clouds.png" />
+    <Content Include="Gamescreen\Top\top.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Gamescreen\Turrets\SpawnTurret\Bottom\itemselect.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\FastFire\FastFire_Off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\FastFire\FastFire_On.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Gamescreen\Turrets\Turrets\Blast\Assets\Bottom.png">
@@ -211,16 +221,7 @@
     <Content Include="Gamescreen\Turrets\Turrets\FastFireTurrets\Assets\FastfireTurretTop.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Gamescreen\Bullet\Bullets\FastFire\Assets\monster.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Gamescreen\Map\Maps\map.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\Tower1\TurretAoff.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\Tower1\TurretAon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Gamescreen\Turrets\Turrets\FastFireTurrets\Assets\FastfireTurretBottom.png">

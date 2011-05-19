@@ -1,5 +1,8 @@
 ﻿Public Class GameScreen
     Implements IScreen
+    Private TopImage As Bitmap = New Bitmap("Gamescreen\Top\top.png")
+
+
     'manges the bullets
     Public bullets As BulletManager = New BulletManager()
 
@@ -32,8 +35,6 @@
 
         map.Draw(e)
 
-
-
         'draw the entities
         entitymanager.paint(e)
 
@@ -45,22 +46,30 @@
 
         'draw buttons
         spawnturret.Draw(e)
+        e.Graphics.DrawImage(TopImage, New Point((((Form1.Width) / 2) - (TopImage.Width / 2)) - Form1.CameraLocation.X, 0 - Form1.CameraLocation.Y))
+        e.Graphics.DrawString(Globals.cash, New Font("Arial", 5), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X + 50, 0 - Form1.CameraLocation.Y))
+        e.Graphics.DrawString(Globals.cash, New Font("Arial", 5), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X + 50, 15 - Form1.CameraLocation.Y))
+
     End Sub
 
     Public Function Update() As Screens Implements IScreen.Update
+        'updats the bullets
+        bullets.Update()
+
         wave.Update()
 
         'paints the turret
         TurretManager.Update()
 
-        entitymanager.Update()
+
         'updates the postion
         cam.UpdatePosition()
-        'updats the bullets
-        bullets.Update()
+    
 
         'updates the turrets
         spawnturret.Update()
+
+        entitymanager.Update()
         Return Screens.GameScreen
     End Function
 End Class

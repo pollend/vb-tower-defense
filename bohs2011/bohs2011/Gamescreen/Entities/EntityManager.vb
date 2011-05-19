@@ -15,7 +15,7 @@ Public Class EntityManager
     Public Sub Load()
 
         'sets up assets for monsters
-        GooAssets.SetUp()
+
         SpiderAssets.SetUp()
         MechAssets.SetUp()
     End Sub

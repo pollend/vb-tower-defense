@@ -19,6 +19,7 @@ Public Class WaveManagment
     Private setvalues As Boolean = False
 
 
+
     Private Random As Random = New Random(Now.Millisecond + Now.Minute + (Now.Minute * Now.Millisecond))
 
     'values in spawns and items
@@ -82,9 +83,9 @@ Public Class WaveManagment
             End If
         Next
 
-        setTimeOfSpawn -= 0.2
-        If (setTimeOfSpawn <= 0) Then
-            setTimeOfSpawn = 0
+        setTimeOfSpawn -= 0.01
+        If (setTimeOfSpawn <= 3) Then
+            setTimeOfSpawn = 3
         End If
 
     End Sub
@@ -147,8 +148,10 @@ Public Class WaveManagment
                 SpawnEntities()
                 WaveLength -= 1
             Else
-                TimeBetweenWaves = 20
-                setvalues = False
+                If (EntityManager.DeadEntites.Count - 1 = EntityManager.Entities.Count - 1) Then
+                    TimeBetweenWaves = 20
+                    setvalues = False
+                End If
             End If
         Else
             'sets up the entity spawn

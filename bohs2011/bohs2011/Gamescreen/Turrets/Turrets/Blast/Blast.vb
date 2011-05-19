@@ -1,5 +1,5 @@
 ﻿Public Class BlastAssets
-    Public Shared BlastAssets(10) As Bitmap
+    Public Shared BlastAssets(5) As Bitmap
     Public Shared Bottom As Bitmap = New Bitmap("Gamescreen\Turrets\Turrets\Blast\Assets\Bottom.png")
 
     Public Shared Sub SetUp()
@@ -15,13 +15,52 @@ End Class
 
 Public Class Blast
     Inherits Turret
+    Private timing As Integer
+    Private rand As Random = New Random()
+    Private pointingTo As Decimal
     Private frame As Integer
-    Private ActivateBlast As Integer
+    Private StartAnimation As Boolean
+
     Public Sub New()
         MyBase.New()
     End Sub
-    Public Sub New(ByRef turret As Blast)
+    Public Sub New(ByRef turret As FastFireTurrets)
         MyBase.New(turret)
 
+    End Sub
+
+    Public Overrides Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
+        e.Graphics.DrawImage(BlastAssets.Bottom, Me.location)
+
+        'makes the turret follow the entity  
+        e.Graphics.TranslateTransform(location.X + 25 * VectorFormula.scaling, location.Y + 25 * VectorFormula.scaling)
+        e.Graphics.RotateTransform(pointingTo)
+        e.Graphics.DrawImage(BlastAssets.BlastAssets(frame), New Point(-25 * VectorFormula.scaling, -25 * VectorFormula.scaling))
+        e.Graphics.ResetTransform()
+        e.Graphics.TranslateTransform(Form1.CameraLocation.X, Form1.CameraLocation.Y)
+        MyBase.Paint(e)
+    End Sub
+    Public Overrides Sub Update(ByVal index As Integer)
+        If (StartAnimation = True) Then
+            If (frame > 4) Then
+                frame = 0
+                StartAnimation = False
+            Else
+                frame += 1
+            End If
+        End If
+        timing += 1
+        If (timing > 15) Then
+            If Not (findentity(500) = New Point(-1, -1)) Then
+
+                pointingTo = VectorFormula.PointTo(Me.location, findentity(500))
+                BulletManager.AddBullet(New FastfireBullet(), New Point(Me.location + New Point(Me.CollisionRectangle.Width / 2, Me.CollisionRectangle.Height / 2)), VectorFormula.GoInDirectinalRadius(pointingTo, 20))
+                timing = 0
+                StartAnimation = True
+            End If
+
+        End If
+
+        MyBase.Update(index)
     End Sub
 End Class
