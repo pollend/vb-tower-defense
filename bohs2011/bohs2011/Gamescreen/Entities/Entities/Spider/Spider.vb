@@ -16,7 +16,7 @@ Public Class Spider
     Public Sub New(ByVal setlocation As Point)
         MyBase.New(setlocation)
         Size = New Point(50, 50)
-        heath = 5
+        heath = 30
 
     End Sub
     Public Overrides Sub Update(ByVal index As Integer)

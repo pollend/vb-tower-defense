@@ -148,10 +148,10 @@ Public Class WaveManagment
                 SpawnEntities()
                 WaveLength -= 1
             Else
-                If (EntityManager.DeadEntites.Count - 1 = EntityManager.Entities.Count - 1) Then
-                    TimeBetweenWaves = 20
-                    setvalues = False
-                End If
+                '    If (EntityManager.DeadEntites.Count - 1 = EntityManager.Entities.Count - 1) Then
+                TimeBetweenWaves = 20
+                setvalues = False
+                'End If
             End If
         Else
             'sets up the entity spawn

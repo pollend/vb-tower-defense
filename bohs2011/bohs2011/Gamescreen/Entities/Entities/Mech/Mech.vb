@@ -22,7 +22,7 @@ Public Class Mech
     Public Sub New(ByVal setlocation As Point)
         MyBase.New(setlocation)
         Size = New Point(50, 50)
-        Me.heath = 20
+        Me.heath = 50
 
 
     End Sub

@@ -8,6 +8,7 @@
     Public location As Point
     Public EnitiyToFollow As Integer
     Public CollisionRectangle As Rectangle
+
     Public Sub New()
 
     End Sub

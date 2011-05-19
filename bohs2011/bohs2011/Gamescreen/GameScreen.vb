@@ -23,7 +23,7 @@
     Public Sub Load() Implements IScreen.Load
         'sets points on point grid
         PointGrid.SetPoint()
-
+        Globals.cash = 1000
         'loads the entity manager
         entitymanager.Load()
 
@@ -47,7 +47,7 @@
         'draw buttons
         spawnturret.Draw(e)
         e.Graphics.DrawImage(TopImage, New Point((((Form1.Width) / 2) - (TopImage.Width / 2)) - Form1.CameraLocation.X, 0 - Form1.CameraLocation.Y))
-        e.Graphics.DrawString(Globals.cash, New Font("Arial", 5), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X + 50, 0 - Form1.CameraLocation.Y))
+        e.Graphics.DrawString(Globals.SavedHumans, New Font("Arial", 5), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X + 50, 0 - Form1.CameraLocation.Y))
         e.Graphics.DrawString(Globals.cash, New Font("Arial", 5), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X + 50, 15 - Form1.CameraLocation.Y))
 
     End Sub

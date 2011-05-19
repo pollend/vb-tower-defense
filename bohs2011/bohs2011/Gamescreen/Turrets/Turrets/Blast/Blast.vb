@@ -50,11 +50,11 @@ Public Class Blast
             End If
         End If
         timing += 1
-        If (timing > 15) Then
-            If Not (findentity(500) = New Point(-1, -1)) Then
+        If (timing > 30) Then
+            If Not (findentity(100) = New Point(-1, -1)) Then
 
-                pointingTo = VectorFormula.PointTo(Me.location, findentity(500))
-                BulletManager.AddBullet(New FastfireBullet(), New Point(Me.location + New Point(Me.CollisionRectangle.Width / 2, Me.CollisionRectangle.Height / 2)), VectorFormula.GoInDirectinalRadius(pointingTo, 20))
+                pointingTo = VectorFormula.PointTo(Me.location, findentity(100))
+                BulletManager.AddBullet(New BlastBullets(), New Point(Me.location + New Point(Me.CollisionRectangle.Width / 2, Me.CollisionRectangle.Height / 2)), VectorFormula.GoInDirectinalRadius(pointingTo, 20))
                 timing = 0
                 StartAnimation = True
             End If
