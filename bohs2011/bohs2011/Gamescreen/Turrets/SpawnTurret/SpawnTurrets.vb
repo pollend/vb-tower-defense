@@ -51,14 +51,19 @@ Public Class SpawnTurrets
             Select Case SelectedTurrets
                 Case Turretype.fastfire
                     If (Globals.cash >= 50) Then
-                        Globals.cash -= 50
-                        TurretManager.AddTurret(New FastFireTurrets, New Point(Locationrelativetoboard.X - (29 * VectorFormula.scaling / 2), Locationrelativetoboard.Y - (30 * VectorFormula.scaling / 2)), New Rectangle(0, 0, 29 * VectorFormula.scaling, 30 * VectorFormula.scaling))
+
+
+                        If (TurretManager.AddTurret(New FastFireTurrets, New Point(Locationrelativetoboard.X - (29 * VectorFormula.scaling / 2), Locationrelativetoboard.Y - (30 * VectorFormula.scaling / 2)), New Rectangle(0, 0, 29 * VectorFormula.scaling, 30 * VectorFormula.scaling)) = True) Then
+                            Globals.cash -= 50
+                        End If
 
                     End If
                 Case Turretype.Blast
                     If (Globals.cash >= 100) Then
-                        Globals.cash -= 50
-                        TurretManager.AddTurret(New Blast, New Point(Locationrelativetoboard.X - (50 * VectorFormula.scaling / 2), Locationrelativetoboard.Y - (50 * VectorFormula.scaling / 2)), New Rectangle(0, 0, 50 * VectorFormula.scaling, 50 * VectorFormula.scaling))
+
+                        If (TurretManager.AddTurret(New Blast, New Point(Locationrelativetoboard.X - (50 * VectorFormula.scaling / 2), Locationrelativetoboard.Y - (50 * VectorFormula.scaling / 2)), New Rectangle(0, 0, 50 * VectorFormula.scaling, 50 * VectorFormula.scaling)) = True) Then
+                            Globals.cash -= 50
+                        End If
                     End If
                 Case Else
 

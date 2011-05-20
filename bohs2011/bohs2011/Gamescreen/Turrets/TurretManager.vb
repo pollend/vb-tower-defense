@@ -2,6 +2,9 @@
     Public Shared TurretGrid As Grid = New Grid(1000 * 1.3, 1000 * 1.3)
     Public Shared Turrets As List(Of Turret) = New List(Of Turret)
     Public Shared DeadTurrets As List(Of Integer) = New List(Of Integer)
+    'the homebase
+    Public Shared HomeBase As HomeBase = New HomeBase()
+
     Public Sub New()
 
     End Sub
@@ -108,7 +111,7 @@
     End Function
     'paints all the turrets
     Public Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
-
+        HomeBase.Paint(e)
         For index = 0 To Turrets.Count - 1
             If (Turrets.Item(index).Dead = False) Then
 
@@ -120,6 +123,10 @@
     End Sub
     'updates all the turrets
     Public Sub Update()
+        HomeBase.Update(0)
+        If (HomeBase.Dead = True) Then
+            ' Globals.GameOver = True
+        End If
         For index = 0 To Turrets.Count - 1
             If (Turrets(index).Dead = False) Then
 

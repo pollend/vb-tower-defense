@@ -12,10 +12,11 @@ Public Class FastFireTurrets
 
     Public Sub New()
         MyBase.New()
+        Me.health = 30
     End Sub
     Public Sub New(ByRef turret As FastFireTurrets)
         MyBase.New(turret)
-
+        Me.health = 30
     End Sub
 
     Public Overrides Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
