@@ -8,19 +8,11 @@
     Public location As Point
     Public EnitiyToFollow As Integer
     Public health As Integer
-    Public CollisionRectangle As Rectangle
+    Public Size As Point
     Private maxHealth As Integer
 
     Public Sub New()
 
-    End Sub
-    Public Sub New(ByRef turret As Turret)
-        TilesLinkedTo = New List(Of Point)(turret.TilesLinkedTo)
-        Dead = turret.Dead
-        maxHealth = health
-        location = turret.location
-
-        CollisionRectangle = turret.CollisionRectangle
     End Sub
 
     Public Overridable Sub SetTurret(ByVal Location As Point)
@@ -62,7 +54,7 @@
             If (health <= 0) Then
                 Me.Dead = True
             End If
-            CollisionRectangle = New Rectangle(location.X, location.Y, CollisionRectangle.Width, CollisionRectangle.Height)
+
 
         End If
     End Sub

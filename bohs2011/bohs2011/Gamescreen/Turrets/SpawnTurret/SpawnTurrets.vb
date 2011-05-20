@@ -9,7 +9,7 @@ Public Class SpawnTurrets
 
     'button clases
     Public FastFire As SelectingBitmap = New SelectingBitmap("Gamescreen\Turrets\SpawnTurret\Buttons\FastFire\FastFire_On.png", "Gamescreen\Turrets\SpawnTurret\Buttons\FastFire\FastFire_Off.png", New Point(0, 0))
-    Public Blast As SelectingBitmap = New SelectingBitmap("Gamescreen\Turrets\SpawnTurret\Buttons\FastFire\FastFire_On.png", "Gamescreen\Turrets\SpawnTurret\Buttons\FastFire\FastFire_Off.png", New Point(0, 0))
+    Public Blast As SelectingBitmap = New SelectingBitmap("Gamescreen\Turrets\SpawnTurret\Buttons\Blast\BlastTurret_On.png", "Gamescreen\Turrets\SpawnTurret\Buttons\Blast\BlastTurret_Off.png", New Point(0, 0))
 
     Public Sub New()
 
@@ -53,7 +53,7 @@ Public Class SpawnTurrets
                     If (Globals.cash >= 50) Then
 
 
-                        If (TurretManager.AddTurret(New FastFireTurrets, New Point(Locationrelativetoboard.X - (29 * VectorFormula.scaling / 2), Locationrelativetoboard.Y - (30 * VectorFormula.scaling / 2)), New Rectangle(0, 0, 29 * VectorFormula.scaling, 30 * VectorFormula.scaling)) = True) Then
+                        If (TurretManager.AddTurret(New FastFireTurrets, New Point(Locationrelativetoboard.X - (29 * VectorFormula.scaling / 2), Locationrelativetoboard.Y - (30 * VectorFormula.scaling / 2)), New Point(29 * VectorFormula.scaling, 30 * VectorFormula.scaling)) = True) Then
                             Globals.cash -= 50
                         End If
 
@@ -61,7 +61,7 @@ Public Class SpawnTurrets
                 Case Turretype.Blast
                     If (Globals.cash >= 100) Then
 
-                        If (TurretManager.AddTurret(New Blast, New Point(Locationrelativetoboard.X - (50 * VectorFormula.scaling / 2), Locationrelativetoboard.Y - (50 * VectorFormula.scaling / 2)), New Rectangle(0, 0, 50 * VectorFormula.scaling, 50 * VectorFormula.scaling)) = True) Then
+                        If (TurretManager.AddTurret(New Blast, New Point(Locationrelativetoboard.X - (50 * VectorFormula.scaling / 2), Locationrelativetoboard.Y - (50 * VectorFormula.scaling / 2)), New Point(50 * VectorFormula.scaling, 50 * VectorFormula.scaling)) = True) Then
                             Globals.cash -= 50
                         End If
                     End If

@@ -1,19 +1,37 @@
-﻿Public Class HomeBase
+﻿Public Class HomeBaseAssets
+    Public Shared Rocket(5) As Bitmap
+    Public Shared Bottom As Bitmap
+    Public Shared Sub SetUp()
+        HomeBaseAssets.Bottom = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\bottomBase.png")
+
+        HomeBaseAssets.Rocket(0) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase1.png")
+        HomeBaseAssets.Rocket(1) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase2.png")
+        HomeBaseAssets.Rocket(2) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase3.png")
+        HomeBaseAssets.Rocket(3) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase4.png")
+        HomeBaseAssets.Rocket(4) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase5.png")
+        HomeBaseAssets.Rocket(5) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase6.png")
+    End Sub
+End Class
+
+Public Class HomeBase
     Inherits Turret
     Public Sub New()
+
         MyBase.New()
-    End Sub
-    Public Sub New(ByRef turret As FastFireTurrets)
-        MyBase.New(turret)
         Me.health = 100
+        Me.Dead = False
 
     End Sub
+
 
     Public Overrides Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
+        e.Graphics.DrawImage(HomeBaseAssets.Bottom, Me.location)
+
         MyBase.Paint(e)
     End Sub
     Public Overrides Sub Update(ByVal index As Integer)
         MyBase.Update(index)
+
     End Sub
 
 End Class

@@ -1,10 +1,10 @@
-﻿Public Class FastFireAssets
-    Public Shared Top = New Bitmap("Gamescreen\Turrets\Turrets\FastFireTurrets\Assets\FastfireTurretTop.png")
-    Public Shared Bottom = New Bitmap("Gamescreen\Turrets\Turrets\FastFireTurrets\Assets\FastfireTurretBottom.png")
+﻿Public Class SloMoAssets
+    Public Shared SloMoBottom As Bitmap = New Bitmap("Gamescreen\Turrets\Turrets\SloMoTurret\BottomSloMo.png")
+    Public Shared SloMoTop As Bitmap = New Bitmap("Gamescreen\Turrets\Turrets\SloMoTurret\TopSloMo.png")
 
 End Class
 
-Public Class FastFireTurrets
+Public Class SloMoTurret
     Inherits Turret
     Private timing As Integer
     Private rand As Random = New Random()
@@ -14,15 +14,15 @@ Public Class FastFireTurrets
         MyBase.New()
         Me.health = 30
     End Sub
-   
+
 
     Public Overrides Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
-        e.Graphics.DrawImage(FastFireAssets.Bottom, Me.location)
+        e.Graphics.DrawImage(SloMoAssets.SloMoBottom, Me.location)
 
         'makes the turret follow the entity  
         e.Graphics.TranslateTransform(location.X + 15 * VectorFormula.scaling, location.Y + 15 * VectorFormula.scaling)
         e.Graphics.RotateTransform(pointingTo)
-        e.Graphics.DrawImage(FastFireAssets.Top, New Point(-15 * VectorFormula.scaling, -15 * VectorFormula.scaling))
+        e.Graphics.DrawImage(SloMoAssets.SloMoTop, New Point(-15 * VectorFormula.scaling, -15 * VectorFormula.scaling))
         e.Graphics.ResetTransform()
         e.Graphics.TranslateTransform(Form1.CameraLocation.X, Form1.CameraLocation.Y)
         MyBase.Paint(e)

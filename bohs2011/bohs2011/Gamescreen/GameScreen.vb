@@ -31,6 +31,9 @@
         particle.Load()
         '
         TurretManager.Load()
+        TurretManager.AddTurret(New HomeBase(), PointGrid.Points.Item(3).Item(0).location, New Point(100 * VectorFormula.scaling, 100 * VectorFormula.scaling))
+
+
     End Sub
 
     Public Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs) Implements IScreen.Paint

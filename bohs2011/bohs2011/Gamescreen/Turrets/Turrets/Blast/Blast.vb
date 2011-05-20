@@ -23,11 +23,9 @@ Public Class Blast
 
     Public Sub New()
         MyBase.New()
+        Me.health = 50
     End Sub
-    Public Sub New(ByRef turret As FastFireTurrets)
-        MyBase.New(turret)
 
-    End Sub
 
     Public Overrides Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
         e.Graphics.DrawImage(BlastAssets.Bottom, Me.location)
@@ -51,10 +49,10 @@ Public Class Blast
         End If
         timing += 1
         If (timing > 30) Then
-            If Not (findentity(100) = New Point(-1, -1)) Then
+            If Not (findentity(300) = New Point(-1, -1)) Then
 
-                pointingTo = VectorFormula.PointTo(Me.location, findentity(100))
-                BulletManager.AddBullet(New BlastBullets(), New Point(Me.location + New Point(Me.CollisionRectangle.Width / 2, Me.CollisionRectangle.Height / 2)), VectorFormula.GoInDirectinalRadius(pointingTo, 20))
+                pointingTo = VectorFormula.PointTo(Me.location, findentity(300))
+                BulletManager.AddBullet(New BlastBullets(), New Point(Me.location + New Point(Me.Size.X / 2, Me.Size.Y / 2)), VectorFormula.GoInDirectinalRadius(pointingTo, 20))
                 timing = 0
                 StartAnimation = True
             End If

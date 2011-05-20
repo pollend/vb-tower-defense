@@ -104,6 +104,7 @@
     <Compile Include="Gamescreen\Map\Map.vb" />
     <Compile Include="Gamescreen\Turrets\Turret.vb" />
     <Compile Include="Gamescreen\Turrets\TurretManager.vb" />
+    <Compile Include="Gamescreen\Turrets\Turrets\SloMoTurret\SloMoTurret.vb" />
     <Compile Include="Gamescreen\VectorFormula.vb" />
     <Compile Include="Gamescreen\Globals.vb" />
     <Compile Include="IScreen.vb" />
@@ -197,7 +198,21 @@
     <Content Include="Gamescreen\Top\top.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Gamescreen\Turrets\Turrets\HomeBase\bottomBase.png" />
+    <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\Blast\BlastTurret_Off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\Blast\BlastTurret_On.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\SloMo\SloMoTurret_Off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\SloMo\SloMoTurret_On.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\HomeBase\bottomBase.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Gamescreen\Turrets\SpawnTurret\Bottom\itemselect.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -235,6 +250,30 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Gamescreen\Turrets\Turrets\FastFireTurrets\Assets\FastfireTurretBottom.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\SloMoTurret\BottomSloMo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\SloMoTurret\TopSloMo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Menu\Assets\Cursor.png">
@@ -372,7 +411,11 @@
     <Content Include="Menu\start_Off.png" />
     <Content Include="Menu\start_On.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Gamescreen\Particles\ParticleTypes\RockeShip\" />
+    <Folder Include="Gamescreen\Turrets\SpawnTurret\Buttons\Heavy\" />
+    <Folder Include="Gamescreen\Turrets\Turrets\HeavyTurret\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

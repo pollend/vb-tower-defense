@@ -54,8 +54,8 @@
                 End If
                 If (TurretManager.Turrets.Item(Getturrets.Item(index)).Dead = False) Then
 
-                    If (TurretManager.Turrets.Item(Getturrets.Item(index)).CollisionRectangle.IntersectsWith(New Rectangle(location, New Size(20 * VectorFormula.scaling, 20 * VectorFormula.scaling)))) Then
-                        NewLocation -= VectorFormula.MoveAwayDirection(TurretManager.Turrets.Item(Getturrets.Item(index)).location + New Point((TurretManager.Turrets.Item(Getturrets.Item(index)).CollisionRectangle.Width / 2), (TurretManager.Turrets.Item(Getturrets.Item(index)).CollisionRectangle.Height / 2)), Me.location, 3, New Point(0, 0))
+                    If (New Rectangle(Me.location, Me.Size).IntersectsWith(New Rectangle(location, New Size(20 * VectorFormula.scaling, 20 * VectorFormula.scaling)))) Then
+                        NewLocation -= VectorFormula.MoveAwayDirection(TurretManager.Turrets.Item(Getturrets.Item(index)).location + New Point((TurretManager.Turrets.Item(Getturrets.Item(index)).Size.X / 2), (TurretManager.Turrets.Item(Getturrets.Item(index)).Size.X / 2)), Me.location, 3, New Point(0, 0))
                         TurretManager.AddDeadTurret(Getturrets.Item(index))
                         pointToGoTo = New Point(random.Next(-5, 5), random.Next(-5, 5)) + pointToGoTo
                     End If
