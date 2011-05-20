@@ -29,6 +29,7 @@
     End Sub
 
     Public Sub AddIndex(ByVal Index As Integer, ByVal Location As Point)
+
         grid.Item(Location.X).Item(Location.Y).Add(Index)
     End Sub
 

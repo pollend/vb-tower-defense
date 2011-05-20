@@ -29,7 +29,7 @@ Public Class Blast
 
     Public Overrides Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
         e.Graphics.DrawImage(BlastAssets.Bottom, Me.location)
-
+        e.Graphics.DrawRectangle(Pens.Black, New Rectangle(Me.location, Me.Size))
         'makes the turret follow the entity  
         e.Graphics.TranslateTransform(location.X + 25 * VectorFormula.scaling, location.Y + 25 * VectorFormula.scaling)
         e.Graphics.RotateTransform(pointingTo)

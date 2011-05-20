@@ -25,12 +25,14 @@ Public Class EntityManager
 
     End Function
     Public Shared Sub AddEntity(ByVal entity As Entity)
-        Entities.Add(entity)
+
         If (0 < DeadEntites.Count - 1) Then
             Entities(DeadEntites.Item(0)) = entity
+            Entities(DeadEntites.Item(0)).myindex = DeadEntites.Item(0)
             Entities(DeadEntites.Item(0)).Dead = False
             DeadEntites.RemoveAt(0)
         Else
+            entity.myindex = Entities.Count - 1
             Entities.Add(entity)
 
         End If

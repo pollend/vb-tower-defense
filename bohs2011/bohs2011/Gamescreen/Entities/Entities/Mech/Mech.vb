@@ -21,9 +21,10 @@ Public Class Mech
     Private pointingto As Integer
     Public Sub New(ByVal setlocation As Point)
         MyBase.New(setlocation)
-        Size = New Point(50, 50)
+        Size = New Point(30, 30)
         Me.heath = 50
-
+        Me.dmg = 20
+        Me.speed = 1
 
     End Sub
     Public Overrides Sub Update(ByVal index As Integer)
@@ -40,6 +41,8 @@ Public Class Mech
         MyBase.Update(index)
     End Sub
     Public Overrides Sub Draw(ByVal e As System.Windows.Forms.PaintEventArgs)
+
+
         e.Graphics.TranslateTransform(location.X + 15 * VectorFormula.scaling, location.Y + 15 * VectorFormula.scaling)
         e.Graphics.RotateTransform(pointingTo)
         e.Graphics.DrawImage(MechAssets.MechBits(frame), New Point(-25, -25))
