@@ -15,6 +15,8 @@ End Class
 
 Public Class HomeBase
     Inherits Turret
+    Public TriggerAnimation As Boolean
+    Public frame As Integer
     Public Sub New()
 
         MyBase.New()
@@ -26,11 +28,22 @@ Public Class HomeBase
 
     Public Overrides Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
         e.Graphics.DrawImage(HomeBaseAssets.Bottom, Me.location)
-
+        e.Graphics.DrawImage(HomeBaseAssets.Rocket(frame), Me.location)
         MyBase.Paint(e)
     End Sub
     Public Overrides Sub Update(ByVal index As Integer)
         MyBase.Update(index)
+        If (WaveManagment.setvalues = False) Then
+            TriggerAnimation = True
+        End If
+        If (TriggerAnimation = True) Then
+            If (frame <= 4) Then
+                frame += 1
+            Else
+                frame = 0
+                TriggerAnimation = False
+            End If
+        End If
 
     End Sub
 

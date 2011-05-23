@@ -1,6 +1,7 @@
 ﻿Public Enum Turretype
     fastfire
     Blast
+    SloMo
 End Enum
 
 Public Class SpawnTurrets
@@ -10,6 +11,7 @@ Public Class SpawnTurrets
     'button clases
     Public FastFire As SelectingBitmap = New SelectingBitmap("Gamescreen\Turrets\SpawnTurret\Buttons\FastFire\FastFire_On.png", "Gamescreen\Turrets\SpawnTurret\Buttons\FastFire\FastFire_Off.png", New Point(0, 0))
     Public Blast As SelectingBitmap = New SelectingBitmap("Gamescreen\Turrets\SpawnTurret\Buttons\Blast\BlastTurret_On.png", "Gamescreen\Turrets\SpawnTurret\Buttons\Blast\BlastTurret_Off.png", New Point(0, 0))
+    Public SloMo As SelectingBitmap = New SelectingBitmap("Gamescreen\Turrets\SpawnTurret\Buttons\SloMo\SloMoTurret_On.png", "Gamescreen\Turrets\SpawnTurret\Buttons\SloMo\SloMoTurret_Off.png", New Point(0, 0))
 
     Public Sub New()
 
@@ -18,9 +20,17 @@ Public Class SpawnTurrets
     Public Sub Update()
 
         'MouseOver
+
+        If (SloMo.mouseover() = True Or SelectedTurrets = Turretype.SloMo) Then
+            SloMo.SetSelection(True)
+            If (SloMo.MouseLeftClick = True) Then
+                SelectedTurrets = Turretype.SloMo
+            End If
+        Else
+            SloMo.SetSelection(False)
+        End If
+
         If (FastFire.mouseover() = True Or SelectedTurrets = Turretype.fastfire) Then
-
-
             FastFire.SetSelection(True)
             If (FastFire.MouseLeftClick = True) Then
                 SelectedTurrets = Turretype.fastfire
@@ -40,8 +50,8 @@ Public Class SpawnTurrets
 
         'set Location
         FastFire.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) - 200, Form1.Height - FastFire.getheight - Form1.CameraLocation.Y)
-        Blast.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) - 100, Form1.Height - FastFire.getheight - Form1.CameraLocation.Y)
-
+        Blast.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) - 125, Form1.Height - FastFire.getheight - Form1.CameraLocation.Y)
+        SloMo.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) - 53, Form1.Height - FastFire.getheight - Form1.CameraLocation.Y)
 
 
         If (Form1.MouseButtons = MouseButtons.Left) Then
@@ -62,8 +72,17 @@ Public Class SpawnTurrets
                     If (Globals.cash >= 100) Then
 
                         If (TurretManager.AddTurret(New Blast, New Point(Locationrelativetoboard.X - (50 * VectorFormula.scaling / 2), Locationrelativetoboard.Y - (50 * VectorFormula.scaling / 2)), New Point(50 * VectorFormula.scaling, 50 * VectorFormula.scaling)) = True) Then
-                            Globals.cash -= 50
+                            Globals.cash -= 100
                         End If
+                    End If
+                Case Turretype.SloMo
+                    If (Globals.cash >= 300) Then
+
+
+                        If (TurretManager.AddTurret(New SloMoTurret(), New Point(Locationrelativetoboard.X - (29 * VectorFormula.scaling / 2), Locationrelativetoboard.Y - (30 * VectorFormula.scaling / 2)), New Point(29 * VectorFormula.scaling, 30 * VectorFormula.scaling)) = True) Then
+                            Globals.cash -= 300
+                        End If
+
                     End If
                 Case Else
 
@@ -82,7 +101,7 @@ Public Class SpawnTurrets
 
 
         Select Case SelectedTurrets
-            Case Turretype.fastfire
+            Case Turretype.fastfire Or Turretype.SloMo
                 e.Graphics.DrawRectangle(Pens.Black, New Rectangle(Locationrelativetoboard.X - (29 / 2), Locationrelativetoboard.Y - (30 / 2), 29, 30))
             Case Turretype.Blast
                 e.Graphics.DrawRectangle(Pens.Black, New Rectangle(Locationrelativetoboard.X - (50 / 2), Locationrelativetoboard.Y - (50 / 2), 50, 50))
@@ -93,5 +112,6 @@ Public Class SpawnTurrets
         'DRAW
         FastFire.Draw(e)
         Blast.Draw(e)
+        SloMo.Draw(e)
     End Sub
 End Class

@@ -1,26 +1,45 @@
 ﻿Public Class ParticleManager
-    Public particle As List(Of particle) = New List(Of particle)
+    Public Shared particle As List(Of particle) = New List(Of particle)
 
     Public Sub Load()
+        fireToSmokeAssets.SetUp()
+        MedalChunkAssets.SetUp()
+        SloMoParticleAssets.SetUp()
 
     End Sub
-    Public Sub AddParticle(ByVal particle As particle, ByVal location As Point)
-        Dim Myparticle As particle = New particle()
-        Myparticle.Load()
-        Myparticle.location = location
-        Me.particle.Add(Myparticle)
+    Public Shared Sub AddParticle(ByVal particle As particle, ByVal location As Point, ByVal Seed As Integer)
+
+        particle.random = New Random(Seed * Now.Millisecond + location.X * location.Y)
+
+        particle.Load()
+        particle.location = location
+
+        ParticleManager.particle.Add(particle)
+
+    End Sub
+    Public Shared Sub AddParticle(ByVal particle As particle, ByVal location As Point)
+
+
+
+        particle.Load()
+        particle.location = location
+
+        ParticleManager.particle.Add(particle)
+
     End Sub
     Public Sub Update()
         For index = 0 To particle.Count - 1
-            particle.Item(index).Update()
+
+            If (index < 0 Or index > particle.Count - 1) Then
+                Exit For
+            End If
+
 
             If (particle.Item(index).dead = True) Then
-                index -= 1
                 particle.RemoveAt(index)
-                If (index < 0) Then
-                    Exit For
-                End If
-                Continue For
+                index -= 1
+            Else
+                particle.Item(index).Update()
             End If
 
         Next

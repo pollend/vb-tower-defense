@@ -30,11 +30,11 @@ Public Class SloMoTurret
     Public Overrides Sub Update(ByVal index As Integer)
 
         timing += 1
-        If (timing > 10) Then
+        If (timing > 30) Then
             If Not (findentity(500) = New Point(-1, -1)) Then
 
                 pointingTo = VectorFormula.PointTo(Me.location, findentity(500))
-                BulletManager.AddBullet(New FastfireBullet(), New Point(Me.location + New Point(Me.Size.X / 2, Me.Size.Y / 2)), VectorFormula.GoInDirectinalRadius(pointingTo, 20))
+                BulletManager.AddBullet(New SloMoBullet(), New Point(Me.location + New Point(Me.Size.X / 2, Me.Size.Y / 2)), VectorFormula.GoInDirectinalRadius(pointingTo, 20))
                 timing = 0
 
             End If

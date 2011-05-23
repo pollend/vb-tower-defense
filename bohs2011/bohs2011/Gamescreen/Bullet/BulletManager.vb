@@ -1,5 +1,8 @@
 ﻿Public Class BulletManager
     Public Shared bullets As List(Of Bullets) = New List(Of Bullets)
+    Public Sub New()
+        SloMoBulletAssets.SetUp()
+    End Sub
     Public Shared Sub AddBullet(ByVal bullet As Bullets, ByVal location As Point, ByVal direction As Point)
         Dim bLt As Bullets = bullet
         bLt.location = location

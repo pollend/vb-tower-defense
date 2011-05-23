@@ -16,7 +16,7 @@ Public Class WaveManagment
     Private timeOfSpawn As Integer = 0
     Private setTimeOfSpawn As Decimal = 5
 
-    Private setvalues As Boolean = False
+    Public Shared setvalues As Boolean = False
 
 
 
@@ -148,14 +148,16 @@ Public Class WaveManagment
                 SpawnEntities()
                 WaveLength -= 1
             Else
-                '    If (EntityManager.DeadEntites.Count - 1 = EntityManager.Entities.Count - 1) Then
-                TimeBetweenWaves = 20
-                setvalues = False
-                'End If
-            End If
+                If (EntityManager.DeadEntites.Count - 1 = EntityManager.Entities.Count - 1) Then
+                    TimeBetweenWaves = 100
+                    setvalues = False
+                End If
+                End If
         Else
-            'sets up the entity spawn
+                'sets up the entity spawn
             TimeBetweenWaves -= 1
+
+
             If (setvalues = False) Then
 
                 SetUpEntitySpawn()
@@ -164,6 +166,8 @@ Public Class WaveManagment
                 WaveLength += 1
                 setvalues = True
             End If
+
+
         End If
     End Sub
 

@@ -38,7 +38,7 @@
         Return (DesiredVelocity - currentVelocity)
 
     End Function
-    Public Shared Function MoveAwayDirection(ByVal ToPoint As Point, ByVal entity As Point, ByVal Scaler As Integer, ByVal currentVelocity As Point) As Point
+    Public Shared Function MoveAwayDirection(ByVal ToPoint As Point, ByVal entity As Point, ByVal Scaler As Decimal, ByVal currentVelocity As Point) As Point
         Dim DesiredVelocity As Point = Normalize(ToPoint - entity)
         DesiredVelocity = New Point(DesiredVelocity.X * Scaler, DesiredVelocity.Y * Scaler)
 

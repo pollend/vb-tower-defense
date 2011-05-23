@@ -12,13 +12,16 @@
     Public myindex As Integer
 
     'the set health of the entity
-    Public heath As Integer
+    Public health As Integer
+
+
+
 
     'location with the new location
     Public location As Point = New Point(0, 0)
 
     Public dmg As Integer
-    Public speedRedution As Integer
+    Public speedRedution As Decimal
 
 
 
@@ -36,21 +39,41 @@
         Me.location = PointGrid.Points.Item(setLocation.X).Item(setLocation.Y).location
         Me.NewLocation = PointGrid.Points.Item(setLocation.X).Item(setLocation.Y).location
         Me.pointToGoTo = PointGrid.Points.Item(setLocation.X).Item(setLocation.Y).location + New Point(random.Next(-50, 50))
+
     End Sub
 
 
 
     Public Overridable Sub Update(ByVal MYindex As Integer)
+
+        speedRedution -= 0.009
+        If (speedRedution < 0) Then
+            speedRedution = 0
+        End If
+
         If (VectorFormula.Distance(location, Me.pointToGoTo) < 5) Then
             GridLocation = PointGrid.Points.Item(GridLocation.X).Item(GridLocation.Y).NewLocationGrid.Item(0)
             Me.pointToGoTo = PointGrid.Points.Item(GridLocation.X).Item(GridLocation.Y).location + New Point(random.Next(-50, 50), random.Next(-50, 50))
 
         End If
-        NewLocation += VectorFormula.MoveInDirection(Me.pointToGoTo, location, speed, New Point(0, 0))
+
+        NewLocation += VectorFormula.MoveInDirection(Me.pointToGoTo, location, (speed - (speed * speedRedution)), New Point(0, 0))
 
 
-        If (heath <= 0) Then
-            Me.Dead = True
+        If (health <= 0) Then
+
+            EntityManager.KillEntiy(MYindex)
+
+
+            For index = 0 To 20
+                ParticleManager.AddParticle(New FireToSmoke(), Me.location, index)
+            Next
+
+            For index = 1 To 5
+                ParticleManager.AddParticle(New MedalChunks(), Me.location, index)
+            Next
+
+
         End If
 
         'check for collisions with turret
@@ -74,32 +97,28 @@
         End If
 
         'check collison with entities
-        If (Me.location.X > 100 And Me.location.X < (1000 * VectorFormula.scaling) - 100) Then
-            If (Me.location.Y > 100 And Me.location.Y < (1000 * VectorFormula.scaling) - 100) Then
 
-                Dim GetEntities As List(Of Integer) = EntityManager.EntityGrid.getIndexes(New Point(Me.location.X / Grid.GridSpacing, Me.location.Y / Grid.GridSpacing))
-                If Not (GetEntities Is Nothing) Then
+        'Dim GetEntities As List(Of Integer) = EntityManager.EntityGrid.getIndexes(New Point(Me.location.X / Grid.GridSpacing, Me.location.Y / Grid.GridSpacing))
+        'If Not (GetEntities Is Nothing) Then
 
-                    For index = 0 To GetEntities.Count - 1
-                        If (MYindex = GetEntities(index)) Then
-                            Continue For
-                        End If
-                        If (EntityManager.Entities.Item(GetEntities.Item(index)).Dead = False) Then
+        '    For index = 0 To GetEntities.Count - 1
+        '        If (MYindex = GetEntities(index)) Then
+        '            Continue For
+        '        End If
+        '        If (EntityManager.Entities.Item(GetEntities.Item(index)).Dead = False) Then
 
-                            If (New Rectangle(Me.location, Me.Size).IntersectsWith(New Rectangle(EntityManager.Entities.Item(GetEntities.Item(index)).location, New Point((EntityManager.Entities.Item(GetEntities.Item(index)).Size.X), (EntityManager.Entities.Item(GetEntities.Item(index)).Size.Y))))) Then
-                                '  NewLocation = location
-                                NewLocation -= VectorFormula.MoveAwayDirection(EntityManager.Entities.Item(GetEntities.Item(index)).location + New Point((EntityManager.Entities.Item(GetEntities.Item(index)).Size.X / 2), (EntityManager.Entities.Item(GetEntities.Item(index)).Size.Y / 2)), Me.location, 1, New Point(location.X - NewLocation.X, location.Y - NewLocation.Y))
-                                'TurretManager.Turrets.Item(Getturrets.Item(index)).health -= Me.dmg
-                                'pointToGoTo = New Point(random.Next(-20, 20), random.Next(-20, 20)) + pointToGoTo
+        '            If (New Rectangle(Me.location, Me.Size).IntersectsWith(New Rectangle(EntityManager.Entities.Item(GetEntities.Item(index)).location, New Point((EntityManager.Entities.Item(GetEntities.Item(index)).Size.X), (EntityManager.Entities.Item(GetEntities.Item(index)).Size.Y))))) Then
+        '                '  NewLocation = location
+        '                NewLocation -= VectorFormula.MoveAwayDirection(EntityManager.Entities.Item(GetEntities.Item(index)).location + New Point((EntityManager.Entities.Item(GetEntities.Item(index)).Size.X / 2), (EntityManager.Entities.Item(GetEntities.Item(index)).Size.Y / 2)), Me.location, 1, New Point(0, 0))
+        '                'TurretManager.Turrets.Item(Getturrets.Item(index)).health -= Me.dmg
+        '                'pointToGoTo = New Point(random.Next(-20, 20), random.Next(-20, 20)) + pointToGoTo
 
-                            End If
+        '            End If
 
-                        End If
-                    Next
+        '        End If
+        '    Next
 
-                End If
-            End If
-        End If
+        'End If
 
 
 

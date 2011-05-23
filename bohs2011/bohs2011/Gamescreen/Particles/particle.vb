@@ -5,7 +5,7 @@
     Public random As Random = New Random(Now.Millisecond * Now.Hour)
 
     Public Overridable Sub Load()
-
+        random = New Random(Now.Millisecond * Now.Hour)
     End Sub
     Public Overridable Sub Update()
     End Sub

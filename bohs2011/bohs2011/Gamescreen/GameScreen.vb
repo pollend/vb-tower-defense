@@ -60,12 +60,10 @@
         e.Graphics.DrawString(Globals.cash, New Font("Arial", 5), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X + 50, 15 - Form1.CameraLocation.Y))
 
     End Sub
-
+    Private slowDownLoop As Integer
     Public Function Update() As Screens Implements IScreen.Update
         If (Globals.GameOver = False) Then
 
-            'update particles
-            particle.Update()
 
             'updats the bullets
             bullets.Update()
@@ -84,6 +82,13 @@
             spawnturret.Update()
 
             entitymanager.Update()
+
+            'update particles
+            ' slowDownLoop -= 1
+            '    If (slowDownLoop <= 0) Then
+            particle.Update()
+            '  slowDownLoop = 3
+            'End If
         End If
         Return Screens.GameScreen
     End Function

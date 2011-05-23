@@ -84,13 +84,19 @@
     <Compile Include="Gamescreen\Bullet\Bullets.vb" />
     <Compile Include="Gamescreen\Bullet\Bullets\BlastBullet\Blast.vb" />
     <Compile Include="Gamescreen\Bullet\Bullets\FastFire\FastfireBullet.vb" />
+    <Compile Include="Gamescreen\Bullet\Bullets\SloMO\SloMoBullet.vb" />
     <Compile Include="Gamescreen\Camera.vb" />
     <Compile Include="Gamescreen\Entities\Entities\Mech\Mech.vb" />
     <Compile Include="Gamescreen\Entities\WaveManager\WaveManagment.vb" />
     <Compile Include="Gamescreen\Particles\particle.vb" />
     <Compile Include="Gamescreen\Particles\ParticleManager.vb" />
+    <Compile Include="Gamescreen\Particles\ParticleTypes\Chunks\MedalChunks\MedalChunks.vb" />
     <Compile Include="Gamescreen\Particles\ParticleTypes\clouds\Cloud.vb" />
     <Compile Include="Gamescreen\Particles\ParticleTypes\Fire\FireParticles.vb" />
+    <Compile Include="Gamescreen\Particles\ParticleTypes\Fire\FireToSmoke\FireToSmoke.vb" />
+    <Compile Include="Gamescreen\Particles\ParticleTypes\Fire\LargeImpactExplosions.vb" />
+    <Compile Include="Gamescreen\Particles\ParticleTypes\Fire\Trails.vb" />
+    <Compile Include="Gamescreen\Particles\ParticleTypes\SloMoEffect\SloMo.vb" />
     <Compile Include="Gamescreen\Turrets\Turrets\HomeBase\HomeBase.vb" />
     <Compile Include="Gamescreen\Turrets\Turrets\Blast\Blast.vb" />
     <Compile Include="Gamescreen\Turrets\Turrets\FastFireTurrets\FastFireTurrets.vb" />
@@ -156,6 +162,15 @@
     <Content Include="Gamescreen\Bullet\Bullets\FastFire\Assets\bullet1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Gamescreen\Bullet\Bullets\SloMO\Bl1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Bullet\Bullets\SloMO\Bl2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Bullet\Bullets\SloMO\Bl3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Gamescreen\Entities\Entities\Mech\Mech1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -192,7 +207,88 @@
     <Content Include="Gamescreen\Entities\Entities\Spider\spider5.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\Chunks\MedalChunks\Assets\chunk3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\Chunks\MedalChunks\Assets\MedalChunk.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\Chunks\MedalChunks\Assets\MedalChunk1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\Chunks\MedalChunks\Assets\MedalChunk2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Gamescreen\Particles\ParticleTypes\clouds\clouds.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\Fire\FireToSmoke\set1\Explosion1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\Fire\FireToSmoke\set1\Explosion2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\Fire\FireToSmoke\set1\Explosion3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\Fire\FireToSmoke\set1\Explosion4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\Fire\FireToSmoke\set1\Explosion5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\Fire\FireToSmoke\set1\Explosion6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\Fire\FireToSmoke\set1\Explosion7.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\Fire\FireToSmoke\Set2\explosion1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\Fire\FireToSmoke\Set2\explosion2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\Fire\FireToSmoke\Set2\explosion3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\Fire\FireToSmoke\Set2\explosion4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\Fire\FireToSmoke\Set2\explosion5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\Fire\FireToSmoke\Set2\explosion6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\SloMoEffect\Assets\SLoMO 01.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\SloMoEffect\Assets\SLoMO 02.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\SloMoEffect\Assets\SLoMO 03.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\SloMoEffect\Assets\SLoMO 04.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\SloMoEffect\Assets\SLoMO 05.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\SloMoEffect\Assets\SLoMO 06.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\SloMoEffect\Assets\SLoMO 07.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\SloMoEffect\Assets\SLoMO 08.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\SloMoEffect\Assets\SLoMO 09.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Particles\ParticleTypes\SloMoEffect\Assets\SLoMO 10.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Gamescreen\Top\top.png">
@@ -412,7 +508,6 @@
     <Content Include="Menu\start_On.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Gamescreen\Particles\ParticleTypes\RockeShip\" />
     <Folder Include="Gamescreen\Turrets\SpawnTurret\Buttons\Heavy\" />
     <Folder Include="Gamescreen\Turrets\Turrets\HeavyTurret\" />
   </ItemGroup>
