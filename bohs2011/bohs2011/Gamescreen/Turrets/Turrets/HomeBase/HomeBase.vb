@@ -1,15 +1,16 @@
 ﻿Public Class HomeBaseAssets
-    Public Shared Rocket(5) As Bitmap
+    Public Shared Rocket(6) As Bitmap
     Public Shared Bottom As Bitmap
     Public Shared Sub SetUp()
         HomeBaseAssets.Bottom = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\bottomBase.png")
 
-        HomeBaseAssets.Rocket(0) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase1.png")
-        HomeBaseAssets.Rocket(1) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase2.png")
-        HomeBaseAssets.Rocket(2) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase3.png")
-        HomeBaseAssets.Rocket(3) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase4.png")
-        HomeBaseAssets.Rocket(4) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase5.png")
-        HomeBaseAssets.Rocket(5) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase6.png")
+        HomeBaseAssets.Rocket(0) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\Blank.png")
+        HomeBaseAssets.Rocket(1) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase1.png")
+        HomeBaseAssets.Rocket(2) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase2.png")
+        HomeBaseAssets.Rocket(3) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase3.png")
+        HomeBaseAssets.Rocket(4) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase4.png")
+        HomeBaseAssets.Rocket(5) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase5.png")
+        HomeBaseAssets.Rocket(6) = New Bitmap("Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase6.png")
     End Sub
 End Class
 
@@ -17,6 +18,8 @@ Public Class HomeBase
     Inherits Turret
     Public TriggerAnimation As Boolean
     Public frame As Integer
+
+
     Public Sub New()
 
         MyBase.New()
@@ -37,10 +40,11 @@ Public Class HomeBase
             TriggerAnimation = True
         End If
         If (TriggerAnimation = True) Then
-            If (frame <= 4) Then
+            If (frame <= 5) Then
                 frame += 1
             Else
                 frame = 0
+                ParticleManager.AddParticle(New Rocket, Me.location)
                 TriggerAnimation = False
             End If
         End If

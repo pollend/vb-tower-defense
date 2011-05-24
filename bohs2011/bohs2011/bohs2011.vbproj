@@ -94,8 +94,8 @@
     <Compile Include="Gamescreen\Particles\ParticleTypes\clouds\Cloud.vb" />
     <Compile Include="Gamescreen\Particles\ParticleTypes\Fire\FireParticles.vb" />
     <Compile Include="Gamescreen\Particles\ParticleTypes\Fire\FireToSmoke\FireToSmoke.vb" />
-    <Compile Include="Gamescreen\Particles\ParticleTypes\Fire\LargeImpactExplosions.vb" />
     <Compile Include="Gamescreen\Particles\ParticleTypes\Fire\Trails.vb" />
+    <Compile Include="Gamescreen\Particles\ParticleTypes\Rocket\Rocket.vb" />
     <Compile Include="Gamescreen\Particles\ParticleTypes\SloMoEffect\SloMo.vb" />
     <Compile Include="Gamescreen\Turrets\Turrets\HomeBase\HomeBase.vb" />
     <Compile Include="Gamescreen\Turrets\Turrets\Blast\Blast.vb" />
@@ -346,6 +346,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Gamescreen\Turrets\Turrets\FastFireTurrets\Assets\FastfireTurretBottom.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\HomeBase\Rocket\Blank.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Gamescreen\Turrets\Turrets\HomeBase\Rocket\RocketHomeBase1.png">

@@ -7,9 +7,10 @@
         SloMoParticleAssets.SetUp()
 
     End Sub
+
     Public Shared Sub AddParticle(ByVal particle As particle, ByVal location As Point, ByVal Seed As Integer)
 
-        particle.random = New Random(Seed * Now.Millisecond + location.X * location.Y)
+        particle.random = New Random(Seed * Now.Millisecond)
 
         particle.Load()
         particle.location = location
@@ -46,8 +47,16 @@
 
     End Sub
     Public Sub Draw(ByVal e As System.Windows.Forms.PaintEventArgs)
+
         For index = 0 To particle.Count - 1
-            particle.Item(index).Paint(e)
+            If (particle.Item(index).topmost = False) Then
+                particle.Item(index).Paint(e)
+            End If
+        Next
+        For index = 0 To particle.Count - 1
+            If (particle.Item(index).topmost = True) Then
+                particle.Item(index).Paint(e)
+            End If
 
         Next
 
