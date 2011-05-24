@@ -7,20 +7,19 @@ Public Class Rocket
     Public scaling As Decimal
     Private direction As Point
     Public Overrides Sub Load()
-        direction = VectorFormula.GoInDirectinalRadius(random.Next(0, 360), 5)
+        direction = VectorFormula.GoInDirectinalRadius(random.Next(0, 360), 10)
         size = New Point(RocketAssets.Rocket.Width * VectorFormula.scaling, RocketAssets.Rocket.Height * VectorFormula.scaling)
-
+        scaling = 1
         MyBase.Load()
     End Sub
     Public Overrides Sub Update()
         topmost = True
         For index = 0 To 10
-
-            ParticleManager.AddParticle(New FireToSmoke, Me.location + New Point(size.X / 2, size.Y / 2), index)
+            Dim mylocation As Point = (New Point(Me.size.X * scaling, Me.size.Y * scaling))
+            ParticleManager.AddParticle(New FireToSmoke, New Point(mylocation.X / 2, mylocation.Y / 2) + location + New Point(random.Next(-20, 20), random.Next(-10, 10)), index)
         Next
   
-        scaling += 0.1
-        Me.size = New Point((RocketAssets.Rocket.Width * VectorFormula.scaling) * scaling, (RocketAssets.Rocket.Height * VectorFormula.scaling) * scaling)
+        scaling += 0.01
 
             Me.location += direction
             'checks if the rocket is out of the range of the camra
@@ -35,7 +34,7 @@ Public Class Rocket
 
         e.Graphics.TranslateTransform(location.X, location.Y)
         e.Graphics.ScaleTransform(scaling, scaling)
-        e.Graphics.DrawImage(RocketAssets.Rocket, New Point(-((size.X / 2)), -((size.Y / 2))))
+        e.Graphics.DrawImage(RocketAssets.Rocket, New Point(0, 0))
         e.Graphics.ResetTransform()
         e.Graphics.TranslateTransform(Form1.CameraLocation.X, Form1.CameraLocation.Y)
     End Sub
