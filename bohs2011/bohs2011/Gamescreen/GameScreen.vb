@@ -63,6 +63,10 @@
     End Sub
     Private slowDownLoop As Integer
     Public Function Update() As Screens Implements IScreen.Update
+        'updates the postion
+        cam.UpdatePosition()
+        spawnturret.UpdateButtonPosition()
+
         If (Globals.GameOver = False) Then
 
 
@@ -75,8 +79,6 @@
             TurretManager.Update()
 
 
-            'updates the postion
-            cam.UpdatePosition()
 
 
             'updates the turrets
@@ -91,6 +93,8 @@
             '  slowDownLoop = 3
             'End If
         End If
+
+
         Return Screens.GameScreen
     End Function
 End Class

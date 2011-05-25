@@ -14,7 +14,7 @@ Public Class WaveManagment
 
     'the times between spawns
     Private timeOfSpawn As Integer = 0
-    Private setTimeOfSpawn As Decimal = 25
+    Private setTimeOfSpawn As Decimal = 60
 
     Public Shared setvalues As Boolean = False
 
@@ -33,9 +33,11 @@ Public Class WaveManagment
     Public Sub New()
         start.Add(New Point(0, 0))
         start.Add(New Point(1, 0))
+        start.Add(New Point(4, 0))
+        start.Add(New Point(6, 0))
     End Sub
     Private Sub SetUpEntitySpawn()
-        setTimeOfSpawn -= 1
+        setTimeOfSpawn -= 2
         'clears the collection
         percentofEnemyInwave.Clear()
         PercentOfStartSpawn.Clear()

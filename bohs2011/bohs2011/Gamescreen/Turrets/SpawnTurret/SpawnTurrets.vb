@@ -59,11 +59,6 @@ Public Class SpawnTurrets
             Blast.SetSelection(False)
         End If
 
-        'set Location
-        FastFire.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) - 200, Form1.Height - FastFire.getheight - Form1.CameraLocation.Y)
-        Blast.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) - 125, Form1.Height - FastFire.getheight - Form1.CameraLocation.Y)
-        SloMo.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) - 53, Form1.Height - FastFire.getheight - Form1.CameraLocation.Y)
-        Blocade.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) + 10, Form1.Height - Blocade.getheight - Form1.CameraLocation.Y)
 
 
         If Not (Form1.MousePosition.Y > Form1.Height - (bottom.Height * VectorFormula.scaling)) Then
@@ -117,7 +112,14 @@ Public Class SpawnTurrets
 
 
     End Sub
+    Public Sub UpdateButtonPosition()
+        'set Location
+        FastFire.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) - 200, Form1.Height - FastFire.getheight - Form1.CameraLocation.Y)
+        Blast.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) - 125, Form1.Height - FastFire.getheight - Form1.CameraLocation.Y)
+        SloMo.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) - 53, Form1.Height - FastFire.getheight - Form1.CameraLocation.Y)
+        Blocade.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) + 10, Form1.Height - Blocade.getheight - Form1.CameraLocation.Y)
 
+    End Sub
     Public Sub Draw(ByVal e As System.Windows.Forms.PaintEventArgs)
         'draw rectangle
         Dim Locationrelativetoboard As Point = New Point(Form.MousePosition.X - Form1.CameraLocation.X, Form.MousePosition.Y - Form1.CameraLocation.Y)

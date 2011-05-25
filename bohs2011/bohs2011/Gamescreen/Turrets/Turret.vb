@@ -33,7 +33,7 @@
                 If Not (myindexs Is Nothing) Then
 
                     If Not (myindexs.Count - 1 < 0) Then
-                        Dim myrandomindex As Integer = random.Next(0, myindexs.Count - 1)
+                        Dim myrandomindex As Integer = random.Next(0, myindexs.Count)
                         If EntityManager.Entities.Item(myindexs.Item(myrandomindex)).Dead = False Then
 
                             If (VectorFormula.Distance(EntityManager.Entities.Item(myindexs.Item(myrandomindex)).location, Me.location) < distance) Then

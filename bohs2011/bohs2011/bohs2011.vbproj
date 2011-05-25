@@ -88,6 +88,7 @@
     <Compile Include="Gamescreen\Camera.vb" />
     <Compile Include="Gamescreen\Entities\Entities\Mech\Mech.vb" />
     <Compile Include="Gamescreen\Entities\WaveManager\WaveManagment.vb" />
+    <Compile Include="Gamescreen\HighScoreManager.vb" />
     <Compile Include="Gamescreen\Particles\particle.vb" />
     <Compile Include="Gamescreen\Particles\ParticleManager.vb" />
     <Compile Include="Gamescreen\Particles\ParticleTypes\Chunks\MedalChunks\MedalChunks.vb" />

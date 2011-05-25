@@ -12,7 +12,7 @@ Public Class PointGrid
     Public Shared Points As List(Of List(Of LPoint)) = New List(Of List(Of LPoint))
     Public Shared Sub SetPoint()
 
-        For X = 0 To 3
+        For X = 0 To 7
             Points.Add(New List(Of LPoint))
             For Y = 0 To 0
                 Points(X).Add(New LPoint(New Point(0, 0), New List(Of Point)))
@@ -39,6 +39,20 @@ Public Class PointGrid
         Points(3).Item(0).NewLocationGrid = NewGridLocation
         Points(3).Item(0).location = New Point(500 * VectorFormula.scaling, 470 * VectorFormula.scaling)
 
+        NewGridLocation = New List(Of Point)
+        NewGridLocation.Add(New Point(3, 0))
+        Points(4).Item(0).NewLocationGrid = NewGridLocation
+        Points(4).Item(0).location = New Point(525 * VectorFormula.scaling, 1000 * VectorFormula.scaling)
+
+        NewGridLocation = New List(Of Point)
+        NewGridLocation.Add(New Point(3, 0))
+        Points(5).Item(0).NewLocationGrid = NewGridLocation
+        Points(5).Item(0).location = New Point(725 * VectorFormula.scaling, 490 * VectorFormula.scaling)
+
+        NewGridLocation = New List(Of Point)
+        NewGridLocation.Add(New Point(5, 0))
+        Points(6).Item(0).NewLocationGrid = NewGridLocation
+        Points(6).Item(0).location = New Point(725 * VectorFormula.scaling, 0 * VectorFormula.scaling)
     End Sub
     Public Shared Sub CheackDistance(ByVal Location As Point)
 
