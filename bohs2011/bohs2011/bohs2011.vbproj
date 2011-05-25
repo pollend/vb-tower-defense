@@ -97,6 +97,7 @@
     <Compile Include="Gamescreen\Particles\ParticleTypes\Fire\Trails.vb" />
     <Compile Include="Gamescreen\Particles\ParticleTypes\Rocket\Rocket.vb" />
     <Compile Include="Gamescreen\Particles\ParticleTypes\SloMoEffect\SloMo.vb" />
+    <Compile Include="Gamescreen\Turrets\Turrets\Blocade\Blocade.vb" />
     <Compile Include="Gamescreen\Turrets\Turrets\HomeBase\HomeBase.vb" />
     <Compile Include="Gamescreen\Turrets\Turrets\Blast\Blast.vb" />
     <Compile Include="Gamescreen\Turrets\Turrets\FastFireTurrets\FastFireTurrets.vb" />
@@ -300,12 +301,19 @@
     <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\Blast\BlastTurret_On.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\Blocade\Blocade_off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\Blocade\Blocade_on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\SloMo\SloMoTurret_Off.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Gamescreen\Turrets\SpawnTurret\Buttons\SloMo\SloMoTurret_On.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Gamescreen\Turrets\Turrets\Blocade\Blocade.png" />
     <Content Include="Gamescreen\Turrets\Turrets\HomeBase\bottomBase.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

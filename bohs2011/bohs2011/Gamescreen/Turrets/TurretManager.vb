@@ -2,7 +2,8 @@
     Public Shared TurretGrid As Grid = New Grid(1000 * 1.3, 1000 * 1.3)
     Public Shared Turrets As List(Of Turret) = New List(Of Turret)
     Public Shared DeadTurrets As List(Of Integer) = New List(Of Integer)
-
+    ' the timer before the game locks the player out
+    Private pausetimer As Integer = 10
 
     Public Sub New()
 
@@ -128,7 +129,22 @@
 
     End Sub
     'updates all the turrets
+
     Public Sub Update()
+        'checks homebase since its always ZERo
+        If (Turrets.Item(0).health <= 0) Then
+
+            For index = 1 To 20
+                Dim rand As Random = New Random(Now.Millisecond + index)
+                ParticleManager.AddParticle(New FireToSmoke, Turrets.Item(0).location + New Point(rand.Next(0, Turrets.Item(0).Size.X), rand.Next(0, Turrets.Item(0).Size.Y)), index + Now.Minute)
+                ParticleManager.AddParticle(New MedalChunks, Turrets.Item(0).location + New Point(rand.Next(0, Turrets.Item(0).Size.X), rand.Next(0, Turrets.Item(0).Size.Y)), index + Now.Minute)
+            Next
+            Me.pausetimer -= 1
+            If (pausetimer < 0) Then
+                Globals.GameOver = True
+            End If
+
+        End If
 
         For index = 0 To Turrets.Count - 1
             If (Turrets(index).Dead = False) Then
@@ -136,6 +152,8 @@
                 Turrets(index).Update(index)
 
             End If
+
+
         Next
     End Sub
 End Class

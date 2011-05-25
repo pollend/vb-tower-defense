@@ -9,6 +9,8 @@
     Public EnitiyToFollow As Integer
     Public health As Integer
     Public Size As Point
+
+
     Private maxHealth As Integer
 
     Public Sub New()
@@ -49,14 +51,14 @@
 
 
     End Function
+
     Public Overridable Sub Update(ByVal myindex As Integer)
-        If (Dead = False) Then
-            If (health <= 0) Then
-                Me.Dead = True
-            End If
-
-
+ 
+        If (health <= 0) Then
+            Me.Dead = True
         End If
+
+
     End Sub
 
     'paint function

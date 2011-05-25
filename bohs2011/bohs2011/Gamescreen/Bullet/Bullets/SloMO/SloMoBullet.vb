@@ -13,7 +13,7 @@ Public Class SloMoBullet
     Private Frame As Integer
     Public Sub New()
         Me.killEntities = True
-        dmg = 4
+        dmg = 0
         Me.size = New Point(10 * VectorFormula.scaling, 10 * VectorFormula.scaling)
     End Sub
     Public Overrides Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
@@ -53,7 +53,7 @@ Public Class SloMoBullet
                                     For index = 0 To EntitiesWithinTile.Count - 1
 
                                         If (VectorFormula.Distance(EntityManager.Entities.Item(EntitiesWithinTile(index)).location, Me.location) < 100) Then
-                                            EntityManager.Entities.Item(EntitiesWithinTile(index)).speedRedution = 0.8
+                                            EntityManager.Entities.Item(EntitiesWithinTile(index)).speedRedution = 1
                                             count += 1
                                             If (count > 10) Then
                                                 Exit For

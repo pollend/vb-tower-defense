@@ -32,9 +32,9 @@ Public Class FastFireTurrets
 
         timing += 1
         If (timing > 10) Then
-            If Not (findentity(500) = New Point(-1, -1)) Then
+            If Not (findentity(200) = New Point(-1, -1)) Then
 
-                pointingTo = VectorFormula.PointTo(Me.location, findentity(500))
+                pointingTo = VectorFormula.PointTo(Me.location, findentity(200))
                 BulletManager.AddBullet(New FastfireBullet(), New Point(Me.location + New Point(Me.Size.X / 2, Me.Size.Y / 2)), VectorFormula.GoInDirectinalRadius(pointingTo, 20))
                 timing = 0
 

@@ -2,6 +2,7 @@
     fastfire
     Blast
     SloMo
+    Blocade
 End Enum
 
 Public Class SpawnTurrets
@@ -9,6 +10,7 @@ Public Class SpawnTurrets
     Public SelectedTurrets As Turretype
 
     'button clases
+    Public Blocade As SelectingBitmap = New SelectingBitmap("Gamescreen\Turrets\SpawnTurret\Buttons\Blocade\Blocade_on.png", "Gamescreen\Turrets\SpawnTurret\Buttons\Blocade\Blocade_off.png", New Point(0, 0))
     Public FastFire As SelectingBitmap = New SelectingBitmap("Gamescreen\Turrets\SpawnTurret\Buttons\FastFire\FastFire_On.png", "Gamescreen\Turrets\SpawnTurret\Buttons\FastFire\FastFire_Off.png", New Point(0, 0))
     Public Blast As SelectingBitmap = New SelectingBitmap("Gamescreen\Turrets\SpawnTurret\Buttons\Blast\BlastTurret_On.png", "Gamescreen\Turrets\SpawnTurret\Buttons\Blast\BlastTurret_Off.png", New Point(0, 0))
     Public SloMo As SelectingBitmap = New SelectingBitmap("Gamescreen\Turrets\SpawnTurret\Buttons\SloMo\SloMoTurret_On.png", "Gamescreen\Turrets\SpawnTurret\Buttons\SloMo\SloMoTurret_Off.png", New Point(0, 0))
@@ -20,6 +22,15 @@ Public Class SpawnTurrets
     Public Sub Update()
 
         'MouseOver
+
+        If (Blocade.mouseover() = True Or SelectedTurrets = Turretype.Blocade) Then
+            Blocade.SetSelection(True)
+            If (SloMo.MouseLeftClick = True) Then
+                SelectedTurrets = Turretype.Blocade
+            End If
+        Else
+            Blocade.SetSelection(False)
+        End If
 
         If (SloMo.mouseover() = True Or SelectedTurrets = Turretype.SloMo) Then
             SloMo.SetSelection(True)
@@ -52,6 +63,8 @@ Public Class SpawnTurrets
         FastFire.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) - 200, Form1.Height - FastFire.getheight - Form1.CameraLocation.Y)
         Blast.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) - 125, Form1.Height - FastFire.getheight - Form1.CameraLocation.Y)
         SloMo.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) - 53, Form1.Height - FastFire.getheight - Form1.CameraLocation.Y)
+        Blocade.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) + 10, Form1.Height - Blocade.getheight - Form1.CameraLocation.Y)
+
 
         If Not (Form1.MousePosition.Y > Form1.Height - (bottom.Height * VectorFormula.scaling)) Then
 
@@ -60,6 +73,15 @@ Public Class SpawnTurrets
                 Dim Locationrelativetoboard As Point = New Point(Form.MousePosition.X - Form1.CameraLocation.X, Form.MousePosition.Y - Form1.CameraLocation.Y)
                 'have the selected turret
                 Select Case SelectedTurrets
+                    Case Turretype.Blocade
+                        If (Globals.cash >= 25) Then
+
+
+                            If (TurretManager.AddTurret(New Blocade, New Point(Locationrelativetoboard.X - (29 * VectorFormula.scaling / 2), Locationrelativetoboard.Y - (30 * VectorFormula.scaling / 2)), New Point(29 * VectorFormula.scaling, 30 * VectorFormula.scaling)) = True) Then
+                                Globals.cash -= 50
+                            End If
+
+                        End If
                     Case Turretype.fastfire
                         If (Globals.cash >= 50) Then
 
@@ -109,6 +131,8 @@ Public Class SpawnTurrets
                 e.Graphics.DrawRectangle(Pens.Black, New Rectangle(Locationrelativetoboard.X - (29 / 2), Locationrelativetoboard.Y - (30 / 2), 29, 30))
             Case Turretype.Blast
                 e.Graphics.DrawRectangle(Pens.Black, New Rectangle(Locationrelativetoboard.X - (50 / 2), Locationrelativetoboard.Y - (50 / 2), 50, 50))
+            Case Turretype.Blocade
+                e.Graphics.DrawRectangle(Pens.Black, New Rectangle(Locationrelativetoboard.X - (29 / 2), Locationrelativetoboard.Y - (30 / 2), 29, 30))
             Case Else
 
         End Select
@@ -117,5 +141,6 @@ Public Class SpawnTurrets
         FastFire.Draw(e)
         Blast.Draw(e)
         SloMo.Draw(e)
+        Blocade.Draw(e)
     End Sub
 End Class

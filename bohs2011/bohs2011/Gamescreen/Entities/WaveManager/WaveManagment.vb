@@ -14,7 +14,7 @@ Public Class WaveManagment
 
     'the times between spawns
     Private timeOfSpawn As Integer = 0
-    Private setTimeOfSpawn As Decimal = 10
+    Private setTimeOfSpawn As Decimal = 25
 
     Public Shared setvalues As Boolean = False
 

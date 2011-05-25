@@ -31,6 +31,7 @@
         particle.Load()
         '
         TurretManager.Load()
+        'adds the hombase as the first turret
         TurretManager.AddTurret(New HomeBase(), PointGrid.Points.Item(3).Item(0).location, New Point(100 * VectorFormula.scaling, 100 * VectorFormula.scaling))
 
 
