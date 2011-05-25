@@ -23,11 +23,13 @@ Public Class Rocket
 
             Me.location += direction
             'checks if the rocket is out of the range of the camra
-            If (Camera.GetXCam < location.X + 100 Or Camera.GetYCam < location.Y + 100) Then
-                If (Camera.GetXCam + Form1.Width > location.X - 100 Or Camera.GetYCam + Form1.Height > location.Y - 100) Then
-                    '   Me.dead = True
-                End If
+        If (Form1.CameraLocation.X > location.X Or Form1.CameraLocation.Y > location.Y) Then
+            '   Me.dead = True=
+            If (Form1.CameraLocation.X < location.X + Form1.Width Or Form1.CameraLocation.Y < location.Y + Form1.Height) Then
+                Me.dead = True
+
             End If
+        End If
     End Sub
     Public Overrides Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs)
         'e.Graphics.DrawImage(RocketAssets.Rocket, Me.location)

@@ -13,8 +13,9 @@
 
         For index = 0 To bullets.Count - 1
             If (index < 0 Or index > bullets.Count - 1) Then
-                Continue For
+                Exit For
             End If
+
             bullets.Item(index).Update()
 
             If bullets.Item(index).dead = True Then

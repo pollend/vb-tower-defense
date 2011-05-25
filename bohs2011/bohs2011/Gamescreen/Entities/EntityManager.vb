@@ -45,7 +45,6 @@ Public Class EntityManager
     Public Sub Update()
 
 
-
         For X = 0 To Entities.Count() - 1
             If (Entities.Item(X).Dead = False) Then
 
@@ -54,6 +53,7 @@ Public Class EntityManager
                 Dim newloc As Point = New Point(Entities.Item(X).NewLocation.X / Grid.GridSpacing, Entities.Item(X).location.Y / Grid.GridSpacing)
 
                 EntityGrid.RemoveIndexe(X, Entities.Item(X).locationOnCollection)
+                EntityGrid.RemoveIndexe(X, newloc)
                 Entities.Item(X).locationOnCollection = newloc
 
                 EntityGrid.AddIndex(X, Entities.Item(X).locationOnCollection)

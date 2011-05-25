@@ -1,4 +1,5 @@
 ﻿Public Class Trails
+    'orange spark trails
     Inherits particle
     Public newlocation As Point
     Public life As Integer

@@ -12,7 +12,8 @@ Public Class FastFireTurrets
 
     Public Sub New()
         MyBase.New()
-        Me.health = 30
+        Me.health = 200
+
     End Sub
    
 

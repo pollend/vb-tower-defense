@@ -53,44 +53,45 @@ Public Class SpawnTurrets
         Blast.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) - 125, Form1.Height - FastFire.getheight - Form1.CameraLocation.Y)
         SloMo.location = New Point(-Form1.CameraLocation.X + (Form1.Width / 2) - 53, Form1.Height - FastFire.getheight - Form1.CameraLocation.Y)
 
+        If Not (Form1.MousePosition.Y > Form1.Height - (bottom.Height * VectorFormula.scaling)) Then
 
-        If (Form1.MouseButtons = MouseButtons.Left) Then
+            If (Form1.MouseButtons = MouseButtons.Left) Then
 
-            Dim Locationrelativetoboard As Point = New Point(Form.MousePosition.X - Form1.CameraLocation.X, Form.MousePosition.Y - Form1.CameraLocation.Y)
+                Dim Locationrelativetoboard As Point = New Point(Form.MousePosition.X - Form1.CameraLocation.X, Form.MousePosition.Y - Form1.CameraLocation.Y)
+                'have the selected turret
+                Select Case SelectedTurrets
+                    Case Turretype.fastfire
+                        If (Globals.cash >= 50) Then
 
-            Select Case SelectedTurrets
-                Case Turretype.fastfire
-                    If (Globals.cash >= 50) Then
 
+                            If (TurretManager.AddTurret(New FastFireTurrets, New Point(Locationrelativetoboard.X - (29 * VectorFormula.scaling / 2), Locationrelativetoboard.Y - (30 * VectorFormula.scaling / 2)), New Point(29 * VectorFormula.scaling, 30 * VectorFormula.scaling)) = True) Then
+                                Globals.cash -= 50
+                            End If
 
-                        If (TurretManager.AddTurret(New FastFireTurrets, New Point(Locationrelativetoboard.X - (29 * VectorFormula.scaling / 2), Locationrelativetoboard.Y - (30 * VectorFormula.scaling / 2)), New Point(29 * VectorFormula.scaling, 30 * VectorFormula.scaling)) = True) Then
-                            Globals.cash -= 50
                         End If
+                    Case Turretype.Blast
+                        If (Globals.cash >= 100) Then
 
-                    End If
-                Case Turretype.Blast
-                    If (Globals.cash >= 100) Then
-
-                        If (TurretManager.AddTurret(New Blast, New Point(Locationrelativetoboard.X - (50 * VectorFormula.scaling / 2), Locationrelativetoboard.Y - (50 * VectorFormula.scaling / 2)), New Point(50 * VectorFormula.scaling, 50 * VectorFormula.scaling)) = True) Then
-                            Globals.cash -= 100
+                            If (TurretManager.AddTurret(New Blast, New Point(Locationrelativetoboard.X - (50 * VectorFormula.scaling / 2), Locationrelativetoboard.Y - (50 * VectorFormula.scaling / 2)), New Point(50 * VectorFormula.scaling, 50 * VectorFormula.scaling)) = True) Then
+                                Globals.cash -= 100
+                            End If
                         End If
-                    End If
-                Case Turretype.SloMo
-                    If (Globals.cash >= 300) Then
+                    Case Turretype.SloMo
+                        If (Globals.cash >= 300) Then
 
 
-                        If (TurretManager.AddTurret(New SloMoTurret(), New Point(Locationrelativetoboard.X - (29 * VectorFormula.scaling / 2), Locationrelativetoboard.Y - (30 * VectorFormula.scaling / 2)), New Point(29 * VectorFormula.scaling, 30 * VectorFormula.scaling)) = True) Then
-                            Globals.cash -= 300
+                            If (TurretManager.AddTurret(New SloMoTurret(), New Point(Locationrelativetoboard.X - (29 * VectorFormula.scaling / 2), Locationrelativetoboard.Y - (30 * VectorFormula.scaling / 2)), New Point(29 * VectorFormula.scaling, 30 * VectorFormula.scaling)) = True) Then
+                                Globals.cash -= 300
+                            End If
+
                         End If
+                    Case Else
 
-                    End If
-                Case Else
-
-            End Select
+                End Select
 
 
+            End If
         End If
-
 
 
     End Sub
@@ -101,7 +102,10 @@ Public Class SpawnTurrets
 
 
         Select Case SelectedTurrets
-            Case Turretype.fastfire Or Turretype.SloMo
+            Case Turretype.fastfire
+                e.Graphics.DrawRectangle(Pens.Black, New Rectangle(Locationrelativetoboard.X - (29 / 2), Locationrelativetoboard.Y - (30 / 2), 29, 30))
+
+            Case Turretype.SloMo
                 e.Graphics.DrawRectangle(Pens.Black, New Rectangle(Locationrelativetoboard.X - (29 / 2), Locationrelativetoboard.Y - (30 / 2), 29, 30))
             Case Turretype.Blast
                 e.Graphics.DrawRectangle(Pens.Black, New Rectangle(Locationrelativetoboard.X - (50 / 2), Locationrelativetoboard.Y - (50 / 2), 50, 50))
@@ -109,7 +113,7 @@ Public Class SpawnTurrets
 
         End Select
         e.Graphics.DrawImage(bottom, New Point(-Form1.CameraLocation.X + (-(bottom.Width * VectorFormula.scaling) / 2) + (Form1.Width() / 2), -Form1.CameraLocation.Y + Form1.Height - (bottom.Height * VectorFormula.scaling)))
-        'DRAW
+        'DRAW the buttons
         FastFire.Draw(e)
         Blast.Draw(e)
         SloMo.Draw(e)

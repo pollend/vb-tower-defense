@@ -18,9 +18,9 @@ Public Class Spider
         MyBase.New(setlocation)
         Size = New Point(26 * VectorFormula.scaling, 23 * VectorFormula.scaling)
         health = 30
-
+        cash = 5
         Me.dmg = 1
-        Me.speed = 2
+        Me.speed = 5
     End Sub
     Public Overrides Sub Update(ByVal index As Integer)
         If (frame >= 3) Then
@@ -36,7 +36,8 @@ Public Class Spider
 
 
         e.Graphics.TranslateTransform(location.X + 15 * VectorFormula.scaling, location.Y + 15 * VectorFormula.scaling)
-        e.Graphics.RotateTransform(pointingTo)
+        e.Graphics.RotateTransform(pointingto)
+        e.Graphics.DrawRectangle(Pens.Black, New Rectangle(New Point(-25, -25), Size))
         e.Graphics.DrawImage(SpiderAssets.SpiderBits(frame), New Point(-25, -25))
         e.Graphics.ResetTransform()
         e.Graphics.TranslateTransform(Form1.CameraLocation.X, Form1.CameraLocation.Y)

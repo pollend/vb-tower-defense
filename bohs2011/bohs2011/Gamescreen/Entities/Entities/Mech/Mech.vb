@@ -23,9 +23,9 @@ Public Class Mech
         MyBase.New(setlocation)
         Size = New Point(30, 30)
         Me.health = 50
-
+        cash = 10
         Me.dmg = 20
-        Me.speed = 1
+        Me.speed = 3
 
     End Sub
     Public Overrides Sub Update(ByVal index As Integer)

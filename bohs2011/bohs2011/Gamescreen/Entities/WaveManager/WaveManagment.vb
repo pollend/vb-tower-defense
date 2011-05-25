@@ -6,15 +6,15 @@ End Enum
 
 
 Public Class WaveManagment
-    Private TimeBetweenWaves As Integer = 20
+    Private TimeBetweenWaves As Integer = 100
 
-    Private WaveLength As Integer = 50
-    Private currentWaveLenght As Integer = 50
+    Private WaveLength As Integer = 500
+    Private currentWaveLenght As Integer = 500
 
-    Private timeBetweenSpawn As Integer = 10
 
+    'the times between spawns
     Private timeOfSpawn As Integer = 0
-    Private setTimeOfSpawn As Decimal = 5
+    Private setTimeOfSpawn As Decimal = 10
 
     Public Shared setvalues As Boolean = False
 
@@ -35,7 +35,7 @@ Public Class WaveManagment
         start.Add(New Point(1, 0))
     End Sub
     Private Sub SetUpEntitySpawn()
-
+        setTimeOfSpawn -= 1
         'clears the collection
         percentofEnemyInwave.Clear()
         PercentOfStartSpawn.Clear()
@@ -83,15 +83,11 @@ Public Class WaveManagment
             End If
         Next
 
-        setTimeOfSpawn -= 0.01
-        If (setTimeOfSpawn <= 3) Then
-            setTimeOfSpawn = 3
-        End If
+     
 
     End Sub
     Private Sub SpawnEntities()
 
-        If (timeOfSpawn <= 0) Then
             Dim SetEntity As Integer = 0
             Dim SetPoint As Integer = 0
 
@@ -132,11 +128,7 @@ Public Class WaveManagment
                 Case Else
 
             End Select
-            timeOfSpawn = setTimeOfSpawn
-        Else
-            timeOfSpawn -= 1
 
-        End If
 
     End Sub
 
@@ -145,23 +137,37 @@ Public Class WaveManagment
             If (WaveLength >= 0) Then
                 'spawning of entities
                 'spawns entites depending on intervals
-                SpawnEntities()
+                timeOfSpawn -= 1
+                If (timeOfSpawn < 0) Then
+                    If (setTimeOfSpawn < 0) Then
+                        setTimeOfSpawn *= -1
+                        For index = 0 To setTimeOfSpawn
+                            SpawnEntities()
+                        Next
+
+                    Else
+                        SpawnEntities()
+                    End If
+
+                    timeOfSpawn = setTimeOfSpawn
+                End If
+
                 WaveLength -= 1
             Else
                 If (EntityManager.DeadEntites.Count - 1 = EntityManager.Entities.Count - 1) Then
                     TimeBetweenWaves = 100
                     setvalues = False
                 End If
-                End If
+            End If
         Else
-                'sets up the entity spawn
+            'sets up the entity spawn
             TimeBetweenWaves -= 1
 
 
             If (setvalues = False) Then
-
+                setTimeOfSpawn -= 1
                 SetUpEntitySpawn()
-                currentWaveLenght += 1
+                currentWaveLenght += 10
                 WaveLength = currentWaveLenght
                 WaveLength += 1
                 setvalues = True

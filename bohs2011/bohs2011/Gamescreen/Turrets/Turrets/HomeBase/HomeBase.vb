@@ -46,6 +46,8 @@ Public Class HomeBase
                 frame = 0
                 ParticleManager.AddParticle(New Rocket, Me.location)
                 TriggerAnimation = False
+                Globals.SavedHumans += 1000
+                Globals.cash += 100
             End If
         End If
 

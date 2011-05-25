@@ -14,7 +14,8 @@
     'the set health of the entity
     Public health As Integer
 
-
+    'the cash reward
+    Public cash As Integer
 
 
     'location with the new location
@@ -63,7 +64,7 @@
         If (health <= 0) Then
 
             EntityManager.KillEntiy(MYindex)
-
+            Globals.cash += Me.cash
 
             For index = 0 To 20
                 ParticleManager.AddParticle(New FireToSmoke(), Me.location, index)
