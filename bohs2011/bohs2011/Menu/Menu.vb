@@ -5,7 +5,7 @@
     Private start As SelectingBitmap = New SelectingBitmap("Menu\Assets\Start\Start.png", "Menu\Assets\Start\Start.png", New Point(350, 200))
     Private Instructions As SelectingBitmap = New SelectingBitmap("Menu\Assets\Help\Help.png", "Menu\Assets\Help\Help.png", New Point(350, 300))
     Private Options As SelectingBitmap = New SelectingBitmap("Menu\Assets\Options\Options.png", "Menu\Assets\Options\Options.png", New Point(350, 400))
-    Private Quit As SelectingBitmap = New SelectingBitmap("Menu\Assets\Quit\Exit.png", "Menu\Assets\Quit\Exit.png", New Point(350, 500))
+    Private Quit As SelectingBitmap = New SelectingBitmap("Menu\Assets\Quit\Exit.png", "Menu\Assets\Quit\Exit.png", New Point(350, 400))
     Private back As Bitmap = New Bitmap("Menu\back.png")
     Private cursor As Bitmap = New Bitmap("Menu\Assets\Cursor.png")
     Private locationofCursor As Point = New Point(-100, -100)
@@ -15,8 +15,16 @@
 
     Private frame As Integer
     Private overlay(14) As Bitmap
-    Private enablestice As Boolean = False
+    Private enablestatic As Boolean = False
     Private staticOverlay(21) As Bitmap
+
+    'instructions arrows
+    Private Instruction_Images(5) As Bitmap
+    Private leftArrow As SelectingBitmap = New SelectingBitmap("C:\Users\Michael pollind\Desktop\bohs-game\bohs2011\bohs2011\Menu\Instruction\LArrow\LeftArrow_On.png", "C:\Users\Michael pollind\Desktop\bohs-game\bohs2011\bohs2011\Menu\Instruction\LArrow\LeftArrow_Off.png", New Point(300, 500))
+    Private RightArrow As SelectingBitmap = New SelectingBitmap("C:\Users\Michael pollind\Desktop\bohs-game\bohs2011\bohs2011\Menu\Instruction\RArrow\RightArrow_On.png", "C:\Users\Michael pollind\Desktop\bohs-game\bohs2011\bohs2011\Menu\Instruction\RArrow\RightArrow_Off.png", New Point(700, 500))
+    Private pause As Integer
+    Private instructionindex As Integer
+
 
     Public Enum Menu_States
         options
@@ -44,6 +52,16 @@
         End If
     End Function
     Public Sub Load() Implements IScreen.Load
+        'instuctional images
+        Instruction_Images(0) = New Bitmap("Menu\Instruction\instructions.png")
+        Instruction_Images(1) = New Bitmap("Menu\Instruction\T1.png")
+        Instruction_Images(2) = New Bitmap("Menu\Instruction\T2.png")
+        Instruction_Images(3) = New Bitmap("Menu\Instruction\T3.png")
+        Instruction_Images(4) = New Bitmap("Menu\Instruction\T4.png")
+
+
+
+
         For index = 1 To 14
 
             overlay(index - 1) = New Bitmap(GetImageThreeDigit("Menu\Background\Overlay ", index))
@@ -69,16 +87,19 @@
             Case Menu_States.options
 
             Case Menu_States.help
+                e.Graphics.DrawImage(Instruction_Images(instructionindex), New Point(0, 0))
 
+                leftArrow.Draw(e)
+                RightArrow.Draw(e)
             Case Menu_States.start
- 
+
                 start.Draw(e)
-                Options.Draw(e)
+                '   Options.Draw(e)
                 Quit.Draw(e)
                 Instructions.Draw(e)
         End Select
 
-        If (enablestice) Then
+        If (enablestatic) Then
             e.Graphics.DrawImage(staticOverlay(frame), New Point(0, 0))
         Else
             e.Graphics.DrawImage(overlay(frame), New Point(0, 0))
@@ -92,6 +113,38 @@
 
             Case Menu_States.help
 
+                If (pause < 0) Then
+
+
+                    If (leftArrow.mouseover(Form1.Width / (800 * VectorFormula.scaling), Form1.Height / (600 * VectorFormula.scaling))) Then
+                        leftArrow.SetSelection(True)
+                        If (leftArrow.MouseLeftClick()) Then
+                            instructionindex -= 1
+                            enablestatic = True
+                            pause = 20
+                        End If
+                    Else
+                        leftArrow.SetSelection(False)
+                    End If
+
+                    If (RightArrow.mouseover(Form1.Width / (800 * VectorFormula.scaling), Form1.Height / (600 * VectorFormula.scaling))) Then
+                        RightArrow.SetSelection(True)
+                        If (RightArrow.MouseLeftClick()) Then
+                            instructionindex += 1
+                            enablestatic = True
+                            pause = 20
+                        End If
+                    Else
+                        RightArrow.SetSelection(False)
+                    End If
+                Else
+                    pause -= 1
+                End If
+                If (instructionindex < 0 Or instructionindex >= Me.Instruction_Images.Count - 1) Then
+                    instructionindex = 0
+                    states = Menu_States.start
+                End If
+
             Case Menu_States.start
 
                 If (start.mouseover(Form1.Width / (800 * VectorFormula.scaling), Form1.Height / (600 * VectorFormula.scaling))) Then
@@ -102,11 +155,11 @@
                 End If
 
                 If (Options.mouseover(Form1.Width / (800 * VectorFormula.scaling), Form1.Height / (600 * VectorFormula.scaling))) Then
-                    locationofCursor = Options.location + New Point(Options.getWidth, 0)
+                    '  locationofCursor = Options.location + New Point(Options.getWidth, 0)
                     Options.SetSelection(True)
                     If (Options.MouseLeftClick) Then
-                        enablestice = True
-                        states = Menu_States.options
+                        '  enablestatic = True
+                        'states = Menu_States.options
                         locationofCursor = New Point(-100, -100)
                     End If
                 End If
@@ -119,13 +172,18 @@
 
                 If (Instructions.mouseover(Form1.Width / (800 * VectorFormula.scaling), Form1.Height / (600 * VectorFormula.scaling))) Then
                     locationofCursor = Instructions.location + New Point(Instructions.getWidth, 0)
+                    If (Instructions.MouseLeftClick()) Then
+                        enablestatic = True
+                        states = Menu_States.help
+                        locationofCursor = New Point(-100, -100)
+                    End If
                 End If
         End Select
         'static animtions
-        If (enablestice = True) Then
+        If (enablestatic = True) Then
             If (frame > 20) Then
                 frame = 0
-                enablestice = False
+                enablestatic = False
             End If
             frame += 1
         Else

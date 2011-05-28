@@ -59,6 +59,12 @@
         e.Graphics.DrawImage(TopImage, New Point((((Form1.Width) / 2) - (TopImage.Width / 2)) - Form1.CameraLocation.X, 0 - Form1.CameraLocation.Y))
         e.Graphics.DrawString(Globals.SavedHumans, New Font("Arial", 5), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X + 50, 0 - Form1.CameraLocation.Y))
         e.Graphics.DrawString(Globals.cash, New Font("Arial", 5), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X + 50, 15 - Form1.CameraLocation.Y))
+        If (Globals.GameOver = True) Then
+            e.Graphics.DrawString("Cash:" & Globals.cash, New Font("Arial", 50), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X - ((Globals.cash.ToString().Count * 50) / 2), 100 - Form1.CameraLocation.Y))
+            e.Graphics.DrawString("SavedHumans:" & Globals.SavedHumans, New Font("Arial", 50), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X - ((Globals.cash.ToString().Count * 50) / 2), 200 - Form1.CameraLocation.Y))
+            e.Graphics.DrawString("RightClick To Return to Menu", New Font("Arial", 50), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X - ((Globals.cash.ToString().Count * 50) / 2), 300 - Form1.CameraLocation.Y))
+
+        End If
 
     End Sub
     Private slowDownLoop As Integer
@@ -66,7 +72,13 @@
         'updates the postion
         cam.UpdatePosition()
         spawnturret.UpdateButtonPosition()
+        If (Globals.GameOver = True) Then
+            If (Form1.MouseButtons = MouseButtons.Right) Then
+                Return Screens.MenuScreen
 
+            End If
+
+        End If
         If (Globals.GameOver = False) Then
 
 
