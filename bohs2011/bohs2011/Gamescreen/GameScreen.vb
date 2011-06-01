@@ -63,8 +63,8 @@
         'draw buttons always on top
         spawnturret.Draw(e)
         e.Graphics.DrawImage(TopImage, New Point((((Form1.Width) / 2) - (TopImage.Width / 2)) - Form1.CameraLocation.X, 0 - Form1.CameraLocation.Y))
-        e.Graphics.DrawString(Globals.SavedHumans, New Font("Arial", 5), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X + 50, 0 - Form1.CameraLocation.Y))
-        e.Graphics.DrawString(Globals.cash, New Font("Arial", 5), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X + 50, 15 - Form1.CameraLocation.Y))
+        e.Graphics.DrawString(Globals.SavedHumans, New Font("Arial", 10), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X + 50, 0 - Form1.CameraLocation.Y))
+        e.Graphics.DrawString(Globals.cash, New Font("Arial", 10), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X + 50, 19 - Form1.CameraLocation.Y))
         If (Globals.GameOver = True) Then
             e.Graphics.DrawString("Cash:" & Globals.cash, New Font("Arial", 50), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X - ((Globals.cash.ToString().Count * 50) / 2), 100 - Form1.CameraLocation.Y))
             e.Graphics.DrawString("SavedHumans:" & Globals.SavedHumans, New Font("Arial", 50), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X - ((Globals.cash.ToString().Count * 50) / 2), 200 - Form1.CameraLocation.Y))
