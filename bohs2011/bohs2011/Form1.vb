@@ -10,6 +10,9 @@ Public Class Form1
     Public Shared CameraLocation As Point
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+
+
         'set the screen to start at logo
         Screens = bohs2011.Screens.LogoScreen
         CurrentScreen = New Logo
@@ -20,6 +23,7 @@ Public Class Form1
 
         Me.Location = New Point(0, 0)
         Me.Size = New Point(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height)
+        ScoreManager.AddScore("asdf", 10, 10)
     End Sub
 
     Public Shared Sub CamTransform(ByVal e As System.Windows.Forms.PaintEventArgs)
