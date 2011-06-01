@@ -11,7 +11,7 @@ Public Class HighScoreManager
     Private fileLocation As String = "C:\Users\Michael\Documents\Games\TowerDefense.bin"
 
 
-    Public Sub AddHighScore(ByVal score As Score)
+    Public Shared Sub AddHighScore(ByVal score As Score)
         Try
 
             Dim fileStream As IO.FileStream = New IO.FileStream(fileLocation, IO.FileMode.OpenOrCreate, IO.FileAccess.ReadWrite, IO.FileShare.ReadWrite)

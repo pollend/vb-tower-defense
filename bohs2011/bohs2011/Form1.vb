@@ -5,7 +5,8 @@ Public Class Form1
 
     Private CurrentScreen As IScreen
     Private Screens As Screens
-
+    Private keypresses As System.Windows.Forms.KeyPressEventArgs
+    Private keydownNumber As System.Windows.Forms.KeyEventArgs
     'the camera location
     Public Shared CameraLocation As Point
 
@@ -62,6 +63,38 @@ Public Class Form1
         Me.Screens = Screen
         'invalidates the entire screen to be drawn
         Me.Invalidate()
+
+    End Sub
+
+    Private Sub Form1_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles MyBase.KeyPress
+        keypresses = e
+    End Sub
+
+
+    Public Function GetkeyPressNumber() As Integer
+
+        If (keydownNumber Is Nothing) Then
+            Return -1
+        End If
+        Dim mynumber As Integer = New Integer
+        mynumber = keydownNumber.KeyCode
+        keydownNumber = Nothing
+        Return mynumber
+
+
+    End Function
+    Public Function GetKeyPreses() As String
+
+        If (keypresses Is Nothing) Then
+            Return ""
+        End If
+        Dim mystring As String = keypresses.KeyChar()
+        keypresses = Nothing
+        Return mystring
+    End Function
+
+    Private Sub Form1_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+        keydownNumber = e
 
     End Sub
 End Class

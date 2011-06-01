@@ -213,6 +213,15 @@
     <Content Include="Gamescreen\Entities\Entities\Spider\spider5.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Gamescreen\HighScore\HighScore_Off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\HighScore\HighScore_On.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gamescreen\HighScore\NewHighScore.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Gamescreen\Particles\ParticleTypes\Chunks\MedalChunks\Assets\chunk3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -2,6 +2,11 @@
     Implements IScreen
     Private TopImage As Bitmap = New Bitmap("Gamescreen\Top\top.png")
 
+    'highscore Overlay
+    Private Overlay As Bitmap = New Bitmap("Gamescreen\HighScore\NewHighScore.png")
+    Private HighScore_On As SelectingBitmap = New SelectingBitmap("Gamescreen\HighScore\HighScore_On.png", "Gamescreen\HighScore\HighScore_Off.png", New Point(100, 100))
+    Private HigscoreText As String = ""
+
     'particle Manager
     Public particle As ParticleManager = New ParticleManager()
 
@@ -30,7 +35,7 @@
         Globals.GameOver = False
         Globals.SavedHumans = 0
 
-
+        Globals.GameOver = True
 
         'loads the entity manager
         entitymanager.Load()
@@ -62,13 +67,14 @@
 
         'draw buttons always on top
         spawnturret.Draw(e)
-        e.Graphics.DrawImage(TopImage, New Point((((Form1.Width) / 2) - (TopImage.Width / 2)) - Form1.CameraLocation.X, 0 - Form1.CameraLocation.Y))
+        e.Graphics.DrawImage(TopImage, New Point((((Form1.Width) / 2) - (TopImage.Width * VectorFormula.scaling / 2)) - Form1.CameraLocation.X, 0 - Form1.CameraLocation.Y))
         e.Graphics.DrawString(Globals.SavedHumans, New Font("Arial", 10), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X + 50, 0 - Form1.CameraLocation.Y))
         e.Graphics.DrawString(Globals.cash, New Font("Arial", 10), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X + 50, 19 - Form1.CameraLocation.Y))
         If (Globals.GameOver = True) Then
-            e.Graphics.DrawString("Cash:" & Globals.cash, New Font("Arial", 50), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X - ((Globals.cash.ToString().Count * 50) / 2), 100 - Form1.CameraLocation.Y))
-            e.Graphics.DrawString("SavedHumans:" & Globals.SavedHumans, New Font("Arial", 50), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X - ((Globals.cash.ToString().Count * 50) / 2), 200 - Form1.CameraLocation.Y))
-            e.Graphics.DrawString("RightClick To Return to Menu", New Font("Arial", 50), Brushes.Black, New Point(((Form1.Width) / 2) - (TopImage.Width / 2) - Form1.CameraLocation.X - ((Globals.cash.ToString().Count * 50) / 2), 300 - Form1.CameraLocation.Y))
+
+            e.Graphics.DrawImage(Overlay, New Point(((Form1.Width) / 2) - (Overlay.Width * VectorFormula.scaling / 2) - Form1.CameraLocation.X, 100 - Form1.CameraLocation.Y - (Overlay.Height / 2)))
+            e.Graphics.DrawString(Me.HigscoreText, New Font("Arial", 25), Brushes.Black, New Point(((Form1.Width) / 2) - (Overlay.Width * VectorFormula.scaling / 2) - Form1.CameraLocation.X + 30, 150 - Form1.CameraLocation.Y - (Overlay.Height / 2)))
+            e.Graphics.DrawString("Hit Enter To Continue", New Font("Impact", 20), Brushes.Black, New Point(((Form1.Width) / 2) - (("Right Click To Continue".Length * 10) / 2) - Form1.CameraLocation.X, 500 - Form1.CameraLocation.Y - (Overlay.Height / 2)))
 
         End If
 
@@ -79,7 +85,11 @@
         cam.UpdatePosition()
         spawnturret.UpdateButtonPosition()
         If (Globals.GameOver = True) Then
-            If (Form1.MouseButtons = MouseButtons.Right) Then
+
+            Me.HigscoreText = Me.HigscoreText & Form1.GetKeyPreses()
+
+            If (Form1.GetkeyPressNumber = Keys.Enter) Then
+
                 Return Screens.MenuScreen
 
             End If
