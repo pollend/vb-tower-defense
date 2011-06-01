@@ -23,9 +23,15 @@
 
     Private map As New Map
     Public Sub Load() Implements IScreen.Load
+
         'sets points on point grid
         PointGrid.SetPoint()
         Globals.cash = 1000
+        Globals.GameOver = False
+        Globals.SavedHumans = 0
+
+
+
         'loads the entity manager
         entitymanager.Load()
         particle.Load()

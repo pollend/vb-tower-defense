@@ -23,7 +23,7 @@
 
                 If (EntityManager.Entities.Item(entities(Entitiyindex)).Dead = False) Then
 
-                    If (New Rectangle(EntityManager.Entities.Item(entities(Entitiyindex)).location, EntityManager.Entities.Item(entities(Entitiyindex)).Size)).IntersectsWith(New Rectangle(location, size + New Point(20, 20))) Then
+                    If (New Rectangle(EntityManager.Entities.Item(entities(Entitiyindex)).location, EntityManager.Entities.Item(entities(Entitiyindex)).Size)).IntersectsWith(New Rectangle(location, size)) Then
                         EntityManager.Entities(entities(Entitiyindex)).health -= dmg
 
                         For index = 0 To 3

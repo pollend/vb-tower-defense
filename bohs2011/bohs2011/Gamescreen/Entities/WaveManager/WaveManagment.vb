@@ -15,7 +15,7 @@ Public Class WaveManagment
     'the times between spawns
     Private timeOfSpawn As Integer = 0
     Private setTimeOfSpawn As Decimal = 60
-
+    'causes the system to reset with a new wave
     Public Shared setvalues As Boolean = False
 
 
@@ -31,6 +31,7 @@ Public Class WaveManagment
 
     Private WaveTime As Boolean
     Public Sub New()
+        setvalues = False
         start.Add(New Point(0, 0))
         start.Add(New Point(1, 0))
         start.Add(New Point(4, 0))

@@ -118,7 +118,8 @@
     <Compile Include="IScreen.vb" />
     <Compile Include="Logo\Logo.vb" />
     <Compile Include="Menu\Menu.vb" />
-    <Compile Include="Menu\SelectingBitmap.vb" />
+    <Compile Include="ScoreManager.vb" />
+    <Compile Include="SelectingBitmap.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -155,6 +156,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Score.bin">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>

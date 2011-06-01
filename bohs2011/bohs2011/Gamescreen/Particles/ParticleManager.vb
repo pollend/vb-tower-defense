@@ -2,6 +2,10 @@
     Public Shared particle As List(Of particle) = New List(Of particle)
 
     Public Sub Load()
+
+
+        particle.Clear()
+
         fireToSmokeAssets.SetUp()
         MedalChunkAssets.SetUp()
         SloMoParticleAssets.SetUp()
@@ -9,6 +13,8 @@
     End Sub
 
     Public Shared Sub AddParticle(ByVal particle As particle, ByVal location As Point, ByVal Seed As Integer)
+
+
 
         particle.random = New Random(Seed * Now.Millisecond)
 

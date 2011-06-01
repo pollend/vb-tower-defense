@@ -1,6 +1,7 @@
 ﻿
 Public Class Form1
 
+    Private score As ScoreManager = New ScoreManager()
 
     Private CurrentScreen As IScreen
     Private Screens As Screens

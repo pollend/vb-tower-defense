@@ -11,6 +11,9 @@
     End Function
 
     Public Sub New(ByVal width As Integer, ByVal height As Integer)
+        grid.Clear()
+
+        'generates a new grid
         Me.width = width
         Me.height = height
         Dim X As Integer = width / GridSpacing
@@ -25,6 +28,8 @@
             Next
 
         Next
+
+
 
     End Sub
 

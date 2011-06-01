@@ -20,8 +20,8 @@
 
     'instructions arrows
     Private Instruction_Images(5) As Bitmap
-    Private leftArrow As SelectingBitmap = New SelectingBitmap("C:\Users\Michael pollind\Desktop\bohs-game\bohs2011\bohs2011\Menu\Instruction\LArrow\LeftArrow_On.png", "C:\Users\Michael pollind\Desktop\bohs-game\bohs2011\bohs2011\Menu\Instruction\LArrow\LeftArrow_Off.png", New Point(300, 500))
-    Private RightArrow As SelectingBitmap = New SelectingBitmap("C:\Users\Michael pollind\Desktop\bohs-game\bohs2011\bohs2011\Menu\Instruction\RArrow\RightArrow_On.png", "C:\Users\Michael pollind\Desktop\bohs-game\bohs2011\bohs2011\Menu\Instruction\RArrow\RightArrow_Off.png", New Point(700, 500))
+    Private leftArrow As SelectingBitmap = New SelectingBitmap("Menu\Instruction\LArrow\LeftArrow_On.png", "Menu\Instruction\LArrow\LeftArrow_Off.png", New Point(300, 500))
+    Private RightArrow As SelectingBitmap = New SelectingBitmap("Menu\Instruction\RArrow\RightArrow_On.png", "Menu\Instruction\RArrow\RightArrow_Off.png", New Point(700, 500))
     Private pause As Integer
     Private instructionindex As Integer
 
@@ -74,6 +74,7 @@
     End Sub
 
     Public Sub Paint(ByVal e As System.Windows.Forms.PaintEventArgs) Implements IScreen.Paint
+        Form1.CameraLocation = New Point(0, 0)
         e.Graphics.ScaleTransform(Form1.Width / (820 * VectorFormula.scaling), Form1.Height / (615 * VectorFormula.scaling))
         e.Graphics.DrawImage(back, New Point(0, 0))
 

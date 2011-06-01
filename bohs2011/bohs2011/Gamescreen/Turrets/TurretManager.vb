@@ -1,5 +1,5 @@
 ﻿Public Class TurretManager
-    Public Shared TurretGrid As Grid = New Grid(1000 * 1.3, 1000 * 1.3)
+    Public Shared TurretGrid As Grid
     Public Shared Turrets As List(Of Turret) = New List(Of Turret)
     Public Shared DeadTurrets As List(Of Integer) = New List(Of Integer)
     ' the timer before the game locks the player out
@@ -9,6 +9,10 @@
 
     End Sub
     Public Sub Load()
+
+        DeadTurrets.Clear()
+        Turrets.Clear()
+        TurretGrid = New Grid(1000 * 1.3, 1000 * 1.3)
 
         'sets up the homebase items
         HomeBaseAssets.SetUp()

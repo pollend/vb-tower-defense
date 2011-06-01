@@ -29,7 +29,7 @@ Public Class Spider
         End If
         frame += 1
 
-        pointingto = VectorFormula.PointTo(Me.location, Me.pointToGoTo)
+        pointingto = VectorFormula.PointTo(Me.location + New Point(25, 25), Me.pointToGoTo)
         MyBase.Update(index)
     End Sub
     Public Overrides Sub Draw(ByVal e As System.Windows.Forms.PaintEventArgs)

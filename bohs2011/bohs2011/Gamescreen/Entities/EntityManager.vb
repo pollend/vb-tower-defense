@@ -7,13 +7,17 @@ Public Class EntityManager
     'listed dead entities
     Public Shared DeadEntites As List(Of Integer) = New List(Of Integer)
     'the entity grid
-    Public Shared EntityGrid As Grid = New Grid(1000 * 1.3, 1000 * 1.3)
+    Public Shared EntityGrid As Grid
 
 
 
     Public Shared Entities As List(Of Entity) = New List(Of Entity)
     Public Sub Load()
 
+        'clears the collection
+        DeadEntites.Clear()
+        Entities.Clear()
+        EntityGrid = New Grid(1000 * 1.3, 1000 * 1.3)
         'sets up assets for monsters
 
         SpiderAssets.SetUp()
