@@ -24,7 +24,7 @@ Public Class Form1
 
         Me.Location = New Point(0, 0)
         Me.Size = New Point(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height)
-        ScoreManager.AddScore("asdf", 10, 10)
+
     End Sub
 
     Public Shared Sub CamTransform(ByVal e As System.Windows.Forms.PaintEventArgs)
@@ -79,6 +79,7 @@ Public Class Form1
         Dim mynumber As Integer = New Integer
         mynumber = keydownNumber.KeyCode
         keydownNumber = Nothing
+
         Return mynumber
 
 
@@ -88,6 +89,7 @@ Public Class Form1
         If (keypresses Is Nothing) Then
             Return ""
         End If
+
         Dim mystring As String = keypresses.KeyChar()
         keypresses = Nothing
         Return mystring

@@ -37,7 +37,6 @@ Public Class Spider
 
         e.Graphics.TranslateTransform(location.X + 15 * VectorFormula.scaling, location.Y + 15 * VectorFormula.scaling)
         e.Graphics.RotateTransform(pointingto)
-        e.Graphics.DrawRectangle(Pens.Black, New Rectangle(New Point(-25, -25), Size))
         e.Graphics.DrawImage(SpiderAssets.SpiderBits(frame), New Point(-25, -25))
         e.Graphics.ResetTransform()
         e.Graphics.TranslateTransform(Form1.CameraLocation.X, Form1.CameraLocation.Y)

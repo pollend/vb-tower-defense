@@ -4,8 +4,8 @@
     'first screen
     Private start As SelectingBitmap = New SelectingBitmap("Menu\Assets\Start\Start.png", "Menu\Assets\Start\Start.png", New Point(350, 200))
     Private Instructions As SelectingBitmap = New SelectingBitmap("Menu\Assets\Help\Help.png", "Menu\Assets\Help\Help.png", New Point(350, 300))
-    Private Options As SelectingBitmap = New SelectingBitmap("Menu\Assets\Options\Options.png", "Menu\Assets\Options\Options.png", New Point(350, 400))
-    Private Quit As SelectingBitmap = New SelectingBitmap("Menu\Assets\Quit\Exit.png", "Menu\Assets\Quit\Exit.png", New Point(350, 400))
+    Private HighScore As SelectingBitmap = New SelectingBitmap("Menu\Assets\Options\HighScore.png", "Menu\Assets\Options\HighScore.png", New Point(350, 400))
+    Private Quit As SelectingBitmap = New SelectingBitmap("Menu\Assets\Quit\Exit.png", "Menu\Assets\Quit\Exit.png", New Point(350, 500))
     Private back As Bitmap = New Bitmap("Menu\back.png")
     Private cursor As Bitmap = New Bitmap("Menu\Assets\Cursor.png")
     Private locationofCursor As Point = New Point(-100, -100)
@@ -86,6 +86,21 @@
         End If
         Select Case states
             Case Menu_States.options
+                leftArrow.Draw(e)
+
+                e.Graphics.DrawString("Name", New Font("Impact", 20), Brushes.White, New Point(400, 240))
+                e.Graphics.DrawString("PeopleSaved", New Font("Impact", 20), Brushes.White, New Point(500, 240))
+                e.Graphics.DrawString("Cash", New Font("Impact", 20), Brushes.White, New Point(700, 240))
+
+                For index = 0 To ScoreManager.GetScore.Count - 1
+
+        
+
+                    e.Graphics.DrawString(ScoreManager.GetScore.Item(index).Name, New Font("Impact", 20), Brushes.White, New Point(400, 280 + index * 40))
+                    e.Graphics.DrawString(ScoreManager.GetScore.Item(index).SaveHumans, New Font("Impact", 20), Brushes.White, New Point(500, 280 + index * 40))
+                    e.Graphics.DrawString(ScoreManager.GetScore.Item(index).Cash, New Font("Impact", 20), Brushes.White, New Point(700, 280 + index * 40))
+
+                Next
 
             Case Menu_States.help
                 e.Graphics.DrawImage(Instruction_Images(instructionindex), New Point(0, 0))
@@ -95,7 +110,7 @@
             Case Menu_States.start
 
                 start.Draw(e)
-                '   Options.Draw(e)
+                HighScore.Draw(e)
                 Quit.Draw(e)
                 Instructions.Draw(e)
         End Select
@@ -111,7 +126,16 @@
 
         Select Case states
             Case Menu_States.options
+                If (leftArrow.mouseover(Form1.Width / (800 * VectorFormula.scaling), Form1.Height / (600 * VectorFormula.scaling))) Then
+                    leftArrow.SetSelection(True)
+                    If (leftArrow.MouseLeftClick()) Then
+                        Me.states = Menu_States.start
+                        enablestatic = True
 
+                    End If
+                Else
+                    leftArrow.SetSelection(False)
+                End If
             Case Menu_States.help
 
                 If (pause < 0) Then
@@ -155,12 +179,12 @@
                     End If
                 End If
 
-                If (Options.mouseover(Form1.Width / (800 * VectorFormula.scaling), Form1.Height / (600 * VectorFormula.scaling))) Then
-                    '  locationofCursor = Options.location + New Point(Options.getWidth, 0)
-                    Options.SetSelection(True)
-                    If (Options.MouseLeftClick) Then
-                        '  enablestatic = True
-                        'states = Menu_States.options
+                If (HighScore.mouseover(Form1.Width / (800 * VectorFormula.scaling), Form1.Height / (600 * VectorFormula.scaling))) Then
+                    locationofCursor = HighScore.location + New Point(HighScore.getWidth, 0)
+                    HighScore.SetSelection(True)
+                    If (HighScore.MouseLeftClick) Then
+                        enablestatic = True
+                        states = Menu_States.options
                         locationofCursor = New Point(-100, -100)
                     End If
                 End If

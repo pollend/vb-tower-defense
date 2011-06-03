@@ -14,7 +14,7 @@ Public Class WaveManagment
 
     'the times between spawns
     Private timeOfSpawn As Integer = 0
-    Private setTimeOfSpawn As Decimal = 60
+    Private setTimeOfSpawn As Decimal = 50
     'causes the system to reset with a new wave
     Public Shared setvalues As Boolean = False
 
