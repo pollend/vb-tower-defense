@@ -16,7 +16,7 @@ Imports System.Runtime.Serialization.Formatters.Binary
 End Class
 
 Public Class ScoreManager
-    Private Shared Location As String = System.Environment.CurrentDirectory & "\Score.mip"
+    Private Shared Location As String = System.Environment.CurrentDirectory & "\Score.SECURE"
     Private Shared Score As List(Of MyScore) = New List(Of MyScore)
     Public Shared Function GetScore() As List(Of MyScore)
         Return Score
@@ -47,13 +47,13 @@ Public Class ScoreManager
 
 
         Dim choosenLocationIndex As Integer
-        Dim largestSavedHumanScore As Integer
+
         For index = 0 To Score.Count - 1
-            If (savedhumans > Score.Item(index).SaveHumans) Then
-                If (largestSavedHumanScore > Score.Item(index).SaveHumans) Then
-                    choosenLocationIndex = index
-                    largestSavedHumanScore = Score.Item(index).SaveHumans
-                End If
+            If (MyScore.SaveHumans > Score.Item(index).SaveHumans) Then
+
+                choosenLocationIndex = index
+                Exit For
+
             End If
         Next
     

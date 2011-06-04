@@ -18,7 +18,7 @@ Public Class Spider
         MyBase.New(setlocation)
         Size = New Point(26 * VectorFormula.scaling, 23 * VectorFormula.scaling)
         health = 30
-        cash = 5
+        cash = 20
         Me.dmg = 1
         Me.speed = 5
     End Sub

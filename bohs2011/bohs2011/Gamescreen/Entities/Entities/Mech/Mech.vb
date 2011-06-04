@@ -23,7 +23,7 @@ Public Class Mech
         MyBase.New(setlocation)
         Size = New Point(30, 30)
         Me.health = 50
-        cash = 10
+        cash = 50
         Me.dmg = 20
         Me.speed = 3
 

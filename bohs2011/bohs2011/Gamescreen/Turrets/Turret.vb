@@ -55,6 +55,13 @@
     Public Overridable Sub Update(ByVal myindex As Integer)
  
         If (health <= 0) Then
+            Dim random As Random = New Random()
+            For index = 1 To 10
+                ParticleManager.AddParticle(New MedalChunks, Me.location + New Point(random.Next(0, Me.Size.X), random.Next(0, Me.Size.Y)), index)
+
+
+            Next
+
             Me.Dead = True
         End If
 
