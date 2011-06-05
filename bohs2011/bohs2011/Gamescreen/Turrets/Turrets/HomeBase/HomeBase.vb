@@ -48,7 +48,7 @@ Public Class HomeBase
                 TriggerAnimation = False
                 Dim rand As Random = New Random()
                 Globals.SavedHumans += (1000 + rand.Next(-500, 500))
-                Globals.cash += 100
+                Globals.cash += 500
             End If
         End If
 

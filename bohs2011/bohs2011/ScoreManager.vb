@@ -23,17 +23,17 @@ Public Class ScoreManager
     End Function
     Public Shared Function CheckifNewHighScore(ByVal MYscore As Integer) As Boolean
 
-        Dim largestSavedHumanScore As Integer
+
         If (Score.Count <= 6) Then
             Return True
 
         End If
         For index = 0 To Score.Count - 1
-            If (MYscore > Score.Item(index).SaveHumans) Then
-                If (largestSavedHumanScore > Score.Item(index).SaveHumans) Then
-                    Return True
-                    largestSavedHumanScore = Score.Item(index).SaveHumans
-                End If
+            If (MYscore >= Score.Item(index).SaveHumans) Then
+
+                Return True
+
+
             End If
         Next
         Return False
@@ -49,7 +49,7 @@ Public Class ScoreManager
         Dim choosenLocationIndex As Integer
 
         For index = 0 To Score.Count - 1
-            If (MyScore.SaveHumans > Score.Item(index).SaveHumans) Then
+            If (MyScore.SaveHumans >= Score.Item(index).SaveHumans) Then
 
                 choosenLocationIndex = index
                 Exit For
